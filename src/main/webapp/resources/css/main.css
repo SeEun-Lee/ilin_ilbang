@@ -1,0 +1,399 @@
+@charset "utf-8";
+
+/* 메인페이지 CSS */
+
+.main_container{
+    padding-top: 100px;
+}
+
+.main_search{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.main_search.active{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.main_search > .inner{
+    position: relative;
+    width: 1200px;
+    height: 60px;
+    margin: 0 auto;
+    /* padding-top: 10px; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.search_box{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search_input{
+    width: 220px;
+    height: 30px;
+    padding: 6px 12px 6px 20px;
+    border: none;
+    border-bottom: 2px solid #205162;
+    background-color: #fff;
+    font-size: 13px;
+    vertical-align: middle;
+    color: #222;
+    outline: none;
+}
+
+.search_btn{
+    cursor: pointer;
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    text-indent: -99999px;
+    background-image: url(../img/btn_search.png);
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
+    background-position: center;
+}
+
+/* 조건필터 */
+
+.filter_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.filter_box > ul{
+    display: flex;
+    margin: 0 auto;
+}
+
+.filter_box > ul > li{
+    width: 160px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.filter_box > ul > li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.filter_title{
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 60px;
+    /* background-color: coral; */
+    text-align: center;
+    padding: 0 8px;
+}
+
+.filter_title > span{
+    display: block;
+}
+
+.filter_title > span:after{
+    margin: 26px 0 0 8px;
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #222;
+    border-right: 1px solid #222;
+    transform: rotate(135deg);
+
+}
+
+.filter_sub{
+    /* background-color: cornflowerblue; */
+    font-size: 13px;
+    /* padding: 0; */
+    color: #222;
+    box-sizing: border-box;
+    margin: 20px 0;
+    display: none;
+    z-index: 999;
+}
+
+.filter_sub > li {
+    padding: 10px 5px;
+    /* background-color: crimson; */
+}
+
+/* 체크박스 */
+
+.ck_container {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ck_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ck_container .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.ck_container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    top: 2px;
+    left: 6px;
+}
+
+.ck_container:hover .checkmark {
+    background-color: #ccc;
+}
+
+.ck_container input:checked ~ .checkmark {
+    background-color: #205162;
+    border: 1px solid #205162;
+
+}
+
+.ck_container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.ck_container > .name{
+    font-size: 14px;
+    color: #222;
+    padding-left: 30px;
+}
+
+.btn_filter{
+    width: 300px;
+    padding: 20px;
+    border: none;
+    background-color: rgb(53, 139, 168);
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    display: none;
+    z-index: 999;
+}
+
+.btn_filter:hover{
+    cursor: pointer;
+    background-color: #205162;
+    color: #fff;
+}
+
+.btn{
+    display: block;
+    /* background-color: rosybrown; */
+    z-index: 9999;
+    position: absolute;
+    top: 300px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #205162;
+    padding: 4px 8px;
+    background-color: rgba(238, 238, 238, 0.8);
+    transition: background-color, 0.2s;
+}
+
+.btn:hover{
+    background-color: #fff;
+}
+
+.btn.close{
+	display: none;
+	right: 20px;
+}
+
+.btn.reset{
+	display: none;
+	right: 80px;
+}
+
+
+/* 필터 오픈시 배경 */
+
+.search_bg{
+    position: relative;
+    width: 1200px;
+    height: 290px;
+    margin: 0 auto;
+    background-color: rgb(207,219,233);
+    display: none;
+    z-index: 998;
+    border-top: 1px solid #ccc;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1)
+}
+
+
+/* 리스트 결과 */
+
+.main_list{
+    background-color: #eee;
+}
+
+.main_list > .inner{
+    /* background-color: aqua; */
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.main_list h2{
+    font-size: 22px;
+    color: #222;
+    font-weight: 500;
+    padding-top: 40px;
+    margin-bottom: 20px;
+}
+
+.list_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.list_content{
+    width: 740px;
+}
+
+.list_content > ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.room_card{
+	font-size: 12px;
+    background-color: #fff;
+    width: 220px;
+    height: 305px;
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+}
+
+.room_img{
+    width: 100%;
+    background-color: #222;
+    height: 180px;
+}
+
+.card_container{
+    padding: 4px 10px;
+    position: relative;
+}
+
+.room_card .room_type {
+    display: inline-block;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 5px;
+    vertical-align: middle;
+    margin-right: 2px;
+    padding: 1px 4px;
+}
+
+.room_card .room_type.one{
+    background-color: #e9b239;
+}
+
+.room_card .room_type.two{
+    background-color: tomato;
+}
+
+.room_card .price {
+    display: inline-block;
+    font-weight: bold;
+    color: #333;
+    font-size: 19px;
+    vertical-align: middle;
+    margin-right: 1px;
+}
+
+.room_card .price_won {
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+
+.room_cmt {
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+}
+
+.room_option span:last-child:after{
+    display: none;
+}
+
+.room_tag{
+    margin-top: 5px;
+    height: 20px;
+}
+
+.room_tag .tag {
+    font-size: 12px;
+    color: #222;
+    background-color: #cfdbe9;
+    padding: 2px 3px;
+    margin-right: 5px;
+}
+
+.room_addr{
+	margin-top: 3px;
+}
+
+.room_addr .addr:before{
+	display: inline-block;
+	content: "";
+	vertical-align: top;
+	margin-top: 2px;
+	width: 13px;
+	height: 12px;
+	background-image: url(../img/icon_pin.svg);
+	background-size: 100% 100%;
+}
+
+.room_addr .addr:after{
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 1px;
+    height: 10px;
+    background-color: #ddd;
+    margin: 5px 5px 0 5px;
+}
+
+.room_addr .regdate{
+	display: inline-block;
+}
