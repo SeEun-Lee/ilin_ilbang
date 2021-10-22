@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <title>방 내놓기</title>
     <link rel="stylesheet" href="/resources/css/reset.css">
-    <link rel="stylesheet" href="/resources/css/sub02_style.css">
+    <link rel="stylesheet" href="/resources/css/sub02.css">
 </head>
 <body>
     <header id="header">

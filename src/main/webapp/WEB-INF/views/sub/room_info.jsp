@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <title>방 정보</title>
     <link rel="stylesheet" href="/resources/css/reset.css">
-    <link rel="stylesheet" href="/resources/css/roomInfo_style.css">
+    <link rel="stylesheet" href="/resources/css/roomInfo.css">
 </head>
 <body>
 	<form action="register" method="post">
@@ -43,11 +43,11 @@
             <div class="ms_contant2">
                 <h2 class="ms2_title">매물 상세정보</h2>
                  	<table border="1">
-               		<tr><td>보증금/월세 :</td><td><input type="text"></td><td>방종류 :</td><td><input type="text" name="rtype"></td></tr>
-               		<tr><td>면적 :</td><td><input type="text" name="area"></td><td>층수 :</td><td><input type="text" name="flr"></td></tr>
-               		<tr><td>입주가능일 :</td><td><input type="text" name="mvdate"></td><td>방향:</td><td><input type="text" name="rface"></td></tr>
-               		<tr><td>주차 :</td><td><input type="text" name="park"></td><td>엘리베이터 :</td><td><input type="text" name="elev"></td></tr>
-               		<tr><td>건물종류 :</td><td><input type="text" name="btype"></td></tr>
+               		<tr><td>보증금/월세 :</td><td></td><td>방종류 :</td><td>${room_info.rtype}</td></tr>
+               		<tr><td>면적 :</td><td>${room_info.area}</td><td>층수 :</td><td>${room_info.flr}</td></tr>
+               		<tr><td>입주가능일 :</td><td>${room_info.mvable}</td><td>방향:</td><td>${room_info.rface}</td></tr>
+               		<tr><td>주차 :</td><td>${room_info.park}</td><td>엘리베이터 :</td><td>${room_info.elev}</td></tr>
+               		<tr><td>건물종류 :</td><td>${room_info.btype}</td></tr>
                	</table>
             </div><!-- ms_contant2 -->
             <div class="ms_contant3">

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <title>관심 목록</title>
     <link rel="stylesheet" href="/resources/css/reset.css">
-    <link rel="stylesheet" href="/resources/css/sub01_style.css">
+    <link rel="stylesheet" href="/resources/css/sub01.css">
 </head>
 <body>
     <header id="header">

@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ilin_ilbang.mapper.SubMapper">
-	<select id="read" resultType="com.ilin_ilbang.domain.roomInfoVO">
+	<select id="room_info" resultType="com.ilin_ilbang.domain.roomInfoVO">
 			select * from room_info where rcode=#{rcode}
 	</select>
 </mapper>
