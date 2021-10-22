@@ -21,18 +21,25 @@ public class RoomServiceTests {
 	@Setter(onMethod_ = {@Autowired})
 	private roomService service;
 	
-	@Test
-	public void testExist() {
-		
-		log.info(service);
-		assertNotNull(service);
-		
-	}
+//	@Test
+//	public void testExist() {
+//		
+//		log.info(service);
+//		assertNotNull(service);
+//		
+//	}
+//	
+//	@Test
+//	public void testGetListOfAll() {
+//		
+//		service.getListOfAll(new Criteria(1, 6)).forEach(board -> log.info(board));
+//		
+//	}
 	
 	@Test
-	public void testGetListOfAll() {
+	public void testReadRoomInfo() {
 		
-		service.getListOfAll(new Criteria(1, 6)).forEach(board -> log.info(board));
+		log.info(service.readRoomInfo("12312"));
 		
 	}
 	

@@ -8,11 +8,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ilin_ilbang.domain.Criteria;
 import com.ilin_ilbang.service.roomService;
@@ -21,6 +24,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
+// @RequestMapping(value="/room")
 @AllArgsConstructor
 public class roomController{
 	
@@ -126,6 +130,17 @@ public class roomController{
 		model.addAttribute("list", service.getListByFilter(filterMap));
 		
 		return "roomList";
+	}
+	
+	
+	// 방 클릭시 상세페이지 이동
+	@GetMapping("/{rcode}")
+	public String readRoomInfo(@PathVariable("rcode") String rcode, Model model) {
+		
+		model.addAttribute("Info", service.readRoomInfo(rcode));
+		
+		log.info(service.readRoomInfo(rcode));
+		return "roomInfo";
 	}
 	
 }

@@ -35,4 +35,9 @@ public class roomServiceImpl implements roomService {
 		return mapper.getListByFilter(filterMap);
 	}
 	
+	@Override
+	public HashMap<String, String> readRoomInfo(String rcode){
+		return mapper.readRoomInfo(rcode);
+	};
+	
 }

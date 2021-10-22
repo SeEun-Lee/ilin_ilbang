@@ -29,14 +29,21 @@ public class RoomMapperTests {
 //		mapper.getListOfAll().forEach(board->log.info(board));
 //	}
 	
+//	@Test
+//	public void testGetListOfAllWithPaging() {
+//		
+//		Criteria cri = new Criteria();
+//		
+//		List<HashMap<String, String>> list = mapper.getListOfAllWithPaging(cri); 
+//		list.forEach(board -> log.info(board));
+//	}
+//	
 	@Test
-	public void testGetListOfAllWithPaging() {
+	public void testReadRoomInfo() {
 		
-		Criteria cri = new Criteria();
+		HashMap<String, String> RoomInfo = mapper.readRoomInfo("12312");
 		
-		List<HashMap<String, String>> list = mapper.getListOfAllWithPaging(cri); 
-		list.forEach(board -> log.info(board));
+		log.info(RoomInfo);
 	}
-	
 }
 

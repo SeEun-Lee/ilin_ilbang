@@ -9,4 +9,5 @@ $(document).ready(function(){
         $('.gnb > li > a', $nav).removeClass('active');
         $(this).addClass('active');
         return false;
-    })
+    });
+})

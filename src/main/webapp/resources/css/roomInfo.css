@@ -1,0 +1,319 @@
+@charset "utf-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    color: #111;
+}
+ul, ol{
+    list-style: none;
+}
+input{
+    font-family: 'Noto Sans KR', sans-serif;
+    vertical-align: top;
+}
+img{
+    vertical-align: top;
+    border: 0;
+    width: 100%;
+    height: auto;
+}
+a{
+    text-decoration: none;
+}
+.hide{
+    position: absolute;
+    top: -99999px;
+    left: -99999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+fieldset{border: 0;}
+legend{display: none;}
+
+
+.room_info_in{
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 120px;
+}
+
+.ms_title{
+    position: relative;
+    padding: 20px 0 30px 0;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #333;
+    text-align: center;
+}
+
+.ms_title .ms_t .title{
+	display: block;
+	width: 450px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #222;
+	font-size: 20px;
+	margin: 0 auto;
+}
+
+.ms_title .rcode{
+	display: block;
+	font-size: 14px;
+	font-weight: 400;
+	position: absolute;
+	right: 0;
+	bottom: 10px;
+}
+
+.ms_title .back a{
+    display: block;
+    width: 80px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 40px;
+    color: #eee;
+    background-image: url(../img/btn_arr_back.svg);
+    background-size: 100% 100%;
+    padding-left: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+}
+
+.ms_contant1{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 750px;
+    margin: 0 auto 50px auto;
+}
+
+.ms_contant1 .msc1_img{
+    position: relative;
+    width: 450px;
+    height: 350px;
+}
+
+.msc1_img .msc1_img_text{
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    font-size: 20px;
+    color: #333;
+    line-height: 1em;
+    font-weight: 500;
+}
+
+.ms_contant1 .heart a{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: block;
+    width: 50px;
+    height: 40px;
+    background-image: url(../resources/img/heart_white.png);
+    background-size: 50px auto;
+    background-repeat: no-repeat;
+}
+
+.ms_contant1 .msc1_box{
+    width: 200px;
+    height: 250px;
+    border: 1px solid #222;
+    margin-top: 120px;
+    padding-top: 10px;
+}
+
+.msc1_box .msc1_box_img{
+    text-align: center;
+    border-bottom: 1px solid #222;
+    margin-bottom: 10px;
+}
+
+.msc1_box .msc1_box_img img{
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+.msc1_box li{
+    padding: 0 15px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #222;
+}
+
+.msc1_box li:last-child{
+    margin-bottom: 0;
+}
+
+.msc1_box span{
+    color: #444;
+}
+
+.ms_contant1 button{
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    color: #fff;
+    border: 0;
+}
+
+.ms_contant1 .msc1_btn1{
+    background-color: #fb5845;
+}
+
+.ms_contant1 .msc1_btn2{
+    top: 60px;
+    background-color: #1f4e5f;
+}
+
+.ms_contant2{
+    width: 750px;
+    margin: 0 auto 70px auto;
+    /* background-color: cadetblue; */
+}
+
+.ms_contant2 .ms2_title, .ms_contant3 .ms3_title, .ms_contant4 .ms4_title{
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(207, 219, 233, 0.6);
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.ms_contant2 table{
+    width: 750px;
+    margin: 0 auto;
+    border: 0;
+    font-size: 15px;
+    /* background-color: beige; */
+}
+
+.ms_contant2 table tr{
+    border-bottom: 1px solid #222;
+}
+
+.ms_contant2 table td{
+    height: 50px;
+    border: 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+}
+
+.ms_contant2 table .td_name{
+    width: 80px;
+    /* background-color: red; */
+    padding-left: 10px;
+    color: #444;
+}
+
+.ms_contant2 table .td_name span:before{
+    display: inline-block;
+    content: "";
+    width: 2px;
+    height: 2px;
+    background-color: #666;
+    vertical-align: top;
+    margin: 8px 8px 0 0;
+    
+}
+
+.ms_contant2 table .td_value{
+    width: 120px;
+}
+
+.ms_contant2 .price span{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.ms_contant3{
+    width: 750px;
+    margin: 0 auto 50px auto;
+}
+
+.ms_contant3 .ms3_title{
+    margin-bottom: 60px;
+}
+
+.ms_contant3 ul{
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ms_contant3 p{
+    text-align: center;
+    width: 90px;
+    height: 40px;
+    padding-top: 8px;
+    border: 1px solid #444;
+    border-radius: 25px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.ms_contant4{
+    width: 750px;
+    margin: 0 auto 50px auto;
+}
+
+.ms_contant4 .ms4_title{
+    margin-bottom: 30px;
+}
+
+.ms_contant4 .ms4_memo{
+    text-align: center;
+}
+
+.ms4_memo textarea{
+	display: block;
+	width: 100%; 
+	height: 150px;
+}
+
+
+.ms_contant5{
+    width: 750px;
+    margin: 0 auto 50px auto;
+}
+
+.ms_contant5 .ms5_title{
+    margin-bottom: 30px;
+}
+
+.ms_contant5 .map_img{
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    border: 1px solid #444;
+}
+
+.ms_contant5 .ms5_btns{
+    text-align: right;
+}
+
+.ms5_btns button{
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 0;
+    color: #444;
+    font-size: 17px;
+}
+
