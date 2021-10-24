@@ -20,7 +20,15 @@
 		        <ul>
 		            <c:forEach items="${list}" var="room">
 						<li class="room">
-							<a class='room_detail' href="/<c:out value='${room.rcode}'/>">
+						<!-- <a class='room_detail' href="/<c:out value='${room.rcode}'/>"> -->
+						<!-- 		 <a class="room_detail" href="javascript:void(0);"
+							    onclick='window.open("/<c:out value='${room.rcode}'/>", 
+							    		'_blank', 'width=600', height='500')'>
+						 -->
+						 
+						 <a class="room_detail" href="javascript:void(0);"
+						 onclick='window.open("/<c:out value='${room.rcode}'/>", "_blank", "width=600", "height=500")'>
+					
 			    				<div class="room_card">
 			        				<div class="card_box">
 			        					<img class="room_img" src="../resources/img/room_ex.png" alt="">
@@ -85,7 +93,7 @@
     		</ul>
   
 		</div><!--list_content-->
-		<div class="map_wrap">
+		<div class="map_wrap" style="position:fixed; top:190px; right:270px;">
     		<div id="map" style="width:400px;height:400px;position:relative;overflow:hidden;"></div>
 		</div><!-- "map_wrap" -->
 		

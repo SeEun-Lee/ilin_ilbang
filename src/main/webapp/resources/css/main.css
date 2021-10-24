@@ -257,7 +257,7 @@
 /* 리스트 결과 */
 
 .main_list{
-    background-color: #eee;
+    background-color: rgba(238, 238, 238, 0.5);
 }
 
 .main_list > .inner{
@@ -310,6 +310,7 @@
     margin-right: 20px;
     margin-bottom: 24px;
     box-sizing: border-box;
+    border: 1px solid #fff;
 }
 
 .card_box {

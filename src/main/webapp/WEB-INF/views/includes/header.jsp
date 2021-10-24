@@ -22,7 +22,7 @@
     <link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/css/deals.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/resources/css/roomInfo.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/resources/css/roomInfo_2.css" rel="stylesheet" type="text/css">
 
     <title>1인1방</title>
 </head>

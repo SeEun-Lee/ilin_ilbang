@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ilin_ilbang.domain.Criteria;
 import com.ilin_ilbang.domain.PageDTO;
@@ -148,15 +149,16 @@ public class roomController{
 	
 	
 		
-	// 방 클릭시 상세페이지 이동
-	@GetMapping("/{rcode}")
-	public String readRoomInfo(@PathVariable("rcode") String rcode, Criteria cri, Model model) {
+	// 방 클릭시 상세페이지 팝업
+	@RequestMapping(value = "/{rcode}", method = RequestMethod.GET)
+	public ModelAndView readRoomInfo(@PathVariable("rcode") String rcode) {
 		
-		model.addAttribute("page", cri.getPageNum());
-		model.addAttribute("Info", service.readRoomInfo(rcode));
-		log.info("상세페이지 - 페이지 넘버 저장 확인 : " + cri.getPageNum());
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/roomInfo");
+		mav.addObject("Info", service.readRoomInfo(rcode));
 		log.info("상세페이지 - 정보 출력 확인 : " + service.readRoomInfo(rcode));
-		return "roomInfo";
+		
+		return mav;
 	}
 	
 }
