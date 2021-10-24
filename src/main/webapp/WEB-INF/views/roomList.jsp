@@ -4,6 +4,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<!-- js -->
+<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/filter.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/map.js"></script>
+
+
 	
 	<div class="list_container" id="list_container">
 		   <div class="list_content" id="list_content">
@@ -18,8 +24,11 @@
 			    				<div class="room_card">
 			        				<div class="card_box">
 			        					<img class="room_img" src="../resources/img/room_ex.png" alt="">
-			        					<div class="find_map"><a href="">위치보기</a></div>
-			        					<div class="find_addr">${room.addr}</div>
+			        					<div class="find_map">
+			        						<a href="">위치보기</a>
+			        						<span style="display:none">${room.rcode}</span>
+			        					</div>
+			        					<div class="find_addr" style="display:none">${room.addr}</div>
 			        					<div class="like">찜!</div>
 			        				</div>
 			        				
@@ -74,8 +83,8 @@
 					</li>
 				</c:forEach>
     		</ul>
+  
 		</div><!--list_content-->
-
 		<div class="map_wrap">
     		<div id="map" style="width:400px;height:400px;position:relative;overflow:hidden;"></div>
 		</div><!-- "map_wrap" -->
@@ -120,13 +129,19 @@
 	 -->
 
 
+	<script>
+	
+		var list = new Array();
+	
+		<c:forEach items="${list}" var="room">
+			var json = new Object();
+			json.rcode="${room.rcode}";
+			json.addr="${room.addr}";
+			json.dep="${room.dep}";
+			json.mrent="${room.mrent}";
+			list.push(json);
+		</c:forEach>
+	
+	</script>
 
 
-
-
-	<!-- 카카오 api -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c37e1a519b03d653d9f91c2b12ed7a87&libraries=services""></script>
-	<!-- js -->
-	<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/filter.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/map.js"></script>

@@ -136,9 +136,12 @@ public class roomController{
 		filterMap.put("mrent", mrent);
 		filterMap.put("option", option);		
 		
+		
 		model.addAttribute("list", service.getListByFilter(filterMap));
 		model.addAttribute("title", "검색 결과");
 		model.addAttribute("total", service.getFilterListCount(filterMap));
+		
+		log.info(model);
 		
 		return "roomList";
 	}
