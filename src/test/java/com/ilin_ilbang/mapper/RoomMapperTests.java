@@ -38,12 +38,18 @@ public class RoomMapperTests {
 //		list.forEach(board -> log.info(board));
 //	}
 //	
+//	@Test
+//	public void testReadRoomInfo() {
+//		
+//		HashMap<String, String> RoomInfo = mapper.readRoomInfo("12312");
+//		
+//		log.info(RoomInfo);
+//	}
+	
 	@Test
-	public void testReadRoomInfo() {
-		
-		HashMap<String, String> RoomInfo = mapper.readRoomInfo("12312");
-		
-		log.info(RoomInfo);
+	public void testPaging() {
+		List<HashMap<String, String>> list = mapper.getListOfAll();
+		log.info(list);
 	}
 }
 

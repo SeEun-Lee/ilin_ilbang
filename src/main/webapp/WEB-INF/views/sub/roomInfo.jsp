@@ -20,7 +20,7 @@
                 <h2 class="ms_t">
                    	 매물번호 <span>000 글제목</span>
                 </h2>
-                <p class="back"><a href="#">뒤로가기</a></p>
+                <p class="back"><a href="/">뒤로가기</a></p>
             </div><!-- ms_title -->
             <div class="ms_contant1">
                 <div class="msc1_img">

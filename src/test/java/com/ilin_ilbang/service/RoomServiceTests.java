@@ -36,11 +36,17 @@ public class RoomServiceTests {
 //		
 //	}
 	
-	@Test
-	public void testReadRoomInfo() {
-		
-		log.info(service.readRoomInfo("12312"));
-		
-	}
+//	@Test
+//	public void testReadRoomInfo() {
+//		
+//		log.info(service.readRoomInfo("12312"));
+//		
+//	}
+	
+//	@Test
+//	public void testGetListOfAll() { // w. paging
+//		
+//		log.info(service.getListOfAll(new Criteria(1, 10)));
+//	}
 	
 }

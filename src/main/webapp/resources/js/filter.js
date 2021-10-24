@@ -12,7 +12,7 @@ $(document).ready(function(){
 		return false;
     });
 
-	// 필터적용 버튼 클릭시 /litsByFilter로 데이터 전송 
+	// 필터적용 버튼 클릭시 /listByFilter로 데이터 전송 
 	$("#btn_filter").on("click", function(){
 		
 		var filters = [];
@@ -28,11 +28,14 @@ $(document).ready(function(){
 			success : function(data){
 				closeFilter();
 				$("#list_container").find("#list_content").remove().end().prepend($(data).find("#list_content"));
+				$(".btn_more").removeClass("filterInactive").addClass("filterActive");
 			},
 			error : function(xhr, status, error){
 				alert("실패")
 			}
 		})
+		
+		
 
 	});	
 
@@ -69,13 +72,4 @@ function checkAll(myCheckbox){
         checkbox.checked = false;})
 }
 
-// 지도API
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = {
-        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };  
-
-// 지도를 생성합니다    
-var map = new kakao.maps.Map(mapContainer, mapOption); 
 

@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ilin_ilbang.domain.Criteria;
+import com.ilin_ilbang.domain.PageDTO;
 import com.ilin_ilbang.service.roomService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -30,19 +32,26 @@ public class roomController{
 	
 	private roomService service;
 	
-	// 사이트 진입 시 전체 리스트 Controller 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	// 전체 리스트
+	@GetMapping(value = "/")
 	public String list(Criteria cri, Model model) {
-		log.info("list");
-		model.addAttribute("list", service.getListOfAll());
+
+		int total = service.getTotalCount(cri);
+
+		model.addAttribute("list", service.getListOfAll(cri)); // 전체 리스트 구하기 
+		model.addAttribute("title", "현재 등록된 매물이에요"); // 타이틀 추가
+		model.addAttribute("total", total); 
 		return "index";
+		
 	}
 	
-	// 필터적용 버튼 클릭 시 결과 리스트 Controller
+
+	// 필터적용 버튼 클릭 시 결과 리스트
 	@RequestMapping(value = "/listByFilter", method = RequestMethod.GET)
-	public String ListByFilter(@RequestParam(value="filters[]", required=false) List<String> filters, Model model) {
-		
-//		log.info("filters : " + Arrays.toString(filterArr) + " length : " + filterArr.length);
+	public String ListByFilter(@RequestParam(value="filters[]", required=false) List<String> filters, 
+							   @RequestParam(value="more", required=false, defaultValue="0") int more,
+							   Criteria cri, Model model) {
+
 		
 		log.info("filters : " + filters);
 		
@@ -55,10 +64,10 @@ public class roomController{
 		                       "mrent1", "mrent2", "mrent3", "elev", "park", "pet"};
 		log.info("inOperator.length : " + inOperator.length);
 	
-		// 임시로 담을 전체 list 
+		// 임시로 사용할 전체 리스트 list 
 		List<String> list = new ArrayList<>();
 		
-		// Mapper에 보낼 HashMap
+		// DB에 보낼 HashMap
 		HashMap<String, List<String>> filterMap = new HashMap<>();
 		List<String> rtype = new ArrayList<>();
 		List<String> btype = new ArrayList<>();
@@ -128,18 +137,22 @@ public class roomController{
 		filterMap.put("option", option);		
 		
 		model.addAttribute("list", service.getListByFilter(filterMap));
+		model.addAttribute("title", "검색 결과");
+		model.addAttribute("total", service.getFilterListCount(filterMap));
 		
 		return "roomList";
 	}
 	
 	
+		
 	// 방 클릭시 상세페이지 이동
 	@GetMapping("/{rcode}")
-	public String readRoomInfo(@PathVariable("rcode") String rcode, Model model) {
+	public String readRoomInfo(@PathVariable("rcode") String rcode, Criteria cri, Model model) {
 		
+		model.addAttribute("page", cri.getPageNum());
 		model.addAttribute("Info", service.readRoomInfo(rcode));
-		
-		log.info(service.readRoomInfo(rcode));
+		log.info("상세페이지 - 페이지 넘버 저장 확인 : " + cri.getPageNum());
+		log.info("상세페이지 - 정보 출력 확인 : " + service.readRoomInfo(rcode));
 		return "roomInfo";
 	}
 	

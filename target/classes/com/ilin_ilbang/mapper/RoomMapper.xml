@@ -6,15 +6,34 @@
 <mapper namespace="com.ilin_ilbang.mapper.RoomMapper">
 	
 	
-	<!-- 전체 리스트 불러오기 -->
+	<!-- 전체 목록 -->
 	<select id="getListOfAll" resultType="HashMap">
-		SELECT i.rcode, i.rtype, i.addr, i.rcmt, i.regdate, p.dep, p.mrent, i.elev, i.park, i.pet 
-		FROM room_info i, room_price p
-		WHERE i.rcode=p.rcode
-		ORDER BY i.regdate desc
+		SELECT rownum, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
+		<![CDATA[
+		FROM (
+			SELECT @rownum:=@rownum+1 as rownum
+				, i.rtype, i.addr, i.rcmt, i.regdate
+				, p.dep, p.yrent, p.mrent, i.elev, i.park, i.pet, i.rcode
+				FROM room_info i 
+		        INNER JOIN (SELECT @rownum:=0) tmp
+				INNER JOIN room_price p ON i.rcode=p.rcode
+				INNER JOIN room_option o ON i.rcode=o.rcode
+				order by i.regdate desc
+			  ) as roomlist
+		
+			WHERE rownum > (#{pageNum} - 1) * #{amount}
+			AND rownum <= #{pageNum} * #{amount}
+		]]>
+        
 	</select>
 	
-	<!-- 필터 검색으로 리스트 불러오기 -->
+	<!-- 전체 목록 count -->
+	<select id="getTotalCount" resultType="int">
+		SELECT count(*) FROM room_info;
+	</select>
+	
+	
+	<!-- 필터에 의한 목록 -->
 	<select id="getListByFilter" resultType="HashMap" parameterType="HashMap">
 
 		 SELECT i.rcode, i.rtype, i.addr, i.rcmt, i.regdate, p.dep, p.mrent, i.elev, i.park, i.pet
@@ -102,8 +121,94 @@
 			</trim>
 		</where>	
 	</select>
-
 	
+	<!-- 필터에 의한 목록 count -->
+	<select id="getFilterListCount" resultType="int" parameterType="HashMap">
+		SELECT count(*)
+		FROM room_info i INNER JOIN room_price p USING (rcode)
+		<where>
+		 	<trim prefix = "" prefixOverrides="AND"> 	
+		 		<!-- rtype -->
+				<if test = "!(rtype.isEmpty())">
+					<trim prefix = "(" suffix =")"> 
+						rtype in
+						<foreach collection="rtype" open="(" close=")" separator=", " item="item">
+							#{item}
+						</foreach>
+					</trim> 
+				</if>
+				
+				<!-- btype -->
+				<if test = "!(btype.isEmpty())">
+					<trim prefix = "AND (" suffix = ")">
+						btype in
+						<foreach collection="btype" open="(" close=")" separator=", " item="item">
+							#{item}
+						</foreach>
+					</trim>
+				</if>
+				
+				<!-- dep -->
+				
+				<if test = "!(dep.isEmpty())">
+					<trim prefix = "AND (" suffix = ")">
+						<foreach collection="dep" open="(" close=")" separator="OR " item="item">
+								<choose>
+									<when test = "item == 'dep1'">
+										<![CDATA[ dep < 500 ]]>
+									</when>
+									<when test = "item == 'dep2'">
+										<![CDATA[ dep >= 500 AND dep < 1000 ]]>
+									</when>
+									<when test = "item == 'dep3'">
+										<![CDATA[ dep > 1000 ]]>
+									</when>
+								</choose>
+						</foreach>
+					</trim>
+				</if>
+				
+				<!-- mrent -->
+				<if test = "!(mrent.isEmpty())">
+					<trim prefix = "AND (" suffix = ")">
+						<foreach collection="mrent" open="(" close=")" separator="OR " item="item">
+								<choose>
+									<when test = "item == 'mrent1'">
+										<![CDATA[ mrent < 30 ]]>
+									</when>
+									<when test = "item == 'mrent2'">
+										<![CDATA[ mrent >= 30 AND mrent < 60 ]]>
+									</when>
+									<when test = "item == 'mrent3'">
+										<![CDATA[ mrent >= 60 ]]>
+									</when>
+								</choose>
+						</foreach>
+					</trim>
+				</if>
+				<!-- option -->
+				<if test = "!(option.isEmpty())">
+					<trim prefix = "AND (" suffix =")"> 
+						<foreach collection="option" open="(" close=")" separator="AND " item="item">
+							<choose>
+								<when test = "item == 'elev'">
+									elev = 'Y'
+								</when>
+								<when test = "item == 'park'">
+									park = 'Y'
+								</when>
+								<when test = "item == 'pet'">
+									pet = 'Y'
+								</when>
+							</choose>
+						</foreach>
+					</trim> 
+				</if>
+			</trim>
+		</where>	
+	</select>
+
+
 	<!-- 상세 페이지 정보 불러오기 -->
 	<select id="readRoomInfo" resultType="HashMap" parameterType="String">
 		SELECT i.rcode, i.rcmt, i.addr, i.rtype, i.area, i.flr, i.mvable, i.mvdate, i.rface, i.park, i.elev, i.pet, i.btype,

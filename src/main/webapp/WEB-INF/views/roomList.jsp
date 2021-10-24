@@ -3,15 +3,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-		
-		<div class="list_container" id="list_container">
+
+	
+	<div class="list_container" id="list_container">
 		   <div class="list_content" id="list_content">
+		   		<div class="title">
+		   			<h2>${title}</h2>
+		   			<span class="count">(${total}건)</span>
+		   		</div>
 		        <ul>
 		            <c:forEach items="${list}" var="room">
-						<li>
-							<a href='/${room.rcode}'>
+						<li class="room">
+							<a class='room_detail' href="/<c:out value='${room.rcode}'/>">
 			    				<div class="room_card">
-			        				<div class="room_img"></div>
+			        				<div class="card_box">
+			        					<img class="room_img" src="../resources/img/room_ex.png" alt="">
+			        					<div class="find_map"><a href="">위치보기</a></div>
+			        					<div class="find_addr">${room.addr}</div>
+			        					<div class="like">찜!</div>
+			        				</div>
+			        				
+			        				
 			        				<div class="card_container">
 			            				<div class="room_price">
 			            					<c:choose>
@@ -63,12 +75,58 @@
 				</c:forEach>
     		</ul>
 		</div><!--list_content-->
+
 		<div class="map_wrap">
     		<div id="map" style="width:400px;height:400px;position:relative;overflow:hidden;"></div>
 		</div><!-- "map_wrap" -->
+		
 	</div><!-- .list_container -->
 	
+
+	
+	
+	<!-- 
+			   <div class="pagination">
+	    	<ul>
+	    		<c:if test="${pageMaker.prev}">
+		    		<li class="page-item">
+	                   <a href="#" class="page-move" value="prev">
+	                     <span>이전</span>
+	                   </a>
+	                 </li>
+	    		</c:if>
+
+                 <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+	                 <li class="page-item">
+	                 	<a href="#" class="page-number <c:if test='${num == 1}'>on</c:if>" value="${num}">${num}</a>
+	                 </li>         
+                 </c:forEach>
+                 
+	    		<c:if test="${pageMaker.next}">
+		    		<li class="page-item">
+	                   <a href="#" class="page-move" value="next">
+	                     <span>다음</span>
+	                   </a>
+	                 </li>
+	    		</c:if>  
+	         </ul>
+	         <!-- 
+	         <form id='actionForm' action="/board/list" method='get'>
+	         	<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
+	         	<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
+	         </form>
+	          -->
+		    </div>
+	 -->
+
+
+
+
+
+
 	<!-- 카카오 api -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c37e1a519b03d653d9f91c2b12ed7a87"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c37e1a519b03d653d9f91c2b12ed7a87&libraries=services""></script>
 	<!-- js -->
+	<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/filter.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/map.js"></script>

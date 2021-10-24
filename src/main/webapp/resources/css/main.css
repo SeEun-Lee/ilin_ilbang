@@ -264,14 +264,16 @@
     /* background-color: aqua; */
     width: 1200px;
     margin: 0 auto;
+    padding: 30px 0 100px 0;
+    position: relative;
 }
 
 .main_list h2{
     font-size: 22px;
     color: #222;
     font-weight: 500;
-    padding-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 .list_container{
@@ -288,6 +290,17 @@
     flex-wrap: wrap;
 }
 
+.list_content .title{
+	display: flex;
+}
+
+.count{
+	display: block;
+	margin-top: 20px;
+	margin-left: 10px;
+	font-size: 16px;	
+}
+
 .room_card{
 	font-size: 12px;
     background-color: #fff;
@@ -299,11 +312,60 @@
     box-sizing: border-box;
 }
 
-.room_img{
-    width: 100%;
-    background-color: #222;
+.card_box {
     height: 180px;
+    position: relative;
 }
+
+.room_img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.find_map{
+	width: 60px;
+	height: 30px;
+	background-color: #eee;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+	color: #222;
+}
+
+.find_map:hover{
+	background-color: #cfdbe9;
+}
+
+.find_map.active{
+	background-color: #cfdbe9;
+}
+
+.find_addr{
+	display: none;
+}
+
+
+.like{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 2px 7px;
+	background-color: #eee;
+	font-size: 14px;
+	line-height: 25px;
+	text-align: center;
+	border-radius: 7px;
+}
+
+.like:hover{
+	background-color: #fbe6e1;
+}
+
+
 
 .card_container{
     padding: 4px 10px;
@@ -396,4 +458,50 @@
 
 .room_addr .regdate{
 	display: inline-block;
+}
+
+.map_wrap{
+	margin-top: 80px;
+}
+
+
+.pagination > ul{
+    padding-top: 50px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.page-item > a {
+    display: block;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-right: none;
+    font-size: 15px;
+    color: #205162;
+    text-align: center;
+    line-height: 35px;
+    background-color: #fff;
+}
+
+.page-item:last-child{
+    border-right: 1px solid #ccc;
+}
+
+
+.page-item > .page-previous, .page-item > .page-next{
+    width: 60px;
+    /* background-color: bisque; */
+}
+
+.page-item > .page-next{
+    border-right: 1px solid #ccc;
+}
+
+.page-item > a:hover{
+    background-color: rgba(207, 219, 233, 0.7);
+}
+
+.page-number.on{
+	background-color: rgba(207, 219, 233, 0.7);
 }

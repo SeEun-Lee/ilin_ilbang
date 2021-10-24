@@ -7,14 +7,19 @@
     
 <%@include file="./includes/header.jsp" %>
 
-	<form action="register" method="post">
+	<form id="operForm" action="/listWithPage" method="get">
         <div class="room_info_in">
             <div class="ms_title">
                 <h2 class="ms_t">
                    	 <span class="title">${Info.rcmt}</span>
                    	 <span class="rcode">[등록 번호 : ${Info.rcode}]</span>
                 </h2>
-                <p class="back"><a href="#">목록으로</a></p>
+                <p class="back"><a href="/">목록으로</a></p>
+                <!-- 
+                       <input type='hidden' id='back' name='curPage'
+                	   value='<c:out value="${}"/>'>
+                 -->
+
             </div><!-- ms_title -->
             <div class="ms_contant1">
                 <div class="msc1_img">

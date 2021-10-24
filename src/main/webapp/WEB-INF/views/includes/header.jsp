@@ -30,7 +30,7 @@
         <header id="header">
             <div class="h_content">
                 <div class="h_inner">
-                        <h1 class="h_logo"><a href="#">1인1방</a></h1>
+                        <h1 class="h_logo"><a href="/">1인1방</a></h1>
                         <nav id="nav">
                             <ul class="gnb">
                                 <li>
