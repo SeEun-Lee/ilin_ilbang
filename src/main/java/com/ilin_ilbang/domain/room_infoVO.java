@@ -11,22 +11,22 @@ import lombok.ToString;
 @ToString
 public class room_infoVO {
 
-	private String rcode; // ë°© ë“±ë¡ë²ˆí˜¸
-	private char btype; // ê±´ë¬¼ ì¢…ë¥˜ 
-	private char rtype; // ë°© ì¢…ë¥˜ 
-	private String addr; // ì£¼ì†Œ 
-	private int area; // ë©´ì  
-	private int whlarea; // ê³µìš© ë©´ì 
-	private int flr; // ì¸µìˆ˜
-	private String rface; // ë°©í–¥
-	private char mvable; // ì¦‰ì‹œì…ì£¼ ê°€ëŠ¥ì—¬ë¶€ 
-	private Date mvdate; // ì…ì£¼ê°€ëŠ¥ì¼ 
-	private char elev; // ì—˜ë¦¬ë² ì´í„° ê°€ëŠ¥ì‹œ 'Y' ì•„ë‹ì‹œ 'N' 
-	private char park; // ì£¼ì°¨ ìˆìœ¼ë©´ ê°€ëŠ¥ì‹œ 'Y' ì•„ë‹ì‹œ 'N' 
-	private char pet; // ë°˜ë ¤ë™ë¬¼ ê°€ëŠ¥ì‹œ 'Y' ì•„ë‹ì‹œ 'N' 
-	private String rcmt; // ë°© ì„¤ëª…
-	private Date regdate; // ë“±ë¡ ë‚ ì§œ(ì‹œê°„)
-	private Date updatedate; // ìˆ˜ì • ë‚ ì§œ(ì‹œê°„)
-	private String agntid; // ì¤‘ê°œì‚¬ ì•„ì´ë”” 
+	private String rcode; // ¹æ µî·Ï¹øÈ£
+	private char btype; // °Ç¹° Á¾·ù 
+	private char rtype; // ¹æ Á¾·ù 
+	private String addr; // ÁÖ¼Ò 
+	private int area; // ¸éÀû 
+	private int whlarea; // °ø¿ë ¸éÀû
+	private int flr; // Ãş¼ö
+	private String rface; // ¹æÇâ
+	private char mvable; // Áï½ÃÀÔÁÖ °¡´É¿©ºÎ 
+	private Date mvdate; // ÀÔÁÖ°¡´ÉÀÏ 
+	private char elev; // ¿¤¸®º£ÀÌÅÍ °¡´É½Ã 'Y' ¾Æ´Ò½Ã 'N' 
+	private char park; // ÁÖÂ÷ ÀÖÀ¸¸é °¡´É½Ã 'Y' ¾Æ´Ò½Ã 'N' 
+	private char pet; // ¹İ·Áµ¿¹° °¡´É½Ã 'Y' ¾Æ´Ò½Ã 'N' 
+	private String rcmt; // ¹æ ¼³¸í
+	private Date regdate; // µî·Ï ³¯Â¥(½Ã°£)
+	private Date updatedate; // ¼öÁ¤ ³¯Â¥(½Ã°£)
+	private String agntid; // Áß°³»ç ¾ÆÀÌµğ  
 	
 }

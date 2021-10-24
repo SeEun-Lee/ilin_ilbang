@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <title>방 정보</title>
     <link rel="stylesheet" href="/resources/css/reset.css">
-    <link rel="stylesheet" href="/resources/css/roomInfo.css">
+    <link rel="stylesheet" href="/resources/css/room_info.css">
 </head>
 <body>
-	<form action="register" method="post">
+	<div id="room_info">
         <div class="room_info_in">
             <div class="ms_title">
                 <h2 class="ms_t">
@@ -82,6 +82,6 @@
                 </div>
             </div><!-- ms_contant5 -->
         </div><!-- room_info_in -->
-    </form><!-- #room_info -->
+ </div>
 </body>
 </html>

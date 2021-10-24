@@ -20,7 +20,7 @@ public class SubMapperTests {
 	
 	@Test
 	public void testRead() {
-		room_infoVO vo=mapper.read("rcode1");
+		room_infoVO vo=mapper.room_info("rcode1");
 		
 		log.info(vo);
 	}
