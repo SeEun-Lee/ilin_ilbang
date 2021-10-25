@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.ilin_ilbang.domain.Criteria;
+import com.ilin_ilbang.domain.likeVO;
 
 public interface RoomMapper {
 
@@ -23,6 +24,8 @@ public interface RoomMapper {
 	// 상세페이지 정보
 	public HashMap<String, String> readRoomInfo(String rcode);
 	
+	// 좋아요 추가
+	public void addLike(likeVO like);
 	
 }
 

@@ -217,4 +217,9 @@
 		WHERE i.rcode = #{rcode}	
 	</select>
 	
+	<!-- 좋아요 추가하기 -->
+	<insert id="addLike">
+		INSERT INTO member_like(mid, rcode) VALUES(#{mid}, #{rcode});
+	</insert>
+	
 </mapper>

@@ -1,18 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-    <title>관심 목록</title>
-    <link rel="stylesheet" href="/resources/css/reset.css">
-    <link rel="stylesheet" href="/resources/css/sub01.css">
-</head>
+
+<%@include file="./includes/header.jsp" %>
+
+
 <body>
     <header id="header">
     </header><!-- #header -->
@@ -28,10 +19,8 @@
                         <li class="sm_title2"><a href="#">찜한 방</a></li>
                     </ul>
                 </div><!-- .sp1_menu -->
-                <div><!-- 내용 -->
-                    <ul>
-                        <li></li>
-                    </ul>
+                <div class="p1_like"><!-- 내용 -->
+   
                 </div>
                 <div class="sp1_btns">
                     <button class="sp1_prve">이전으로</button>
@@ -58,4 +47,5 @@
         </div><!-- .sub_page1_in -->
     </section><!-- #sub_page1 -->
 </body>
-</html>
+
+<%@include file="./includes/footer.jsp" %>

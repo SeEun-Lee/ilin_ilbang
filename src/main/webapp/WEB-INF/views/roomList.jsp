@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!-- js -->
+
 <script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/filter.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/map.js"></script>
@@ -37,9 +38,11 @@
 			        						<span style="display:none">${room.rcode}</span>
 			        					</div>
 			        					<div class="find_addr" style="display:none">${room.addr}</div>
-			        					<div class="like">찜!</div>
-			        				</div>
-			        				
+			        					<div id="btn_like" class="like" style="cursor:pointer;">찜!</div>
+			        					<form id="add_like" action="/like" method="post">
+			        						<input type="hidden" name="rcode" value="<c:out value='${room.rcode}'/>">
+			        					</form>
+			        				</div>     				
 			        				
 			        				<div class="card_container">
 			            				<div class="room_price">
@@ -56,7 +59,7 @@
 												/
 												<c:out value="${room.mrent}"/>
 											</span>
-			                          	<span class="price_won">원</span>  
+			                          	<span class="price_won">만원</span>  
 			                      	</div><!-- .room_price -->
 			                      	
 									<div class="room_cmt">

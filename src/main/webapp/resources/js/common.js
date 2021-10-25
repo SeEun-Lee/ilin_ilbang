@@ -9,9 +9,18 @@ $(document).ready(function(){
         $('.gnb > li > a', $nav).removeClass('active');
         $(this).addClass('active');
         return false;
-<<<<<<< HEAD
+
     });
     
+	$('#btn_like').on('click', function(e){
+					
+		e.preventDefault();
+		e.stopPropagation();
+		
+		$('#add_like').submit();
+		
+	})
+
 
     
 });

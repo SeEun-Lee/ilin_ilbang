@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.ilin_ilbang.domain.Criteria;
+import com.ilin_ilbang.domain.likeVO;
 
 public interface roomService {
 	
@@ -21,5 +22,8 @@ public interface roomService {
 	
 	// 필터에 의한 목록 count 
 	public int getFilterListCount(HashMap<String, List<String>> filterMap);
+	
+	// 좋아요 추가
+	public void addLike(likeVO like);
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ilin_ilbang.domain.Criteria;
 import com.ilin_ilbang.domain.PageDTO;
+import com.ilin_ilbang.domain.likeVO;
 import com.ilin_ilbang.service.roomService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -159,6 +161,27 @@ public class roomController{
 		log.info("상세페이지 - 정보 출력 확인 : " + service.readRoomInfo(rcode));
 		
 		return mav;
+	}
+	
+	@PostMapping("/like")
+	public String addLike(likeVO like) {
+		
+		like.setMid("User000");
+//		like.setRcode();	
+		service.addLike(like);	
+		log.info(like);
+		return "redirect:/";
+		
+	}
+	
+	
+	// 관심목록 페이지 작업
+	@RequestMapping(value = "/roomLike", method = RequestMethod.GET)
+	public String roomLike(String mid, Model model) {
+		
+		return "roomLike";		
+		
+		
 	}
 	
 }

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import com.ilin_ilbang.domain.Criteria;
+import com.ilin_ilbang.domain.likeVO;
 import com.ilin_ilbang.mapper.RoomMapper;
 
 import lombok.AllArgsConstructor;
@@ -43,6 +44,11 @@ public class roomServiceImpl implements roomService {
 	@Override // 필터에 의한 목록 count
 	public int getFilterListCount(HashMap<String, List<String>> filterMap) {
 		return mapper.getFilterListCount(filterMap);
+	}
+	
+	@Override // 좋아요 추가
+	public void addLike(likeVO like) {
+		mapper.addLike(like);
 	}
 	
 }

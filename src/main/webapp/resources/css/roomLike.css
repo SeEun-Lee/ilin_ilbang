@@ -8,6 +8,7 @@
 .sp1_in{
     width: 800px;
     margin: 0 auto;
+    padding-top: 120px;
 }
 
 .sp1_title{
@@ -50,6 +51,11 @@
 
 .sp1_menu .on a{
     color: #333;
+}
+
+.p1_like{
+	width: 100%;
+	height: 600px;
 }
 
 .sp1_btns{
