@@ -16,7 +16,7 @@ public class SubServiceImpl implements SubService {
 	private SubMapper mapper;
 
 	@Override
-	public room_infoVO get(String rcode) {
+	public room_infoVO get(int rcode) {
 		log.info("get......."+rcode);
 		return mapper.room_info(rcode);
 	}

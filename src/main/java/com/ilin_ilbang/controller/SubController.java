@@ -18,14 +18,8 @@ public class SubController {
 	
 	private SubService service;
 	
-	@GetMapping("room_info")
-	public void roominfo(String rcode) {
-		log.info("roomInfo"+rcode);
-		service.get(rcode);
-	}
-	
 	@GetMapping("room_register")
-	public void register(String rcode) {
+	public void register(int rcode) {
 		log.info("roomregister"+rcode);
 		service.get(rcode);
 	}
