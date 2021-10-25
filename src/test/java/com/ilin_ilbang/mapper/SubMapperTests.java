@@ -1,0 +1,27 @@
+package com.ilin_ilbang.mapper;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.ilin_ilbang.domain.room_infoVO;
+
+import lombok.Setter;
+import lombok.extern.log4j.Log4j;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
+@Log4j
+public class SubMapperTests {
+	@Setter(onMethod_=@Autowired)
+	private SubMapper mapper;
+	
+	@Test
+	public void testRead() {
+		room_infoVO vo=mapper.room_info("rcode1");
+		
+		log.info(vo);
+	}
+}

@@ -9,6 +9,7 @@ $(document).ready(function(){
         $('.gnb > li > a', $nav).removeClass('active');
         $(this).addClass('active');
         return false;
+<<<<<<< HEAD
     });
     
 
@@ -120,3 +121,7 @@ $(document).ready(function(){
 
 
  */
+=======
+    })
+})
+>>>>>>> refs/remotes/origin/Lyg
