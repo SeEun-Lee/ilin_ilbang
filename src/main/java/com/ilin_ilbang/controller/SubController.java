@@ -2,9 +2,11 @@ package com.ilin_ilbang.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
+import com.ilin_ilbang.domain.room_infoVO;
 import com.ilin_ilbang.service.SubService;
 
 import lombok.AllArgsConstructor;
@@ -23,5 +25,15 @@ public class SubController {
 		log.info("roomregister");
 	}
 
-
+	@PostMapping("room_register")
+	public String registerPost(room_infoVO room,RedirectAttributes rttr) {
+		log.info("insert 하기전="+room);
+		service.register(room); 
+		rttr.addAttribute("bno", room.getRcode());
+		//log.info("insert 한후="+board);
+		
+		return "redirect:/";
+	}
+			
+			
 }
