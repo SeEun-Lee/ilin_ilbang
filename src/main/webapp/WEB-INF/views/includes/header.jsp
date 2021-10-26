@@ -43,10 +43,10 @@
                         <nav id="nav">
                             <ul class="gnb">
                                 <li>
-                                    <a href=""><span>방 검색</span></a>
+                                    <a href="/"><span>방 검색</span></a>
                                 </li>
                                 <li>
-                                    <a href=""><span>관심목록</span></a>
+                                    <a href="/roomLike"><span>관심목록</span></a>
                                 </li>
                                 <li>
                                     <a href=""><span>방 내놓기</span></a>
