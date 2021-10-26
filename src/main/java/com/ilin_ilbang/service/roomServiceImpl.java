@@ -51,4 +51,9 @@ public class roomServiceImpl implements roomService {
 		mapper.addLike(like);
 	}
 	
+	@Override // 이미 좋아요 한 방인지 확인
+	public int addLikeCount(likeVO like) {
+		return mapper.addLikeCount(like);
+	}
+	
 }

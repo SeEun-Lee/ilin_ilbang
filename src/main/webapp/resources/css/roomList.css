@@ -1,10 +1,19 @@
 @charset "utf-8";
 
-/* 메인페이지 CSS */
+/* roomList CSS */
 
 .main_container{
     padding-top: 100px;
 }
+
+
+.modal_true{
+	position: fixed;
+	width: 100%;
+
+	overflow: scroll;
+}
+
 
 .main_search{
     position: relative;
@@ -283,6 +292,7 @@
 
 .list_content{
     width: 740px;
+    min-height: 500px;
 }
 
 .list_content > ul{
@@ -299,6 +309,15 @@
 	margin-top: 20px;
 	margin-left: 10px;
 	font-size: 16px;	
+}
+
+.isEmpty{
+	font-size: 22px;
+	color: #666;
+	text-align: center;
+	line-height: 30px;
+	padding-top: 50px;
+	box-sizing: border-box;
 }
 
 .room_card{
@@ -349,8 +368,12 @@
 	display: none;
 }
 
+.btn_like.like{
+	background-color: #fbe6e1;
+}
 
-.like{
+.btn_like{
+	display: block;
 	position: absolute;
 	top: 10px;
 	right: 10px;
@@ -360,11 +383,13 @@
 	line-height: 25px;
 	text-align: center;
 	border-radius: 7px;
+	cursor: pointer;
 }
 
-.like:hover{
+.btn_like:hover{
 	background-color: #fbe6e1;
 }
+
 
 
 
@@ -465,44 +490,91 @@
 	margin-top: 80px;
 }
 
+/* 모달창 CSS */
 
-.pagination > ul{
-    padding-top: 50px;
+.modal_like, .modal_fail{
+	width: 350px;
+    height: 150px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 30px;
+    color: #222;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -130%);
+    display: none;
+}
+
+.modal_like{
+	height: 150px;
+}
+
+.modal_fail{
+	height: 130px;
+}
+
+.modal_text{
+    font-size: 15px;
+    line-height: 1.5em;
+}
+
+.modal_text > span{
+    color : #205162;
+    font-weight: 600;
+}
+
+.modal_btn_box{
     display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 17px 30px 0 30px;
+}
+
+.modal_btn_box > a {
+	display: block;
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    cursor: pointer;
     margin: 0 auto;
 }
 
-.page-item > a {
-    display: block;
-    width: 35px;
-    height: 35px;
-    border: 1px solid #ccc;
-    border-right: none;
-    font-size: 15px;
-    color: #205162;
-    text-align: center;
-    line-height: 35px;
-    background-color: #fff;
+.modal_btn_box > .modal_btn_1{
+    background-color: #cfdbe9;
 }
 
-.page-item:last-child{
-    border-right: 1px solid #ccc;
+.modal_btn_box > .modal_btn_1:hover{
+    background-color: #205162;
+    color: #fff;
 }
 
-
-.page-item > .page-previous, .page-item > .page-next{
-    width: 60px;
-    /* background-color: bisque; */
+.modal_btn_box > .modal_btn_2{
+    background-color: #fbe6e1;
 }
 
-.page-item > .page-next{
-    border-right: 1px solid #ccc;
+.modal_btn_box > .modal_btn_2:hover{
+    background-color: #e98a72;
+    color: #fff;
 }
 
-.page-item > a:hover{
-    background-color: rgba(207, 219, 233, 0.7);
+.modal_fail .modal_btn_2{
+	width: 100px;
 }
 
-.page-number.on{
-	background-color: rgba(207, 219, 233, 0.7);
+.modal_close{
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-indent: -99999px;
+    background-image: url(../img/btn_close.png);
+    background-size: 100% 100%;
+    cursor: pointer;
 }
+

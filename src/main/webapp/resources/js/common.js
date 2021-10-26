@@ -12,15 +12,6 @@ $(document).ready(function(){
 
     });
     
-	$('#btn_like').on('click', function(e){
-					
-		e.preventDefault();
-		e.stopPropagation();
-		
-		$('#add_like').submit();
-		
-	})
-
 
     
 });
@@ -127,10 +118,3 @@ $(document).ready(function(){
 
 
 
-
-
- */
-=======
-    })
-})
->>>>>>> refs/remotes/origin/Lyg

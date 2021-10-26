@@ -219,7 +219,13 @@
 	
 	<!-- 좋아요 추가하기 -->
 	<insert id="addLike">
-		INSERT INTO member_like(mid, rcode) VALUES(#{mid}, #{rcode});
+		INSERT INTO member_like(mid, rcode) VALUES(#{mid}, #{rcode})
 	</insert>
+	
+	<!-- 유저가 이미 좋아요 한 방인지 확인 -->
+	<select id="addLikeCount" resultType="int">
+		SELECT COUNT(*) FROM member_like
+		WHERE rcode = #{rcode} AND mid = #{mid}
+	</select>
 	
 </mapper>

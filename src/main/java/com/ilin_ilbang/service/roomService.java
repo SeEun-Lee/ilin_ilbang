@@ -26,4 +26,7 @@ public interface roomService {
 	// 좋아요 추가
 	public void addLike(likeVO like);
 	
+	// 이미 좋아요 한 방인지 확인
+	public int addLikeCount(likeVO like);
+	
 }
