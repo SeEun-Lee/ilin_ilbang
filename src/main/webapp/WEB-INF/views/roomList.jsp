@@ -167,7 +167,7 @@
 							            <c:forEach items="${list}" var="room">
 											<li class="room">
 											 <a class="room_detail" href="javascript:void(0);"
-											 onclick='window.open("/<c:out value='${room.rcode}'/>", "_blank", "width=600", "height=500")'>
+											 onclick='window.open("/<c:out value='${room.rcode}'/>", "_blank", "width=600px", "height=500px")'>
 										
 								    				<div class="room_card">
 								        				<div class="card_box">
@@ -236,7 +236,7 @@
 										</li>
 									</c:forEach>
 					    		</ul>
-  								<!-- 리스트를 불러올 때 마다 '.list_content'가 일종의 새로고침되는 방식입니다
+  								<!-- 리스트를 불러올 때 마다 '.list_content'부분이 새로고침되는 방식입니다
  								그래서인지 검색으로 리스트를 불러오면 스크립트가 먹히지않아 필요한건 여기 안에 넣어줬어요 -->
 	 							<script src="${pageContext.request.contextPath}/resources/js/roomList.js"></script>
 							</div><!--list_content-->

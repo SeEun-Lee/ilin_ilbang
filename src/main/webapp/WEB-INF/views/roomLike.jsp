@@ -49,3 +49,5 @@
 </body>
 
 <%@include file="./includes/footer.jsp" %>
+
+<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>

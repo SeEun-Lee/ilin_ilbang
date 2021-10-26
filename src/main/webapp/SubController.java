@@ -21,12 +21,12 @@ public class SubController {
 	
 	private SubService service;
 	
-	@GetMapping("/room_register")
+	@GetMapping("room_register")
 	public void register() {
 		log.info("room_register");
 	}
 
-	@PostMapping("/room_register")
+	@PostMapping("room_register")
 	public String registerPost(room_infoVO room,RedirectAttributes rttr) {
 		log.info("insert "+room);
 		service.register(room); 

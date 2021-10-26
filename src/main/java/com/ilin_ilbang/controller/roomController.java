@@ -30,14 +30,14 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-// @RequestMapping(value="/room")
+@RequestMapping(value="/")
 @AllArgsConstructor
 public class roomController{
 	
 	private roomService service;
 	
 	// 전체 리스트
-	@GetMapping(value = "/")
+	@GetMapping(value="/list")
 	public String list(@RequestParam(value="filters[]", required=false) List<String> filters,
 					   Criteria cri, Model model) {
 
@@ -167,7 +167,7 @@ public class roomController{
 	}
 	
 	
-	// 찜 클릭시 관심 목록에 추가 작업
+	// 찜 클릭시 관심 목록에 추가
 	@ResponseBody
 	@PostMapping("/like")
 	public int addLike(likeVO like, @RequestParam(value="rcode") int rcode){

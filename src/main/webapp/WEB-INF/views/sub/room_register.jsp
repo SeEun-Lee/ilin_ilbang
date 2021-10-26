@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@include file="../includes/header.jsp" %>
+
     <div id="sub_page2">
         <div class="sp2_in">
             <div class="sp2_title">
@@ -279,4 +281,7 @@
         </div><!-- .sp2_in -->
       </form>     
     </div><!-- #sub_page2 -->
+
 <%@include file="../includes/footer.jsp" %>
+
+<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>

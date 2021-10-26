@@ -39,17 +39,17 @@
         <header id="header">
             <div class="h_content">
                 <div class="h_inner">
-                        <h1 class="h_logo"><a href="/">1인1방</a></h1>
+                        <h1 class="h_logo"><a href="/list">1인1방</a></h1>
                         <nav id="nav">
                             <ul class="gnb">
                                 <li>
-                                    <a href="/"><span>방 검색</span></a>
+                                    <a href="/list" class="list active"><span>방 검색</span></a>
                                 </li>
                                 <li>
-                                    <a href="/roomLike"><span>관심목록</span></a>
+                                    <a href="/roomLike" class="roomLike"><span>관심목록</span></a>
                                 </li>
                                 <li>
-                                    <a href=""><span>방 내놓기</span></a>
+                                    <a href="/sub/room_register" class="room_register"><span>방 내놓기</span></a>
                                 </li>
                                 <li>
                                     <a href=""><span>거래관리</span></a>
