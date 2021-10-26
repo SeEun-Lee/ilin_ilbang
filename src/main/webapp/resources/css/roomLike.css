@@ -1,78 +1,132 @@
 @charset "utf-8";
 
-#sub_page1{
-    width: 1000px;
-    margin: 0 auto;
-}
+/* 관심목록 페이지 (roomLike.jsp) */
 
-.sp1_in{
-    width: 800px;
-    margin: 0 auto;
+#roomLike{
     padding-top: 100px;
 }
 
-.sp1_title{
-    padding: 20px 0;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #333;
-    color: #205162;
+#roomLike .sp1_bg1{
+	background-color: rgba(238, 238, 238, 0.7);
+}
+#roomLike .sp1_bg2{
+	width: 100%;
+	background-color: rgba(238, 238, 238, 0.1);
 }
 
-.sp1_title .sp1_t{
-    text-align: center;
-    font-size: 27px;
-    line-height: 1.5em;
+#roomLike .sp1_top{
+	position: relative;
+	width: 800px;
+	margin: 0 auto;
+	padding-top: 20px;
+    padding-bottom: 3px;
 }
 
-.sp1_menu{
-    width: 800px;
-    margin: 0 auto;
+#roomLike .sp1_menu{
+	position: absolute;
+	top: 22px;
+	right: 50px;
 
 }
 
-.sp1_menu ul{
+#roomLike .sp1_menu ul{
     display: flex;
     justify-content: center;
 }
 
-.sp1_menu li{
-    padding: 15px 80px;
-    border-bottom: 1px solid #888;
+#roomLike .sp1_menu li{
+    padding: 15px 50px;
+    border: 1px solid #ccc;
+    border-left: none;
 }
 
-.sp1_menu .on{
-    border-bottom: 1px solid #333 ;
-}
-
-.sp1_menu li a{
+#roomLike .sp1_menu li a{
     color: #888;
     font-size: 15px;
     line-height: 1em;
 }
 
-.sp1_menu .on a{
-    color: #333;
+#roomLike .sp1_menu .on{
+	background-color: #205162;
+    border: 1px solid #205162;
 }
 
-.p1_like{
-	width: 100%;
-	height: 600px;
+#roomLike .sp1_menu li.on a{
+	color: #fff;
 }
 
-.sp1_btns{
-    text-align: center;
-    margin-top: 200px;
+
+#roomLike .sp1_menu li.on a:before{
+	display: inline-block;
+	content: "";
+	vertical-align: top;
+	width: 5px;
+	height: 5px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	transform: rotate(45deg);
+	margin: 6px 10px 0 0;
 }
 
-.sp1_btns a{
-    display: block;
-    padding: 10px 20px;
-    color: #333;
+
+#roomLike .now_page{
+	margin-left: 60px;
+	font-size: 16px;
+	font-weight: 500;
 }
 
-.sp1_btns .sp1_next a{
-    background-color: #222;
-    color: #fff;
+#roomLike .now_page span:before{
+	content: "";
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 3px;
+	height: 3px;
+	border-radius: 50%;
+	background-color: #555;
+}
+
+#roomLike .title{
+	display: flex;
+	margin: 10px 0 20px 90px;
+}
+
+#roomLike .title_text{
+	font-size: 15px;
+}
+
+#roomLike .title_text:before{
+	content: "";
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 2px;
+	height: 2px;
+	border-radius: 50%;
+	background-color: #555;
+}
+
+
+#roomLike .mid{
+	color: #205162;
+	font-weight: 500;
+}
+
+#roomLike .title_count{
+	display: block;
+	margin-top: 0;
+	margin-left: 6px;
+	font-size: 14px;	
+}
+
+
+
+#roomLike .list_content_like{
+	width: 700px;
+	margin: 0 auto;
+	padding-top: 30px;
 }
 
 .page2{

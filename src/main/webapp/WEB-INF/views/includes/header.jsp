@@ -21,10 +21,9 @@
     <link href="${pageContext.request.contextPath}/resources/css/reset.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/css/roomList.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/resources/css/deals.css" rel="stylesheet" type="text/css">
 	<link href="${pageContext.request.contextPath}/resources/css/roomLike.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/css/roomInfo_2.css" rel="stylesheet" type="text/css">
-
+    <link href="${pageContext.request.contextPath}/resources/css/search.css" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="/resources/css/room_register.css">
     <link rel="stylesheet" href="/resources/css/button.css">

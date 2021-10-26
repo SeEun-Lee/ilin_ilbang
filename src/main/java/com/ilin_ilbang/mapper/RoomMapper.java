@@ -30,6 +30,12 @@ public interface RoomMapper {
 	// 이미 좋아요 한 방인지 확인
 	public int addLikeCount(likeVO like);
 	
+	// 유저의 좋아요 목록 출력
+	public List<HashMap<String, String>> userLikeList(String mid);
+	
+	// 유저의 좋아요 카운트
+	public int userLikeCount(String mid);
+	
 }
 
 

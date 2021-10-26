@@ -56,4 +56,14 @@ public class roomServiceImpl implements roomService {
 		return mapper.addLikeCount(like);
 	}
 	
+	@Override // 유저의 좋아요 리스트 출력
+	public List<HashMap<String, String>> userLikeList(String mid){
+		return mapper.userLikeList(mid);
+	}
+	
+	@Override // 유저의 좋아요 카운트
+	public int userLikeCount(String mid) {
+		return mapper.userLikeCount(mid);
+	}
+	
 }

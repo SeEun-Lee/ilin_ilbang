@@ -195,14 +195,26 @@ public class roomController{
 	}
 	
 	
-	// 관심목록 페이지 작업
+	// 관심목록 출력
 	@RequestMapping(value = "/roomLike", method = RequestMethod.GET)
-	public String roomLike(String mid, Model model) {
+	public String roomLike(Model model) {
 		
+		String mid = "user000"; // 임의 아이디 설정
+		
+		// 유저가 좋아요한 방이 최소 1개인지 확인
+		boolean isEmpty = service.userLikeCount(mid) < 1;
+		if (!isEmpty) { // 최소 1개라면
+			model.addAttribute("mid", mid);
+			model.addAttribute("total", service.userLikeCount(mid));
+			model.addAttribute("list", service.userLikeList(mid));
+		} else { // 좋아요한 방이 없다면
+			model.addAttribute("title", "아직 찜하신 방이 없네요.");
+			model.addAttribute("total", service.userLikeCount(mid));
+		}
+
+		log.info(model);
 		return "roomLike";		
 		
-		
 	}
-	
 }
 

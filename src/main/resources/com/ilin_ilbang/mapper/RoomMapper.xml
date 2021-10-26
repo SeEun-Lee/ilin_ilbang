@@ -228,4 +228,16 @@
 		WHERE rcode = #{rcode} AND mid = #{mid}
 	</select>
 	
+	<!-- 좋아요 방 출력 -->
+	<select id="userLikeList" resultType="HashMap" parameterType="String">
+		SELECT mid, i.rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
+		FROM member_like l INNER JOIN room_info i ON l.rcode = i.rcode INNER JOIN room_price P ON l.rcode = p.rcode
+		WHERE mid = #{mid}
+	</select>
+	
+	<!-- 좋아요 방 카운트 -->
+	<select id="userLikeCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM member_like WHERE mid = #{mid}
+	</select>
+	
 </mapper>
