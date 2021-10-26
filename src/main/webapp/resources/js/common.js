@@ -114,7 +114,4 @@ $(document).ready(function(){
 		operForm.submit();
 		
 	})
-	
-
-
-
+)	*/

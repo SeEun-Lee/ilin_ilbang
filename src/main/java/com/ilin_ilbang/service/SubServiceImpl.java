@@ -3,6 +3,7 @@ package com.ilin_ilbang.service;
 import org.springframework.stereotype.Service;
 
 import com.ilin_ilbang.domain.room_infoVO;
+import com.ilin_ilbang.domain.room_optionVO;
 import com.ilin_ilbang.mapper.SubMapper;
 
 import lombok.AllArgsConstructor;
@@ -16,10 +17,15 @@ public class SubServiceImpl implements SubService {
 	private SubMapper mapper;
 
 	@Override
-	public room_infoVO get(int rcode) {
-		log.info("get......."+rcode);
-		return mapper.room_info(rcode);
+	public void register(room_infoVO room) {
+		log.info("get......."+room);
+		mapper.insert(room);
 	}
-	
+
+	@Override
+	public room_infoVO get(long rcode) {
+			log.info("get....."+rcode);
+		return null;
+	}
 
 }
