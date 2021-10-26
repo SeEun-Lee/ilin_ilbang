@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ilin_ilbang.domain.room_infoVO;
+import com.ilin_ilbang.domain.room_optionVO;
 import com.ilin_ilbang.service.SubService;
 
 import lombok.AllArgsConstructor;
@@ -22,18 +23,17 @@ public class SubController {
 	
 	@GetMapping("room_register")
 	public void register() {
-		log.info("roomregister");
+		log.info("room_register");
 	}
 
 	@PostMapping("room_register")
 	public String registerPost(room_infoVO room,RedirectAttributes rttr) {
-		log.info("insert ÇÏ±âÀü="+room);
+		log.info("insert "+room);
 		service.register(room); 
-		rttr.addAttribute("bno", room.getRcode());
-		//log.info("insert ÇÑÈÄ="+board);
+		rttr.addAttribute("rcode", room.getRcode());
+		//log.info("insert ï¿½ï¿½ï¿½ï¿½="+board);
 		
 		return "redirect:/";
 	}
-			
-			
+				
 }

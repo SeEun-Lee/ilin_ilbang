@@ -79,8 +79,8 @@
                 </ul>
             </div><!-- .sp2_content2 -->
             <div class="sc3_box">
+                <h3 class="sc_title">매물 종류</h3>
                 <table class="sc_box">
-                    <span class="sc_title">매물 종류</span>
                     <tr>
                         <th>거래 종류</th>
                         <td>
@@ -111,6 +111,7 @@
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input class="mdl-textfield__input" type="number" id="supply_pyeong" name="whlarea">
                                 <label class="mdl-textfield__label" tabindex="1" for="supply_pyeong"></label>
+                            	평
                             </div>
                         </td>
                         <th rowspan="2">건물 층수</th>
@@ -133,11 +134,12 @@
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <input class="mdl-textfield__input" type="number" id="public_pyeong" name="area">
                                 <label class="mdl-textfield__label" tabindex="2" for="public_pyeong"></label>
+                            	평
                             </div>
                         </td>
                         <td colspan="2">
                             <span>해당 층수</span>
-                            <select id="myFloor" name="myFloor">
+                            <select id="myfloor" name="myflr">
                                 <option>해당 층수 선택</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -170,17 +172,17 @@
                         </td>
                     
                         <th>반려동물</th>
-                        <td colspan="3">
-                            <div class="container">
-                                <div class="buttons">
-                                    <input class="hidden radio-label" type="radio" name="pet" id="no_pet" value="N" checked="checked"/>
-                                    <label class="button-label" for="no_pet">없음</label>
-                                    
-                                    <input class="hidden radio-label" type="radio" name="pet" id="yes_pet" value="Y"/>
-                                    <label class="button-label" for="yes_pet">있음</label>
-                                </div>
-                            </div>
-                        </td>
+	                        <td colspan="3">
+	                            <div class="container">
+	                                <div class="buttons">
+	                                    <input class="hidden radio-label" type="radio" name="pet" id="no_pet" value="N" checked="checked"/>
+	                                    <label class="button-label" for="no_pet">없음</label>
+	                                    
+	                                    <input class="hidden radio-label" type="radio" name="pet" id="yes_pet" value="Y"/>
+	                                    <label class="button-label" for="yes_pet">있음</label>
+	                                </div>
+	                            </div>
+	                        </td>
                     </tr>
                     
                     <tr>
@@ -214,34 +216,34 @@
                             <td colspan="6">
                             <div class="container">
                                 <div class="buttons" id="optionlist">
-                                <input class="hidden optionlist button-label" type="checkbox" value="에어컨" name="optionList" id="option_air"  />
+                                <input class="hidden optionlist button-label" type="checkbox" value="Y" name="ac" id="option_air"  />
                                 <label class="button-label" for="option_air">에어컨</label>
                                 
-                                <input class="hidden optionlist button-label" type="checkbox" value="세탁기" name="optionList" id="option_washer"  />
+                                <input class="hidden optionlist button-label" type="checkbox" value="Y" name="washer" id="option_washer"  />
                                 <label class="button-label" for="option_washer">세탁기</label>
                                 
-                                <input class="hidden optionlist button-label" type="checkbox" value="침대" name="optionList" id="option_bed" />
+                                <input class="hidden optionlist button-label" type="checkbox" value="Y" name="bed" id="option_bed" />
                                 <label class="button-label" for="option_bed">침대</label>
                                 
-                                <input class="hidden optionlist button-label" type="checkbox" value="책상" name="optionList" id="option_desk"  />
+                                <input class="hidden optionlist button-label" type="checkbox" value="Y" name="desk" id="option_desk"  />
                                 <label class="button-label" for="option_desk">책상</label>
                                 
-                                <input class="hidden optionlist button-label" type="checkbox" value="옷장" name="optionList" id="option_closet"  />
+                                <input class="hidden optionlist button-label" type="checkbox" value="Y" name="closet" id="option_closet"  />
                                 <label class="button-label" for="option_closet">옷장</label>
                                 
-                                <input class="hidden optionlist button-label" type="checkbox" value="TV" name="optionList" id="option_TV"  />
+                                <input class="hidden optionlist button-label" type="checkbox" value="Y" name="tv" id="option_TV"  />
                                 <label class="button-label" for="option_TV">TV</label>
                                 
-                                <input class="hidden optionlist button-label" type="checkbox" value="신발장" name="optionList" id="option_shoes" />
+                                <input class="hidden optionlist button-label" type="checkbox" value="Y" name="shelf" id="option_shoes" />
                                 <label class="button-label" for="option_shoes">신발장</label>
                                 
-                                <input class="hidden optionlist button-label" type="checkbox" value="냉장고" name="optionList" id="option_refrigerator"  />
+                                <input class="hidden optionlist button-label" type="checkbox" value="Y" name="fridge" id="option_refrigerator"  />
                                 <label class="button-label" for="option_refrigerator">냉장고</label>
                                 
-                                <input class="hidden optionlist button-label" type="checkbox" value="가스레인지" name="optionList" id="option_gasrange" />
+                                <input class="hidden optionlist button-label" type="checkbox" value="Y" name="stove" id="option_gasrange" />
                                 <label class="button-label" for="option_gasrange">가스레인지</label>
                                 
-                                <input class="hidden optionlist button-label" type="checkbox" value="전자레인지" name="optionList" id="option_microwave"  />
+                                <input class="hidden optionlist button-label" type="checkbox" value="Y" name="microw" id="option_microwave"  />
                                 <label class="button-label" for="option_microwave">전자레인지</label>
                                 
                                 </div>
@@ -256,12 +258,12 @@
                     <div class="sb6_l">
                         <p>제목</p>
                         <p>상세 설명</p>
-                        <p>비공개 메모</p>
+                        <p>입주 가능일</p>
                     </div>
                     <div class="sb6_r">
                         <p><input type="text" name="rcmt" placeholder=" 예) 롯데백화점 5분거리"></p>
-                        <p><input type="text"></p>
-                        <p><input type="text" placeholder=" 외부에는 보이지 않음"></p>
+                        <p><input type="text" name="rcont"></p>
+                        <p><input type="text" name="mvdate" placeholder=" 입주가 가능한 날을 쓰시오"></p>
                     </div>
                 </div>
             </div><!-- .sp2_content5 -->
