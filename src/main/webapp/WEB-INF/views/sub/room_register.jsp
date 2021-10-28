@@ -293,14 +293,17 @@
 	            </div><!-- .sp2_content5 -->
 	            <div class="sp2_content7">
 	                <h3 class="sc_title">사진등록</h3>
-               		<input class="uploadBtn" type='file' name='uploadFile' multiple>
-	                <div class="img_save">
-					  	<div class='uploadResult'>
-							<ul>
+	
+					<div class='uploadDiv'>
+						<input type='file' name='uploadFile' multiple>
+					</div>
 					
-							</ul>
-						</div>
-	                </div>
+					<div class='uploadResult'>
+						<ul>
+					
+						</ul>
+					</div>
+					<input id='uploadBtn' type="button" placeholder="Upload">
 	                <label for="check"><input type="checkbox" id="check">매물등록 규정을 확인 했으며, 등록한 정보는 실제와 다름이 없습니다.</label>
 		           	<div class="sc7_btns">
 		               <button>등록취소</button>

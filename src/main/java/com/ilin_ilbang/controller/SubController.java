@@ -1,9 +1,12 @@
 package com.ilin_ilbang.controller;
 
+
 import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.ilin_ilbang.domain.room_infoVO;
 import com.ilin_ilbang.domain.room_optionVO;
@@ -12,6 +15,7 @@ import com.ilin_ilbang.service.SubService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+
 
 @Controller
 @Log4j
@@ -25,7 +29,7 @@ public class SubController {
 	public void register() {
 		log.info("room_register");
 	}
-
+	
 	@PostMapping("room_register")
 	public String registerPost(room_infoVO room,room_optionVO roomOP,room_priceVO roomP) {
 		log.info("insert : "+room+"OP : "+roomOP+"P : "+roomP);
@@ -36,5 +40,6 @@ public class SubController {
 		
 		return "redirect:/";
 	}
+
 				
 }
