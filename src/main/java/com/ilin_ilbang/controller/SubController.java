@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ilin_ilbang.domain.room_infoVO;
 import com.ilin_ilbang.domain.room_optionVO;
+import com.ilin_ilbang.domain.room_priceVO;
 import com.ilin_ilbang.service.SubService;
 
 import lombok.AllArgsConstructor;
@@ -27,10 +27,11 @@ public class SubController {
 	}
 
 	@PostMapping("room_register")
-	public String registerPost(room_infoVO room,RedirectAttributes rttr) {
-		log.info("insert "+room);
+	public String registerPost(room_infoVO room,room_optionVO roomOP,room_priceVO roomP) {
+		log.info("insert : "+room+"OP : "+roomOP+"P : "+roomP);
 		service.register(room); 
-		rttr.addAttribute("rcode", room.getRcode());
+		service.registerOP(roomOP); 
+		service.registerP(roomP); 
 		//log.info("insert ����="+board);
 		
 		return "redirect:/";

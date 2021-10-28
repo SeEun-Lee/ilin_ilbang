@@ -72,6 +72,27 @@
   color: #efefef;
 }
 
+#east:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#west:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+
+#south:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#north:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
 #sangga:checked + .button-label {
   background: #205162;
   color: #efefef;

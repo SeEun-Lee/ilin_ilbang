@@ -15,6 +15,7 @@ public class room_infoVO {
 	private char btype; // 건물 종류 
 	private char rtype; // 방 종류 
 	private String addr; // 주소 
+	private String addsub; // 상세주소 
 	private int area; // 면적 
 	private int whlarea; // 공용 면적
 	private int flr; // 층수
