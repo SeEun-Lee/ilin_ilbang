@@ -4,13 +4,23 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ilin_ilbang.mapper.SubMapper">
 	<insert id="insert">
-		INSERT INTO room_info(btype, rtype, addr, area, whlarea, flr, myflr, elev, pet, park, mfee, rcmt, rcont, mvdate)
-		VALUES (#{btype}, #{rtype}, #{addr}, #{area}, #{whlarea}, #{flr}, #{myflr}, #{elev}, #{pet}, #{park}, #{mfee}, #{rcmt}, #{rcont}, #{mvdate})	
+		INSERT INTO room_info(btype, rtype, addr, addsub, area, whlarea, flr, myflr, elev, pet, park, mfee, rcmt, rcont, mvdate, rface)
+		VALUES (#{btype}, #{rtype}, #{addr}, #{addsub}, #{area}, #{whlarea}, #{flr}, #{myflr}, #{elev}, #{pet}, #{park}, #{mfee}, #{rcmt}, #{rcont}, #{mvdate}, #{rface})	
 	</insert>
-	<!--   
-	<insert id="insert">
+	 
+	<insert id="insertOP">
 		insert into room_option(ac, washer, fridge, tv, stove, microw, bed, desk, closet, shelf)
 		values (#{ac}, #{washer}, #{fridge}, #{tv}, #{stove}, #{microw}, #{bed}, #{desk}, #{closet}, #{shelf})
 	</insert>
-	-->
+	
+	<insert id="insertP">
+		insert into room_price(dep, dtype, mrent, yrent, mfeec)
+		values(#{dep}, #{dtype}, #{mrent}, #{yrent}, #{mfeec})
+	</insert>
+	
+	<insert id="insertRA">
+		insert into room_attach(uuid, uploadpath, filename)
+		values(#{uuid}, #{uploadpath}, #{filename})
+	</insert>
+	
 </mapper>

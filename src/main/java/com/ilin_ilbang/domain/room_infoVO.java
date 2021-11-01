@@ -1,5 +1,6 @@
 package com.ilin_ilbang.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import lombok.Getter;
@@ -15,6 +16,7 @@ public class room_infoVO {
 	private char btype; // 건물 종류 
 	private char rtype; // 방 종류 
 	private String addr; // 주소 
+	private String addsub; // 상세주소 
 	private int area; // 면적 
 	private int whlarea; // 공용 면적
 	private int flr; // 층수
@@ -30,4 +32,6 @@ public class room_infoVO {
 	private Date regdate; // 등록 날짜(시간)
 	private Date updatedate; // 수정 날짜(시간)
 	private String agntid; // 중개사 아이디 
+	public ArrayList<AttachFileDTO> attachList;
+
 }

@@ -27,9 +27,11 @@
 
     <link rel="stylesheet" href="/resources/css/room_register.css">
     <link rel="stylesheet" href="/resources/css/button.css">
+    <link rel="stylesheet" href="/resources/css/upload.css">
     <!-- api -->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c37e1a519b03d653d9f91c2b12ed7a87"></script>
-
+    <script src="../resources/js/upload.js"></script>
+    
     <title>1인1방</title>
 </head>
 <body>

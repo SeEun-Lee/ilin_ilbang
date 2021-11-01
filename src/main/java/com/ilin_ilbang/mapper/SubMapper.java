@@ -1,12 +1,17 @@
 package com.ilin_ilbang.mapper;
 
+import com.ilin_ilbang.domain.AttachFileDTO;
 import com.ilin_ilbang.domain.room_infoVO;
 import com.ilin_ilbang.domain.room_optionVO;
+import com.ilin_ilbang.domain.room_priceVO;
 
 public interface SubMapper {
-	
-	public room_infoVO room_info(int rcode);
 
 	public void insert(room_infoVO room);
-	public void insert(room_optionVO roomOP);
+	
+	public void insertOP(room_optionVO roomOP);
+
+	public void insertP(room_priceVO roomP);
+	
+	public void insertRA(AttachFileDTO roomRA);
 }
