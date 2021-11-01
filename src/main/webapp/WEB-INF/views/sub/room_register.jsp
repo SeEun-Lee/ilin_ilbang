@@ -303,11 +303,14 @@
 					
 						</ul>
 					</div>
-					<input id='uploadBtn' type="button" placeholder="Upload">
-	                <label for="check"><input type="checkbox" id="check">매물등록 규정을 확인 했으며, 등록한 정보는 실제와 다름이 없습니다.</label>
+					<div class="uBtn">
+						<input class="hidden optionlist button-label" type="button" id="uploadBtn"/>
+	                    <label class="button-label" for="uploadBtn">올리기</label>
+		           	</div>
 		           	<div class="sc7_btns">
-		               <button>등록취소</button>
-		               <button type="submit">등록하기</button>
+	                	<label for="check"><input type="checkbox" id="check">매물등록 규정을 확인 했으며, 등록한 정보는 실제와 다름이 없습니다.</label>
+		               	<button>등록취소</button>
+		               	<button type="submit">등록하기</button>
 		           	</div>
 	            </div><!-- .sp2_content7 -->
 	        </div><!-- .sp2_in -->

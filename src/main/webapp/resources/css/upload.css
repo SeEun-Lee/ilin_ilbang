@@ -2,7 +2,8 @@
 
 .uploadResult {
 	width: 100%;
-	background-color: gray;
+	background-color: #fff;
+	border: 1px solid #333;
 }
 
 .uploadResult ul {
@@ -10,7 +11,7 @@
 	flex-flow: row;
 	justify-content: center;
 	align-items: center;
-	board: 1px solid #333;
+	border: 1px solid #333;
 }
 
 .uploadResult ul li {

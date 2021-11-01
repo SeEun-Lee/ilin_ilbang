@@ -277,6 +277,16 @@
     border: 1px solid #444;
 }
 
+.sp2_content7{
+	position: relative;
+}
+
+.sp2_content7 .uBtn{
+	position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .sp2_content7 label{
     display: block;
     text-align: center;
@@ -296,10 +306,18 @@
     text-align: center;
 }
 
-.sc7_btns button{
-    margin: 0 20px;
-    padding: 10px 15px;
-    background-color: #fff;
+.sp2_content7 .uBtn{
+	position: absolute;
+    top: 50px;
+    right: 450px;
+}
+
+.sp2_content7 .uBtn label{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #205162;
+    color: #fff;
 }
 
 .sc7_btns button:last-child{

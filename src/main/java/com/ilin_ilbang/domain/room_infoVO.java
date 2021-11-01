@@ -1,5 +1,6 @@
 package com.ilin_ilbang.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import lombok.Getter;
@@ -31,4 +32,6 @@ public class room_infoVO {
 	private Date regdate; // 등록 날짜(시간)
 	private Date updatedate; // 수정 날짜(시간)
 	private String agntid; // 중개사 아이디 
+	public ArrayList<AttachFileDTO> attachList;
+
 }

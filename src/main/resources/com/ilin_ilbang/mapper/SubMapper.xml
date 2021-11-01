@@ -17,4 +17,10 @@
 		insert into room_price(dep, dtype, mrent, yrent, mfeec)
 		values(#{dep}, #{dtype}, #{mrent}, #{yrent}, #{mfeec})
 	</insert>
+	
+	<insert id="insertRA">
+		insert into room_attach(uuid, uploadpath, filename)
+		values(#{uuid}, #{uploadpath}, #{filename})
+	</insert>
+	
 </mapper>
