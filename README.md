@@ -19,6 +19,9 @@
 ## :briefcase: 기능 명세서
 * :open_file_folder: 기능 명세서 
 
+## :computer: EER Diagram
+![Diagram](https://user-images.githubusercontent.com/91783874/139792328-71e443f0-2a17-44e9-803c-b5896e836edd.png)
+
 ## :round_pushpin: To-do
 
 ## :mailbox_closed: 정보
