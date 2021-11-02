@@ -17,7 +17,7 @@
                             </ul>
                         </div><!--f_row2-->
                         <div class="f_row3">
-                            <span>COPYRIGHT ⓒ 2015 HUXLEY ALL RIGHTS RESERVED.</span>
+                            <span>COPYRIGHT ⓒ 2021 GREEN ACADEMY ALL RIGHTS RESERVED.</span>
                         </div><!--.f_row3-->
                     </div><!--.f_contentr-->
                 </div><!--.f_inner-->

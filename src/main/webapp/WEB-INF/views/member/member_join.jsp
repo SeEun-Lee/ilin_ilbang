@@ -9,7 +9,18 @@
         *{
             margin: 0;
             padding: 0;
-        }
+        }        
+        .h_logo a{
+	    display: block;
+	    background-image: url(../resources/img/h_logo.png);
+	    background-size: 100% 100%;
+	    background-repeat: no-repeat;
+	    width: 80px;
+	    height: 80px;
+	    text-indent: -99999px;
+	    overflow: hidden;
+	    margin: 0 auto;
+		}
         div{
             width: 460px;
             margin: 30px auto;
@@ -56,8 +67,8 @@
             cursor: pointer;
             color: white;
             display: block;
-            background-color: #1F4E5F;
-            border: 0px solid #1F4E5F;
+            background-color: #222;
+            border: 0px solid #222;
         }
         #btn_secu, #btn_addr{
             padding: 17px 30px;
@@ -83,10 +94,8 @@
 </head>
 <body>
     <div class="join_in">
-        <p class="logo">
-            <img src="./HatchfulExport-All/logo_transparent.png" alt="로고">
-        </p>
-        <form action="#" method="post">
+        <h1 class="h_logo"><a href="index.jsp">1인1방</a></h1>
+        <form action="jdbc:log4jdbc:mysql://127.0.0.1:3306/oneroom?serverTimezone=Asia/Seoul" method="post">
             <ul>
                 <li>
                     <label>아이디<br>

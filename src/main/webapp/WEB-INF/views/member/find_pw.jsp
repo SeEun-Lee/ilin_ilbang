@@ -9,7 +9,18 @@
         *{
             margin: 0;
             padding: 0;
-        }
+        }        
+        .h_logo a{
+	    display: block;
+	    background-image: url(../resources/img/h_logo.png);
+	    background-size: 100% 100%;
+	    background-repeat: no-repeat;
+	    width: 80px;
+	    height: 80px;
+	    text-indent: -99999px;
+	    overflow: hidden;
+	    margin: 0 auto;
+		}
         div{
             width: 460px;
             margin: 30px auto;
@@ -41,8 +52,8 @@
             cursor: pointer;
             color: white;
             display: block;
-            background-color: #1F4E5F;
-            border: 0px solid #1F4E5F;
+            background-color: #222;
+            border: 0px solid #222;
         }
         #new_id[placeholder]{
             text-align: right;
@@ -53,16 +64,26 @@
         .sub{
             padding: 20px 165px;
         }
+        .text1{
+        	display: block;
+        	text-align: center;
+        }
 
     </style>
 </head>
 <body>
     <div class="join_in">
-        <p class="logo">
-            <img src="./HatchfulExport-All/logo_transparent.png" alt="로고">
-        </p>
-        <form action="#" method="post">
+        <h1 class="h_logo"><a href="index.jsp">1인1방</a></h1>
+        <form action="jdbc:log4jdbc:mysql://127.0.0.1:3306/oneroom?serverTimezone=Asia/Seoul" method="post">
             <ul>
+                <li>
+                	<p class="text1">
+                		<br>
+                		비밀번호 찾기
+                		<br><br>
+                		가입한 아이디와 이메일정보를 입력해주세요
+                	</p>
+                </li>
                 <li>                    
                     <label>아이디<br>
                         <input type="text" id="user_id" size="61"
@@ -74,6 +95,13 @@
                         <input type="email" id="email" size="61"
                         required>
                     </label>
+                </li>
+                <li>
+                	<p class="text1">
+                		이메일로 임시비밀번호를 전송해드립니다
+                		<br>
+                		로그인 후 비밀번호를 변경해주세요
+                	</p>
                 </li>
                 <li>
                     <button type="submit" class="sub">임시 비밀번호 받기</button>

@@ -42,8 +42,8 @@
             cursor: pointer;
             color: white;
             display: block;
-            background-color: #1F4E5F;
-            border: 0px solid #1F4E5F;
+            background-color: #222;
+            border: 0px solid #222;
         }
         #btn_secu, #btn_addr{
             padding: 17px 30px;
