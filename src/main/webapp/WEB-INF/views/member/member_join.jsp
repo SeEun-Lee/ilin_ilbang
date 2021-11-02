@@ -74,9 +74,6 @@
             padding: 17px 30px;
             float: right;
         }
-        #new_id[placeholder]{
-            text-align: right;
-        }
         #gender{
             padding: 0 20px 0 20px;
         }
@@ -100,25 +97,25 @@
                 <li>
                     <label>아이디<br>
                         <input type="text" id="new_id" size="61" class="input_box"
-                        required>
+                        placeholder=" 아이디를 입력하세요" required>
                     </label>
                 </li>
                 <li>                    
                     <label>비밀번호<br>
                         <input type="password" id="new_pw" size="61" class="input_box"
-                        required>
+                        placeholder=" 비밀번호를 입력하세요" required>
                     </label>
                 </li>
                 <li>
                     <label>비밀번호 확인<br>
                         <input type="password" id="new_ppw" size="61" class="input_box"
-                        required>
+                        placeholder=" 비밀번호를 다시 입력하세요" required>
                     </label>
                 </li>
                 <li>
                     <label>이름<br>
                         <input type="text" id="user_name" size="61" class="input_box"
-                        required>
+                        placeholder=" 이름을 입력하세요" required>
                     </label>
                 </li>
                 <li>
@@ -167,14 +164,14 @@
                 <li>
                     <label>휴대전화번호<br>
                         <input type="tel" id="tel" size="32" class="input_box"
-                        placeholder=" 전화번호 입력"
+                        placeholder=" 전화번호를 입력하세요"
                         required>
                     </label>
                 </li>
                 <li>
                     <label>이메일<br>
                         <input type="email" id="email" size="15"
-                        placeholder="이메일을 입력하세요">
+                        placeholder=" 이메일을 입력하세요">
                     </label>
                     <button type="button" id="btn_secu">인증코드 받기</button>
                 </li>
