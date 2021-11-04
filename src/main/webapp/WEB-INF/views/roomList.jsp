@@ -152,8 +152,8 @@
             <section class="main_list">		
 				<div class="inner">	
 					<div class="list">	 
-						<div class="list_container" id="list_container">					
-							<div class="list_content" id="list_content">	
+						<div class="list_container" id="list_container_main">					
+							<div class="list_content" id="list_content_main">	
 						   		<div class="title">
 						   			<h2>${title}</h2>
 						   			<span class="count">(${pageMaker.total}건)</span>

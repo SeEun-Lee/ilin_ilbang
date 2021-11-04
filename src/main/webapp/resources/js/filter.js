@@ -27,7 +27,7 @@ $(document).ready(function(){
 			data : { filters },
 			success : function(data){
 				closeFilter();
-				$("#list_container").find("#list_content").remove().end().prepend($(data).find("#list_content"));
+				$("#list_container_main").find("#list_content_main").remove().end().prepend($(data).find("#list_content_main"));
 				$(".btn_more").removeClass("filterInactive").addClass("filterActive");
 			},
 			error : function(xhr, status, error){

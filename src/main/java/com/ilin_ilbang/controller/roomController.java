@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +27,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.ilin_ilbang.domain.AttachFileDTO;
 import com.ilin_ilbang.domain.Criteria;
 import com.ilin_ilbang.domain.PageDTO;
+import com.ilin_ilbang.domain.RoomAttachVO;
 import com.ilin_ilbang.domain.likeVO;
 import com.ilin_ilbang.domain.room_infoVO;
 import com.ilin_ilbang.domain.room_optionVO;
@@ -175,17 +179,29 @@ public class roomController{
 		return "roomRegister";
 	}
 	
-	// 방 등록 작업
-	@PostMapping("/register")
-	public String registerPost(room_infoVO room, room_priceVO roomP, room_optionVO roomOP) {
-		
+	// 방 등록 (게시글 등록)
+	@PostMapping("room_register")
+	public String registerPost(room_infoVO room,room_optionVO roomOP,room_priceVO roomP) {
+		log.info("insert : "+room+"OP : "+roomOP+"P : "+roomP);
 		service.register(room); 
 		service.registerOP(roomOP); 
 		service.registerP(roomP);
-//		service.registerRA(roomRA);
-
+		
+		if(room.getAttachList()!=null) {
+			room.getAttachList().forEach(attach->log.info(attach));
+		}
+				
 		return "redirect:/";
 	}
+	
+//	// 방 등록 (첨부파일 등록) 
+//	@GetMapping(value="getAttachList",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+//	@ResponseBody
+//	public ResponseEntity<List<RoomAttachVO>> getAttachList(int rcode){
+//		log.info("getAttachList="+rcode);
+//		return new ResponseEntity<>(service.getAttachList(rcode),HttpStatus.OK);
+//		
+//	}
 	
 	// 찜 클릭시 관심 목록에 추가
 	@ResponseBody
@@ -227,19 +243,27 @@ public class roomController{
 	
 	// 관심목록 출력
 	@RequestMapping(value = "/roomLike", method = RequestMethod.GET)
-	public String roomLike(Model model) {
+	public String roomLike(Model model, Criteria cri) {
 		
 		String mid = "user000"; // 임의 아이디 설정
+
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("mid", mid);
+		map.put("pageNum", cri.getPageNum());
+		map.put("amount", cri.getAmount());
+		
+		int total = service.userLikeCount(mid); // 좋아요 개수 카운트
+		PageDTO pager = new PageDTO(cri, total); // 페이저 생성
 		
 		// 유저가 좋아요한 방이 최소 1개인지 확인
-		boolean isEmpty = service.userLikeCount(mid) < 1;
+		boolean isEmpty = total < 1;
 		if (!isEmpty) { // 최소 1개라면
 			model.addAttribute("mid", mid);
-			model.addAttribute("total", service.userLikeCount(mid));
-			model.addAttribute("list", service.userLikeList(mid));
+			model.addAttribute("pageMaker", pager);
+			model.addAttribute("list", service.userLikeList(map));
 		} else { // 좋아요한 방이 없다면
 			model.addAttribute("title", "아직 찜하신 방이 없네요.");
-			model.addAttribute("total", service.userLikeCount(mid));
+			model.addAttribute("total", total);
 		}
 
 		log.info(model);

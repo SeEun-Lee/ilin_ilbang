@@ -25,8 +25,8 @@ $(document).ready(function(){
 		$(modalDislike).fadeOut(200);
 	}
 	
-	// 페이지 번호를 클릭하면 이동하는 처리
-	$(".paginate_btn a").on("click", function(e){
+	// 메인 리스트 페이징 - 페이지 번호를 클릭하면 이동하는 처리
+	$("#list_content_main .paginate_btn a").on("click", function(e){
 		/*
 		var paginateForm = $("#paginate_form");
 		console.log("click")
@@ -47,90 +47,32 @@ $(document).ready(function(){
 			type : 'get',
 			data : { filters : filters, pageNum : pageNum },
 			success : function(data){
-				$("#list_container").find("#list_content").remove().end().prepend($(data).find("#list_content"));
+				$("#list_container_main").find("#list_content_main").remove().end().prepend($(data).find("#list_content_main"));
 				$(".btn_more").removeClass("filterInactive").addClass("filterActive");
 			},
 			error : function(xhr, status, error){
 				alert("실패")
 			}
 		})
-		
-				
 	});
 		
-	// 찜 버튼 클릭
-	$('.btn_like').on('click', function(e){
-	
+	// 찜목록 리스트 페이징 - 페이지 번호를 클릭하면 이동하는 처리
+	var like_list = $('#list_content_like');
+	$('.paginate_btn a', like_list).on("click", function(e){
 		e.preventDefault();
-		e.stopPropagation();
-	
-		var rcode = $(this).next().text();
-		
-		console.log(rcode);
-	
-		var modal_like = $('.modal_like');
-		var modal_fail = $('.modal_fail');
-	
-		$.ajax({ // like 컨트롤러로 rcode 보냄
-			
-			url : '/like',
-			type : 'post',
-			async: false,
-			dataType : 'text',
-			data : { rcode : rcode },
+		var pageNum = $(this).attr('href');
+		$.ajax({
+			url : '/roomLike',
+			type : 'get',
+			data : { pageNum : pageNum },
 			success : function(data){
-				if (data == "1"){ // 성공 시,
-					modal_like.find('.modal_rcode').text(rcode);
-					modal_like.fadeIn(200);
-				} else { // 이미 추가된 방일 시, 모달창
-					modal_fail.find('.modal_rcode').text(rcode);
-					modal_fail.fadeIn(200);
-				}
-			}, // success 
-			error : function(xhr, status, error){
-					alert("실패")
-			} // error
-		}) // ajax 
-		
-		// Modal - 닫기 버튼
-		$('.modal_close, .modal_btn_2').on("click", function(e){
-			e.preventDefault();
-			closeModal();
-		}) 
-			
-	})
-		
-	
-	// Modal - 관심 취소
-	$('.btn_dislike').on("click", function(e){
-		e.preventDefault();
-		var rcode = $(this).parent().find('.modal_rcode').text();
-		console.log(rcode);
-		
-		$.ajax({ // like 컨트롤러로 rcode 보냄
-			url : '/dislike',
-			type : 'post',
-			async: false,
-			dataType : 'text',
-			data : { rcode : rcode },
-			success : function(data){
-				closeModal();
-				$('.modal_dislike').find('.modal_rcode').text(rcode);
-				$('.modal_dislike').fadeIn(200);
+				$("#list_container_like").find("#list_content_like").remove().end().prepend($(data).find("#list_content_like"));
+				$(".btn_more").removeClass("filterInactive").addClass("filterActive");
 			},
 			error : function(xhr, status, error){
-					alert("실패")
-			} 
-		}) // ajax
-		
-		$('.modal_close, .modal_btn_2').on("click", function(e){
-			e.preventDefault();
-			closeModal();
-			location.reload();
-	})
+				alert("실패")
+			}
+		})
+	});
 	
-	
-	
-})
-
 })

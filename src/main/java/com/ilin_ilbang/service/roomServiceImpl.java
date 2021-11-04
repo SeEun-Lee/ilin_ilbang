@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import com.ilin_ilbang.domain.Criteria;
+import com.ilin_ilbang.domain.RoomAttachVO;
 import com.ilin_ilbang.domain.likeVO;
 import com.ilin_ilbang.domain.room_infoVO;
 import com.ilin_ilbang.domain.room_optionVO;
@@ -67,6 +68,12 @@ public class roomServiceImpl implements roomService {
 		mapper.insertP(roomP);
 	}
 	
+//	@Override // 방 등록 (room_attach)
+//	public List<RoomAttachVO> getAttachList(int rcode) {
+//		log.info("getAttachList........"+rcode);
+//		return attachMapper.findByRcode(rcode);
+//	}
+	
 	@Override // 좋아요 추가
 	public void addLike(likeVO like) {
 		mapper.addLike(like);
@@ -83,8 +90,8 @@ public class roomServiceImpl implements roomService {
 	}
 	
 	@Override // 유저의 좋아요 리스트 출력
-	public List<HashMap<String, String>> userLikeList(String mid){
-		return mapper.userLikeList(mid);
+	public List<HashMap<String, String>> userLikeList(HashMap<String, Object> map){
+		return mapper.userLikeList(map);
 	}
 	
 	@Override // 유저의 좋아요 카운트

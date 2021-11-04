@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.ilin_ilbang.domain.Criteria;
+import com.ilin_ilbang.domain.RoomAttachVO;
 import com.ilin_ilbang.domain.likeVO;
 import com.ilin_ilbang.domain.room_infoVO;
 import com.ilin_ilbang.domain.room_optionVO;
@@ -35,6 +36,9 @@ public interface roomService {
 	// 방 등록 (room_price)
 	public void registerP(room_priceVO roomP);
 	
+//	// 방 등록 (room_attach)
+//	public List<RoomAttachVO> getAttachList(int bno);
+	
 	// 좋아요 추가
 	public void addLike(likeVO like);
 	
@@ -45,7 +49,7 @@ public interface roomService {
 	public void dislike(likeVO like);
 	
 	// 유저의 좋아요 리스트 출력
-	public List<HashMap<String, String>> userLikeList(String mid);
+	public List<HashMap<String, String>> userLikeList(HashMap<String, Object> map);
 	
 	// 유저의 좋아요 카운트 
 	public int userLikeCount(String mid);

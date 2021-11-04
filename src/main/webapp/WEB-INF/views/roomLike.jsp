@@ -23,12 +23,12 @@
                 <div class="now_page"><span>관심목록 > 찜한 방</span></div>
                 <div class="title">
 					<div class="title_text"><span class="mid">${mid}</span>님이 찜하신 방입니다!</div>
-					<span class="title_count">(${total}건)</span>
+					<span class="title_count">(${pageMaker.total}건)</span>
 				</div>
 			</div><!-- .sp1_top -->
 		 </div><!-- .sp1_container -->
-		 <div class="sp1_container sp1_bg2">
-   					<div class="list_content list_content_like" id="list_content">
+		 <div class="sp1_container sp1_bg2" id="list_container_like">
+   					<div class="list_content list_content_like" id="list_content_like">
 						<div class="result" style="display: none;">${result}</div>
 						<div class="isEmpty" style="display: none;">이런 방은 어떠세요?</div>				   		
 						<ul>
@@ -94,6 +94,36 @@
 								</li>
 							</c:forEach>
 						</ul>
+						<div class="list_pager">
+							<ul class="pagination">
+								<c:if test="${pageMaker.prev}">
+									<li class="paginate_btn previous_10p">
+										<a href="${pageMaker.startPage - 1}">이전 10페이지</a>
+									</li>
+								</c:if>
+								<c:if test="${pageMaker.cri.pageNum > 1}">
+									<li class="paginate_btn previous_1p">
+										<a href="${pageMaker.cri.pageNum - 1}">이전 1페이지</a>
+									</li>
+								</c:if>
+								<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+									<li class="paginate_btn pageNum ${pageMaker.cri.pageNum == num ? 'active':''}">
+										<a href="${num}">${num}</a>
+									</li>
+								</c:forEach>
+								<c:if test="${pageMaker.cri.pageNum < pageMaker.endPage}">
+									<li class="paginate_btn next_1p">
+										<a href="${pageMaker.cri.pageNum + 1}">다음 1페이지</a>
+									</li>
+								</c:if>
+								<c:if test="${pageMaker.next}">
+									<li class="paginate_btn next_10p">
+										<a href="${pageMaker.endPage + 1}">다음 10페이지</a>
+									</li>
+								</c:if>
+							</ul>
+						</div><!-- .list_pager -->
+						<script src="${pageContext.request.contextPath}/resources/js/roomList.js"></script>
               		</div><!-- .list_content .list_content_like -->
             </div><!-- .sp1_container -->
             <div class="page2">
@@ -154,5 +184,5 @@
 
 <%@include file="./includes/footer.jsp" %>
 
-<script src="${pageContext.request.contextPath}/resources/js/roomList.js"></script>
+
 <script src="${pageContext.request.contextPath}/resources/js/common.js"></script>

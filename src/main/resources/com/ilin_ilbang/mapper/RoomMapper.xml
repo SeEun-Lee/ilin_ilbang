@@ -255,11 +255,22 @@
 		WHERE rcode = #{rcode} AND mid = #{mid}
 	</delete>
 	
-	<!-- 좋아요 방 출력 -->
-	<select id="userLikeList" resultType="HashMap" parameterType="String">
-		SELECT mid, i.rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
-		FROM member_like l INNER JOIN room_info i ON l.rcode = i.rcode INNER JOIN room_price P ON l.rcode = p.rcode
-		WHERE mid = #{mid}
+	<!-- 좋아요 방 출력 w.paging -->
+	<select id="userLikeList" resultType="HashMap" parameterType="HashMap">
+		SELECT rownum, mid, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
+		from (
+			SELECT @rownum:=@rownum+1 as rownum
+			       , ml.rcode, ml.mid, i.rtype, i.addr, i.rcmt, i.regdate
+			       , p.dep, p.mrent, p.yrent, i.elev, i.park, i.pet
+			FROM member_like ml 
+			INNER JOIN (SELECT @rownum:=0) tmp
+			INNER JOIN room_info i ON ml.rcode=i.rcode
+			INNER JOIN room_price p ON ml.rcode=p.rcode
+			ORDER BY ml.addDate desc
+		       ) as userLikeList	
+		WHERE 
+		<![CDATA[rownum > (#{pageNum} - 1) * #{amount} AND rownum <= #{pageNum} * #{amount}]]>
+		AND mid = #{mid}
 	</select>
 	
 	<!-- 좋아요 방 카운트 -->
