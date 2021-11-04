@@ -252,7 +252,13 @@
 	<!-- 좋아요 삭제 -->
 	<delete id="dislike">
 		DELETE FROM member_like
-		WHERE rcode = #{rcode} AND mid = #{mid}
+		WHERE mid = #{mid} AND
+			  <trim prefix = "(" suffix =")"> 
+			  		rcode in
+					<foreach collection="rcode" open="(" close=")" separator=", " item="item">
+						#{item}
+					</foreach>
+			  </trim> 
 	</delete>
 	
 	<!-- 좋아요 방 출력 w.paging -->

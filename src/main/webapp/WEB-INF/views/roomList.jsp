@@ -111,6 +111,7 @@
 	                                            <input type="checkbox" name="filter" value="mrent3">
 	                                            <span class="checkmark"></span>
 	                                            <span class="name">60만원 이상</span>
+	                                        </label>
 	                                </ul>
 	                            </li>
 	                            <li>
@@ -315,7 +316,7 @@
 	<script src="${pageContext.request.contextPath}/resources/js/filter.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/map.js"></script>
-
+	<script src="${pageContext.request.contextPath}/resources/js/roomLike.js"></script>
 	<script>
 	
 		// 지도로 보낼 json 데이터

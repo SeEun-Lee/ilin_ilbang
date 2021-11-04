@@ -229,14 +229,22 @@ public class roomController{
 	// 관심목록 취소
 	@ResponseBody
 	@PostMapping("/dislike")
-	public String dislike(likeVO like, @RequestParam(value="rcode") int rcode) {
+	public String dislike(String mid, @RequestParam(value="rcodeArr[]") List<String> rcodeArr) {
+		mid = "user000"; // 임의 아이디 설정
+		System.out.println(rcodeArr);
 		
-		log.info("dislike");
-		like.setMid("user000");
-		like.setRcode(rcode);
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("mid", mid);
+		map.put("rcode", rcodeArr);
+		
 		String result = "";
-		service.dislike(like);
-		
+		if (rcodeArr.size() != 0) { // 삭제할 글이 있고
+			service.dislike(map); // 삭제를 하면
+			result = "1"; // 1을 반환한다
+		} else { // 삭제할 글이 없으면
+			result = "0"; // 0을 반환한다
+		}
+		System.out.println(result);
 		return result;
 	}
 	

@@ -16,6 +16,7 @@ $(document).ready(function(){
 		$(modalLike).fadeOut(200);
 		$(modalFail).fadeOut(200);
 		$(modalDislike).fadeOut(200);
+		$('.modal_dislike_mul').fadeOut(200);
 	}
 	
 	// 찜 버튼 클릭
@@ -64,7 +65,10 @@ $(document).ready(function(){
 	// Modal - 관심 취소
 	$('.btn_dislike').on("click", function(e){
 		e.preventDefault();
+		
+		var rcodeArr = []; 
 		var rcode = $(this).parent().find('.modal_rcode').text();
+		rcodeArr.push(rcode);
 		console.log(rcode);
 		
 		$.ajax({ // like 컨트롤러로 rcode 보냄
@@ -72,7 +76,7 @@ $(document).ready(function(){
 			type : 'post',
 			async: false,
 			dataType : 'text',
-			data : { rcode : rcode },
+			data : { rcodeArr : rcodeArr },
 			success : function(data){
 				closeModal();
 				$('.modal_dislike').find('.modal_rcode').text(rcode);
@@ -87,10 +91,45 @@ $(document).ready(function(){
 			e.preventDefault();
 			closeModal();
 			location.reload();
-	})
+		}) // 모달창 닫기	
+	}) // end function 관심 취소
 	
+	var like_list = $('#list_content_like');
+	$('.ck_container', like_list).on('click', function(e){
+		console.log('체크박스 click')
+		e.stopPropagation();
+	});
 	
-	
-})
+	// 선택한 방 삭제하기
+	$('.btn_delete').on('click', function(e){
+		e.preventDefault();
+		var rcodeArr = []; 
+		// 체크된 방의 rcode를 배열에 담는다
+		$('input:checkbox[name=selected]:checked').each(function(){
+			rcodeArr.push($(this).val());
+		})
+		console.log(rcodeArr);
+		$.ajax({
+			url : '/dislike',
+			type : 'post',
+			async : false,
+			data : { rcodeArr : rcodeArr },
+			success : function(data){
+				if (data == "1"){ // 성공적으로 삭제를 하면
+					$('.modal_dislike_mul').fadeIn(200);
+				} else {
+					alert("삭제할 방이 없음")
+				}
+			},
+			error : function(xhr, status, error){
+				alert("실패")
+			}
+		}) // end ajax
+		$('.modal_dislike_mul .modal_close, .modal_dislike_mul .modal_btn_2').on("click", function(e){
+			e.preventDefault();
+			closeModal();
+			location.reload();
+		}) // 모달창 닫기	
+	}); // end function 
 
 })

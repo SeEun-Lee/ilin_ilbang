@@ -85,8 +85,8 @@ public class roomServiceImpl implements roomService {
 	}
 	
 	@Override // 좋아요 취소 
-	public void dislike(likeVO like) {
-		mapper.dislike(like);
+	public void dislike(HashMap<String, Object> map) {
+		mapper.dislike(map);
 	}
 	
 	@Override // 유저의 좋아요 리스트 출력

@@ -30,15 +30,22 @@
 		 <div class="sp1_container sp1_bg2" id="list_container_like">
    					<div class="list_content list_content_like" id="list_content_like">
 						<div class="result" style="display: none;">${result}</div>
-						<div class="isEmpty" style="display: none;">이런 방은 어떠세요?</div>				   		
+						<div class="isEmpty" style="display: none;">이런 방은 어떠세요?</div>	
+						<div><a class="btn_delete">선택 삭제</a></div>			   		
 						<ul>
 							<c:forEach items="${list}" var="room">
 								<li class="room">
 									<a class="room_detail" href="javascript:void(0);"
-									   onclick='window.open("Info/<c:out value='${room.rcode}'/>", "_blank", "width=600px", "height=500px")'>
+									   onclick='window.open("/<c:out value='${room.rcode}'/>", "_blank", "width=600px", "height=500px")'>
 										<div class="room_card">
 					        				<div class="card_box">
 					        					<img class="room_img" src="../resources/img/room_ex.png" alt="">
+					        					<div class="ck_box">
+					        						<label class="ck_container">
+						        						<input type="checkbox" name="selected" value="${room.rcode}">
+						        						<span class="checkmark"></span>
+					        						</label>
+					        					</div>
 					        					<div>
 					        						<a class="btn_like">찜!</a>
 					        						<span style="display:none;">${room.rcode}</span>
@@ -180,9 +187,19 @@
 	 		</div>
 	 		<div class="modal_close">창 닫기</div>
 	 </div><!-- .modal_dislike -->
+	 
+	 <!-- 관심목록 여러개 삭제 모달창입니다 -->
+	  <div class="modal_dislike modal_dislike_mul">
+	 		<div class="modal_text">
+	 			선택된 방이 삭제되었습니다.
+	 		</div>
+	 		<div class="modal_btn_box">
+	 			<a class="modal_btn_2">확인</a>
+	 		</div>
+	 		<div class="modal_close">창 닫기</div>
+	 </div><!-- .modal_dislike -->
 </body>
+<script src="${pageContext.request.contextPath}/resources/js/roomLike.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 
 <%@include file="./includes/footer.jsp" %>
-
-
-<script src="${pageContext.request.contextPath}/resources/js/common.js"></script>

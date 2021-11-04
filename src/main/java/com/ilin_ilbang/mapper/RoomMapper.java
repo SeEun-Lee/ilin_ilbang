@@ -43,7 +43,7 @@ public interface RoomMapper {
 	public int addLikeCount(likeVO like);
 	
 	// 좋아요 취소 
-	public void dislike(likeVO like);
+	public void dislike(HashMap<String, Object> map);
 	
 	// 유저의 좋아요 목록 출력
 	public List<HashMap<String, String>> userLikeList(HashMap<String, Object> map);
