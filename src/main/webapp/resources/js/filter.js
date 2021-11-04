@@ -22,7 +22,7 @@ $(document).ready(function(){
 		});
 		
 		$.ajax({
-			url : '/list',
+			url : '/',
 			type : 'get',
 			data : { filters },
 			success : function(data){

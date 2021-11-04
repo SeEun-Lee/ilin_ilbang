@@ -16,7 +16,7 @@
             <div class="sp1_top">
                 <div class="sp1_menu">
                     <ul>
-                        <li class="sm_title1, on"><a href="/roomLike/recent">찜한 방</a></li>
+                        <li class="sm_title1, on"><a href="/roomLike">찜한 방</a></li>
                         <li class="sm_title2"><a href="" class="like">최근 본 방</a></li>
                     </ul>
                 </div><!-- .sp1_menu -->
@@ -35,7 +35,7 @@
 							<c:forEach items="${list}" var="room">
 								<li class="room">
 									<a class="room_detail" href="javascript:void(0);"
-									   onclick='window.open("/<c:out value='${room.rcode}'/>", "_blank", "width=600px", "height=500px")'>
+									   onclick='window.open("Info/<c:out value='${room.rcode}'/>", "_blank", "width=600px", "height=500px")'>
 										<div class="room_card">
 					        				<div class="card_box">
 					        					<img class="room_img" src="../resources/img/room_ex.png" alt="">
@@ -115,8 +115,44 @@
             </div><!-- .page2 -->
         </div>
     </section><!-- #sub_page1 -->
+      <!-- 찜 버튼 클릭시 모달창 입니다 -->
+	 <div class="modal_like">
+			<div class="modal_text">
+				<span class='modal_rcode'></span> 번 방이 관심 목록에 추가되었습니다.<br> 찜 목록으로 이동하시겠어요?
+			</div>
+			<div class="modal_btn_box">
+				<a href="/roomLike" class="modal_btn_1">관심목록으로 이동</a>
+				<a class="modal_btn_2">아니요, 더 둘러볼게요.</a>
+			</div>
+			<div class="modal_close">창 닫기</div>
+	 </div> <!-- .modal_like -->
+	 
+	 <!-- 이미 관심목록에 추가된 방일 시 모달창입니다 -->
+	 <div class="modal_fail">
+	 		<div class="modal_text">
+	 			이미 관심목록에 추가된 방입니다!<br>관심 목록에서 삭제하시겠습니까?
+	 		</div>
+	 		<div class="modal_btn_box">
+	 			<span class='modal_rcode' style="display:none;"></span>
+	 			<a class="modal_btn_1 btn_dislike">삭제</a>
+	 			<a class="modal_btn_2">취소</a>
+	 		</div>
+	 		<div class="modal_close">창 닫기</div>
+	 </div><!-- .modal_fail -->
+	 
+	 <!-- 관심목록 삭제 모달창입니다 -->
+	  <div class="modal_dislike">
+	 		<div class="modal_text">
+	 			<span class='modal_rcode'></span> 번 방이 관심 목록에서 삭제되었습니다.
+	 		</div>
+	 		<div class="modal_btn_box">
+	 			<a class="modal_btn_2">확인</a>
+	 		</div>
+	 		<div class="modal_close">창 닫기</div>
+	 </div><!-- .modal_dislike -->
 </body>
 
 <%@include file="./includes/footer.jsp" %>
 
+<script src="${pageContext.request.contextPath}/resources/js/roomList.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/common.js"></script>

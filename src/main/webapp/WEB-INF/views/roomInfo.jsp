@@ -83,10 +83,10 @@
                				<span>${Info.dep}</span>
                				<span>/</span>
                				<c:choose>
-               					<c:when test="${Info.dtype=='M'}">
+               					<c:when test="${Info.dtype=='m'}">
                						<span>${Info.mrent}</span>
                					</c:when>
-               					<c:when test="${Info.dtype=='Y'}">
+               					<c:when test="${Info.dtype=='y'}">
                						<span>${Info.yrent}</span>
                					</c:when>
                				</c:choose>
@@ -125,7 +125,22 @@
                				</c:choose>
 						</td>
                			<td class="td_name"><span>방향</span></td>
-               			<td class="td_value">${Info.rface}</td>
+               			<td class="td_value">
+               			     <c:choose>
+               					<c:when test="${Info.rface=='e'}">
+               						<span>동향</span>
+               					</c:when>
+               					<c:when test="${Info.rface=='w'}">
+               						<span>서향</span>
+               					</c:when>
+               					<c:when test="${Info.rface=='s'}">
+               						<span>남향</span>
+               					</c:when>
+               					<c:when test="${Info.rface=='n'}">
+               						<span>북향</span>
+               					</c:when>
+               				</c:choose>
+               			</td>
                		</tr>
                		<tr>
                			<td class="td_name"><span>주차</span></td>
@@ -267,7 +282,7 @@
                 <form action="">
                     <h2 class="ms4_title">담당자 코멘트</h2>
                     <div class="ms4_memo">
-                        ${Info.rcmt}
+                        ${Info.rcont}
                     </div>
                 </form>
             </div><!-- ms_contant4 -->

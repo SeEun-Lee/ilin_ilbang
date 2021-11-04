@@ -21,38 +21,39 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ilin_ilbang.domain.AttachFileDTO;
 import com.ilin_ilbang.domain.Criteria;
 import com.ilin_ilbang.domain.PageDTO;
 import com.ilin_ilbang.domain.likeVO;
+import com.ilin_ilbang.domain.room_infoVO;
+import com.ilin_ilbang.domain.room_optionVO;
+import com.ilin_ilbang.domain.room_priceVO;
 import com.ilin_ilbang.service.roomService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping(value="/")
+// @RequestMapping(value="/")
 @AllArgsConstructor
 public class roomController{
 	
 	private roomService service;
 	
 	// 전체 리스트
-	@GetMapping(value="/list")
+	@GetMapping(value="/")
 	public String list(@RequestParam(value="filters[]", required=false) List<String> filters,
 					   Criteria cri, Model model) {
-
-		int total = service.getTotalCount(cri);
 		
-		if (filters == null) { // 적용된 필터가 없으면 (초기화면)
-							   // 전체 목록을 출력
-			
+		if (filters == null) { // 적용된 필터가 없으면 전체 목록을 출력
 			log.info("전체 목록 출력");
-			model.addAttribute("list", service.getListOfAll(cri)); // 전체 리스트 구하기 
-			model.addAttribute("title", "현재 등록된 매물이에요"); // 타이틀 추가
-			model.addAttribute("total", total); 
+			int total = service.getTotalCount(cri);
+			PageDTO pager = new PageDTO(cri, total);
+			model.addAttribute("title", "현재 등록된 매물이에요");
+			model.addAttribute("list", service.getListOfAll(cri));
+			model.addAttribute("pageMaker", pager);
 			
-		} else { // 적용된 필터가 있으면
-			
+		} else { // 적용된 필터가 있으면 getListByFilter로 결과 목록 출력
 			log.info("filters : " + filters);
 			
 			// filterArr : List<> filters를 String[]으로
@@ -68,7 +69,7 @@ public class roomController{
 			List<String> list = new ArrayList<>();
 			
 			// DB에 보낼 HashMap
-			HashMap<String, List<String>> filterMap = new HashMap<>();
+			HashMap<String, Object> filterMap = new HashMap<>();
 			List<String> rtype = new ArrayList<>();
 			List<String> btype = new ArrayList<>();
 			List<String> dep = new ArrayList<>();
@@ -134,22 +135,23 @@ public class roomController{
 			filterMap.put("btype", btype);
 			filterMap.put("dep", dep);
 			filterMap.put("mrent", mrent);
-			filterMap.put("option", option);		
+			filterMap.put("option", option);
+			filterMap.put("pageNum", cri.getPageNum());
+			filterMap.put("amount", cri.getAmount());
+
+			int total = service.getFilterListCount(filterMap);
+			PageDTO pager = new PageDTO(cri, total);
 			
 			model.addAttribute("title", "검색 결과"); 
-			model.addAttribute("total", service.getFilterListCount(filterMap));
+			model.addAttribute("pageMaker", pager);
 			
-			if (service.getFilterListCount(filterMap) == 0) { // 필터 적용 시 결과 count가 0일 경우 
-				
+			if (service.getFilterListCount(filterMap) == 0) { // 결과 count가 0일 경우 
 				model.addAttribute("result", "검색결과 없음");
-				
-			} else { // 필터 적용 시 결과 count가 0이 아닐 경우 
-				
-				model.addAttribute("list", service.getListByFilter(filterMap));
-				
+			} else { // 결과 count가 0이 아닐 경우 	
+				model.addAttribute("list", service.getListByFilter(filterMap));	
 			}
 		}
-
+		log.info(model);
 		return "roomList";		
 	}
 	
@@ -166,32 +168,60 @@ public class roomController{
 		return mav;
 	}
 	
+	// 방 등록 페이지 
+	@GetMapping("/register")
+	public String register() {
+		log.info("room_register");
+		return "roomRegister";
+	}
+	
+	// 방 등록 작업
+	@PostMapping("/register")
+	public String registerPost(room_infoVO room, room_priceVO roomP, room_optionVO roomOP) {
+		
+		service.register(room); 
+		service.registerOP(roomOP); 
+		service.registerP(roomP);
+//		service.registerRA(roomRA);
+
+		return "redirect:/";
+	}
 	
 	// 찜 클릭시 관심 목록에 추가
 	@ResponseBody
 	@PostMapping("/like")
-	public int addLike(likeVO like, @RequestParam(value="rcode") int rcode){
-		
-		log.info("like 컨트롤러 실행");
-		log.info(rcode);
+	public String addLike(likeVO like, @RequestParam(value="rcode") int rcode){
 		
 		like.setMid("user000");	// 임의 아이디 설정
 		like.setRcode(rcode);
-		log.info(like);
-		
-		int result;
+		String result;
 		
 		// 이미 추가한 방인지 확인
 		boolean isLiked = service.addLikeCount(like) > 0;
 		if (!isLiked) { // 이미 추가된 방이 아니라면
 			service.addLike(like); 
-			result = 1; // 1을 반환 
+			result = "1"; // 1을 반환 
 		} else { // 이미 추가된 방이라면
-			result = 0; // 0을 반환
+			result = "0"; // 0을 반환
 		}
 		
+		log.info(result);
 		return result; // 0 OR 1을 return함
 		
+	}
+	
+	// 관심목록 취소
+	@ResponseBody
+	@PostMapping("/dislike")
+	public String dislike(likeVO like, @RequestParam(value="rcode") int rcode) {
+		
+		log.info("dislike");
+		like.setMid("user000");
+		like.setRcode(rcode);
+		String result = "";
+		service.dislike(like);
+		
+		return result;
 	}
 	
 	

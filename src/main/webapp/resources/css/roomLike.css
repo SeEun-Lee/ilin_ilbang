@@ -10,8 +10,9 @@
 	background-color: rgba(238, 238, 238, 0.7);
 }
 #roomLike .sp1_bg2{
-	width: 100%;
-	background-color: rgba(238, 238, 238, 0.1);
+	width: 1200px;
+	margin: 0 auto;
+	background-color: rgba(238, 238, 238, 0.4);
 }
 
 #roomLike .sp1_top{

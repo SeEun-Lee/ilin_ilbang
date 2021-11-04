@@ -1,5 +1,8 @@
 package com.ilin_ilbang.domain;
 
+import java.util.HashMap;
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,7 +16,7 @@ public class Criteria {
 	private int amount;
 	
 	public Criteria() {
-		this(1, 20);
+		this(1, 6);
 	}
 	
 	public Criteria(int pageNum, int amount) {

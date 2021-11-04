@@ -13,6 +13,7 @@
     margin: 0 auto;
     padding: 30px 0 100px 0;
     position: relative;
+    min-height: 908px;
 }
 
 .main_list h2{
@@ -56,6 +57,7 @@
 .list_content > ul{
     display: flex;
     flex-wrap: wrap;
+    min-height: 660px;
 }
 
 .list_content > ul > li {
@@ -236,9 +238,82 @@
 	margin-top: 80px;
 }
 
+/* 페이저 CSS */
+
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li{
+    position: relative;
+}
+
+.pagination li a{
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-color: #cfdbe9;
+    margin-left: 10px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.1s;
+}
+
+.pagination li.pageNum a:hover{
+    background-color: #205162;
+    color: #fff;
+}
+
+.pagination .active a{
+    background-color: #205162;
+    color: #fff;
+}
+
+
+.pagination .previous_10p a, .pagination .previous_1p a, .pagination .next_10p a, .pagination .next_1p a{
+    width: 18px;
+    height: 25px;
+    padding: 0 5px;
+    text-indent: -99999px;
+    background-color: transparent;
+    /* background-color: tomato; */
+}
+
+.pagination .previous_10p a{margin-left: 0;}
+.pagination .previous_1p a{margin-left: 1px;}
+.pagination .next_10p a{margin-left: 1px;}
+
+.pagination .previous_10p a:before, .pagination .previous_10p a:after, .pagination .next_10p a:before, .pagination .next_10p a:after
+, .pagination .previous_1p a:after, .pagination .next_1p a:after{
+    content: "";
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #666;
+    border-right: 2px solid #666;
+    margin-top: 7px;
+    position: absolute;
+    top: 1px;
+}
+
+.pagination .previous_10p a:before, .pagination .previous_10p a:after, .pagination .previous_1p a:after{transform: rotate(-135deg);}
+.pagination .next_10p a:before, .pagination .next_10p a:after, .pagination .next_1p a:after{transform: rotate(45deg);}
+.pagination .previous_10p a:before{left: 4px;}
+.pagination .previous_10p a:after{left: 9px;}
+.pagination .previous_1p a:after{left: 7px;}
+.pagination .next_10p a:before{right: 4px;}
+.pagination .next_10p a:after{right: 9px;}
+.pagination .next_1p a:after{right: 6px;}
+
+
 /* 모달창 CSS */
 
-.modal_like, .modal_fail{
+.modal_like, .modal_fail, .modal_dislike{
+	height: 150px;
 	width: 350px;
     height: 150px;
     border: 1px solid #ccc;
@@ -255,13 +330,10 @@
     display: none;
 }
 
-.modal_like{
-	height: 150px;
+.modal_dislike{
+	padding-top: 40px;
 }
 
-.modal_fail{
-	height: 130px;
-}
 
 .modal_text{
     font-size: 15px;
@@ -279,6 +351,7 @@
     margin: 0 auto;
     padding: 17px 30px 0 30px;
 }
+
 
 .modal_btn_box > a {
 	display: block;
@@ -308,8 +381,12 @@
     color: #fff;
 }
 
-.modal_fail .modal_btn_2{
-	width: 100px;
+.modal_fail .modal_btn_box > a {
+	width: 40%;
+}
+
+.modal_dislike .modal_btn_box > a {
+	width: 80%;
 }
 
 .modal_close{
