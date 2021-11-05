@@ -16,4 +16,13 @@ select * from member_info
 	values ( #{mid},#{mpw},#{mname},#{mbirth},#{mgender},#{maddr},#{mtel},#{memail})
 </insert>
 
+<!-- 
+<insert id="insertSelectKey">
+	<selectKey keyProperty="mid" order="BEFORE" resultType="String">
+		select seq_board.nextval from dual
+	</selectKey>
+	insert into member_info(mid,mpw,mname,mbirth,mgender,maddr,mtel,memail)
+	values ( #{mid},#{mpw},#{mname},#{mbirth},#{mgender},#{maddr},#{mtel},#{memail})
+</insert>
+ -->
 </mapper>

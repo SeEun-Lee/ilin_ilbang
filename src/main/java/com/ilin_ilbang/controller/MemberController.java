@@ -16,30 +16,36 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/member/*")
+@RequestMapping("/member")
 @AllArgsConstructor
 public class MemberController {
 	
 	private MemberService service;
+
+	@PostMapping("/login")
+	public String get(MemberVO member, RedirectAttributes rttr) {
+		
+		log.info("login: " + member);
+		
+		if (service.login(member)) {
+			rttr.addAttribute("result", "success");
+		}
+		
+		return "redirect:/";
+	}
 	
-	@PostMapping("/register")
+	@PostMapping("/member_join")
 	public String register(MemberVO member, RedirectAttributes rttr) {
 		
-		log.info("register: " + member);
+		log.info("join: " + member);
 		
 		service.register(member);
 		rttr.addFlashAttribute("result", member.getMid());
 		
 		return "redirect:/member/login";
 	}
-	@GetMapping("/get")
-	public void get(@RequestParam("mid") String mid, Model model) {
-		
-		log.info("/get");
-		
-		model.addAttribute("member", service.get(mid));
-	}
-	@PostMapping("/modify")
+	
+	@PostMapping("/member_modify")
 	public String modify(MemberVO member, RedirectAttributes rttr) {
 		
 		log.info("modify: " + member);
@@ -50,15 +56,39 @@ public class MemberController {
 		
 		return "redirect:/member/login";
 	}
-	@PostMapping("/remove")
-	public String remove(@RequestParam("mid") String mid, RedirectAttributes rttr) {
+
+	@PostMapping("/find_id")
+public String find_id(MemberVO member, RedirectAttributes rttr) {
 		
-		log.info("remove... " + mid);
+		log.info("find id: " + member);
 		
-		if (service.remove(mid)) {
-			rttr.addFlashAttribute("result", "success");
+		if (service.find_id(member) != null) {
+			rttr.addAttribute("result", "success");
 		}
 		
 		return "redirect:/member/login";
+	}
+
+	@PostMapping("/find_pw")
+	public String find_pw(MemberVO member, RedirectAttributes rttr) {
+		
+		log.info("find password: " + member);
+		
+		if (service.find_pw(member) != null) {
+			rttr.addAttribute("result", "success");
+		}
+		
+		return "redirect:/member/login";
+	}
+	
+	@PostMapping("/quit")
+	public String remove(@RequestParam("mid") String mid,
+			RedirectAttributes rttr) {
+		
+		log.info("remove...." + mid);
+		if (service.remove(mid)) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		return "redirect:/";
 	}
 }

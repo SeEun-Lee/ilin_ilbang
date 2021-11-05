@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+    <meta name="viewport" content="width-device-width", initial-scale="1">
     <title>로그인</title>
     <style>
         *{
@@ -54,13 +55,13 @@
             padding: 17px 30px;
             float: right;
         }
-        .sub{
+        .btn{
             padding: 20px 207px;
         }
         #new_id[placeholder]{
             text-align: right;
         }
-        .btn{
+        .btn-list{
             display: flex;
             justify-content: space-between;
         }
@@ -80,22 +81,22 @@
         <h1 class="h_logo"><a href="index.jsp">1인1방</a></h1>
         <form action="jdbc:log4jdbc:mysql://127.0.0.1:3306/oneroom?serverTimezone=Asia/Seoul" method="post">
             <ul>
-                <li>
+                <li class ="form-group">
                     <label>아이디<br>
-                        <input type="text" id="mid" size="61"
-                        required>
+                        <input type="text" id="mid" class="form-control" name="mid" maxlength="20"
+                        placeholder="아이디" required>
                     </label>
                 </li>
-                <li>                    
+                <li class ="form-group">                    
                     <label>비밀번호<br>
-                        <input type="password" id="mpw" size="61"
-                        required>
+                        <input type="password" id="mpw" class="form-control" name="mpw" maxlength="20"
+                        placeholder="비밀번호" required>
                     </label>
                 </li>
                 <li>
-                    <button type="submit" class="sub">로그인</button>
+                    <button type="submit" class="btn btn-primary form-control">로그인</button>
                 </li>
-                <li class="btn">
+                <li class="btn-list">
                     <a href="/member/find_id"> <span class="find"> 아이디 찾기 </span></a>
                     <a href="/member/find_pw"> <span class="find"> 비밀번호 찾기 </span></a>
                     <a href="/member/member_join" class=btn1> <span class="join"> 회원가입 </span></a>
@@ -103,6 +104,7 @@
             </ul>
         </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </body>
 
 </html>

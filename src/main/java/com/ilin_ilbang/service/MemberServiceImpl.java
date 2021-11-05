@@ -20,32 +20,63 @@ public class MemberServiceImpl implements MemberService{
 	private MemberMapper mapper;
 
 	@Override
-	public void register(MemberVO member) {
-		// TODO Auto-generated method stub
+	public boolean login(MemberVO member) {
 		
+		log.info("login......" + member);
+		mapper.insertSelectKey(member);
+		return mapper.login(member);
+	}
+
+
+	@Override
+	public void register(MemberVO member) {
+		
+		log.info("register......");
+		mapper.register(member);
 	}
 
 	@Override
-	public MemberVO get(String mid) {
-		// TODO Auto-generated method stub
-		return null;
+	public String find_id(MemberVO member) {
+		
+		log.info("find_id......");
+		return mapper.find_id(member);
+	}
+
+	@Override
+	public String find_pw(MemberVO member) {
+		
+		log.info("find_pw......");
+		return mapper.find_pw(member);
 	}
 
 	@Override
 	public boolean modify(MemberVO member) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		log.info("modify......");
+		return mapper.update(member) == 1;
 	}
 
 	@Override
 	public boolean remove(String mid) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		log.info("remove......");
+		return mapper.delete(mid) == 1;
 	}
+
 
 	@Override
 	public List<MemberVO> getList() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		log.info("getList......");
+		return mapper.getList();
 	}
+
+
+	@Override
+	public MemberVO get(String mid) {
+
+		return mapper.read(mid);
+	}
+
+
 }
