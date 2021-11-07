@@ -5,9 +5,16 @@ import com.ilin_ilbang.domain.MemberVO;
 
 public interface MemberService {
 	
-	public MemberVO get(String mid);
+	public void get(MemberVO member);
+	public void get0(MemberVO member);
+	public void get1(MemberVO member);
+	public void get2(MemberVO member);
+	public void get3(MemberVO member);
+	public void get4(MemberVO member);
+	public void get5(MemberVO member);
 	
-	public boolean login(MemberVO member);
+	
+	public int login(MemberVO member);
 	
 	public void register(MemberVO member);
 	
@@ -18,8 +25,6 @@ public interface MemberService {
 	public String find_pw(MemberVO member);
 	
 	public boolean remove(String mid);
-	
-	public List<MemberVO> getList();
 
 
 	

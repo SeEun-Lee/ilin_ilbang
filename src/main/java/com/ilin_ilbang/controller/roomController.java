@@ -32,23 +32,7 @@ public class roomController{
 	public String list(Criteria cri, Model model) {
 		log.info("list");
 		model.addAttribute("list", service.getListOfAll());
-		return "index";
-	}
-	@GetMapping("/member/login")
-	public void login() {
-		log.info("login");
-	}
-	@GetMapping("/member/member_join")
-	public void join() {
-		log.info("member_join");
-	}
-	@GetMapping("/member/find_id")
-	public void find_id() {
-		log.info("find_id");
-	}
-	@GetMapping("/member/find_pw")
-	public void find_pw() {
-		log.info("find_pw");
+		return "/index";
 	}
 	
 	// 필터적용 버튼 클릭 시 결과 리스트 Controller

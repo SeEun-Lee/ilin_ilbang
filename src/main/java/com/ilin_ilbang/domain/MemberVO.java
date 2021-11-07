@@ -22,6 +22,17 @@ public class MemberVO {
 	//이메일
 	private String memail;
 	
+	
+	@Override
+	public String toString() {
+		return "MemberVO [mid=" + mid + ", mpw=" + mpw + ", mname=" + mname + ", mbirth=" + mbirth + ", mgender="
+				+ mgender + ", maddr=" + maddr + ", mtel=" + mtel + ", memail=" + memail + ", getMid()=" + getMid()
+				+ ", getMpw()=" + getMpw() + ", getMname()=" + getMname() + ", getMbirth()=" + getMbirth()
+				+ ", getMgender()=" + getMgender() + ", getMaddr()=" + getMaddr() + ", getMtel()=" + getMtel()
+				+ ", getMemail()=" + getMemail() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+	
 	public String getMid() {
 		return mid;
 	}

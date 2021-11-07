@@ -19,11 +19,11 @@ public class MemberServiceImpl implements MemberService{
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
 
+
 	@Override
-	public boolean login(MemberVO member) {
+	public int login(MemberVO member) {
 		
 		log.info("login......" + member);
-		mapper.insertSelectKey(member);
 		return mapper.login(member);
 	}
 
@@ -63,20 +63,13 @@ public class MemberServiceImpl implements MemberService{
 		return mapper.delete(mid) == 1;
 	}
 
-
 	@Override
-	public List<MemberVO> getList() {
-		
-		log.info("getList......");
-		return mapper.getList();
+	public void get(MemberVO member) {
+
+		log.info("get......");
 	}
 
 
-	@Override
-	public MemberVO get(String mid) {
-
-		return mapper.read(mid);
-	}
 
 
 }

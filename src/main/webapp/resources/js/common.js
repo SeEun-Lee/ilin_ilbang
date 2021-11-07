@@ -1,13 +1,17 @@
-/* 공통화면 (헤더&푸터) 자바스크립트  */
+/* nav 메뉴 스크립트 입니다 */
 
 $(document).ready(function(){
-    
-    // nav 메뉴 클릭 시 이벤트
-    $header = $('#header');
-    $nav = $('#nav', $header);
-    $('.gnb > li > a', $nav).on('click', function(){
-        $('.gnb > li > a', $nav).removeClass('active');
-        $(this).addClass('active');
-        return false;
-    })
+	
+	var pathname = $(location).attr('pathname');
+	if (pathname == "/list"){
+		$('.gnb > li > a').removeClass('active');
+		$('.gnb').find('.list').addClass('active');
+	} else if (pathname == "/roomLike"){
+		$('.gnb > li > a').removeClass('active');
+		$('.gnb').find('.roomLike').addClass('active');
+	} else if (pathname == "/sub/room_register"){
+		$('.gnb > li > a').removeClass('active');
+		$('.gnb').find('.room_register').addClass('active');
+	}
+	
 })

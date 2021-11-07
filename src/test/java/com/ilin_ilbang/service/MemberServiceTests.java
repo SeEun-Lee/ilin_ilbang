@@ -53,25 +53,25 @@ public class MemberServiceTests {
 //		
 //		log.info(service.get("newbie3"));
 //	}
-	
-	@Test
-	public void testDelete() {
-		// 회원정보의 존재여부를 확인하고 테스트할 것
-		log.info("REMOVE RESULT: " + service.remove("newbie4"));
-	}
-	
-	@Test
-	public void testUpdate() {
-		
-		MemberVO member = service.get("newbie5");
-		
-		if (member == null) {
-			return;
-		}
-		
-		member.setMname("이름 수정합니다");
-		log.info("MODIFY RESULT: " + service.modify(member));
-	}
+//	
+//	@Test
+//	public void testDelete() {
+//		// 회원정보의 존재여부를 확인하고 테스트할 것
+//		log.info("REMOVE RESULT: " + service.remove("newbie4"));
+//	}
+//	
+//	@Test
+//	public void testUpdate() {
+//		
+//		MemberVO member = service.get("newbie5");
+//		
+//		if (member == null) {
+//			return;
+//		}
+//		
+//		member.setMname("이름 수정합니다");
+//		log.info("MODIFY RESULT: " + service.modify(member));
+//	}
 }
 
 

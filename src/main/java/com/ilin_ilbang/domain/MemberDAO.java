@@ -13,7 +13,7 @@ public class MemberDAO {
 	
 	public MemberDAO() {
 		try {
-			String dbURL = "jdbc:log4jdbc:mysql://127.0.0.1:3306/oneroom?serverTimezone=Asia/Seoul";
+			String dbURL = "jdbc:mysql://localhost:3306/oneroom?characterEncoding=UTF-8&serverTimezone=Asia/Seoul";
 			String dbID = "root";
 			String dbPassword = "1111";
 			Class.forName("com.mysql.jdbc.Driver");
@@ -24,8 +24,14 @@ public class MemberDAO {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		return "MemberDAO [conn=" + conn + ", pstmt=" + pstmt + ", rs=" + rs + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+
 	public int login(String mid, String mpw) {
-		String SQL = "SELECT mpw FROM USER WHERE mid = ?";
+		String SQL = "SELECT mpw FROM member_info WHERE mid = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, mid);
@@ -42,5 +48,39 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 		return -2; // 데이터베이스 오류
+	}
+	
+	public int join(MemberVO member) {
+		String SQL = "INSERT INTO USER VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt = setString(1, member.getMid());
+			pstmt = setString(2, member.getMpw());
+			pstmt = setString(3, member.getMname());
+			pstmt = setString(4, member.getMbirth());
+			pstmt = setString(5, member.getMgender());
+			pstmt = setString(6, member.getMaddr());
+			pstmt = setString(7, member.getMtel());
+			pstmt = setString(8, member.getMemail());
+			return pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn != null) {conn.close();}
+			} catch (Exception e) {e.printStackTrace();}
+			try {
+				if(rs != null)   {rs.close();}
+			} catch (Exception e) {e.printStackTrace();}
+			try {
+				if(pstmt != null){pstmt.close();}
+			}catch (Exception e) {e.printStackTrace();}
+		}
+		return -1; // 데이터베이스 오류
+	}
+
+	private PreparedStatement setString(int i, String mid) {
+		return pstmt;
+		
 	}
 }

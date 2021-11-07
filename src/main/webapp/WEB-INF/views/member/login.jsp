@@ -51,15 +51,8 @@
             background-color: #222;
             border: 0px solid #222;
         }
-        #btn_secu, #btn_addr{
-            padding: 17px 30px;
-            float: right;
-        }
         .btn{
             padding: 20px 207px;
-        }
-        #new_id[placeholder]{
-            text-align: right;
         }
         .btn-list{
             display: flex;
@@ -73,13 +66,12 @@
         	display: block;
         	padding: 20px 30px;
         }
-
     </style>
 </head>
 <body>
     <div class="join_in">
         <h1 class="h_logo"><a href="index.jsp">1인1방</a></h1>
-        <form action="jdbc:log4jdbc:mysql://127.0.0.1:3306/oneroom?serverTimezone=Asia/Seoul" method="post">
+        <form method="post" action="/member/login_action.jsp">
             <ul>
                 <li class ="form-group">
                     <label>아이디<br>

@@ -11,7 +11,7 @@ select * from member_info
 
 </select>
 
-<insert id ="insert">
+<insert id ="login">
 	insert into member_info (mid,mpw,mname,mbirth,mgender,maddr,mtel,memail)
 	values ( #{mid},#{mpw},#{mname},#{mbirth},#{mgender},#{maddr},#{mtel},#{memail})
 </insert>
