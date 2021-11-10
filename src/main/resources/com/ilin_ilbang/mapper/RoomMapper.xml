@@ -284,4 +284,36 @@
 		SELECT COUNT(*) FROM member_like WHERE mid = #{mid}
 	</select>
 	
+	<!-- 중개사가 등록한 방 출력 -->
+	<select id="agntPostList" resultType="HashMap" parameterType="HashMap">
+		SELECT rcode, regdate, updatedate, addr, addsub, rtype, btype, rcmt, onsale
+			   , dtype, dep, mrent, yrent
+			   , likecnt
+		FROM (
+				SELECT @rownum:=@rownum+1 as rownum
+					   , i.rcode, i.regdate, i.updatedate, i.addr, i.addsub
+					   , i.rtype, i.btype, i.rcmt, i.agntid, i.onsale
+					   , p.dtype, p.dep, p.mrent, p.yrent
+					   , (SELECT count(*) FROM member_like WHERE rcode = i.rcode) as likecnt	
+				FROM room_info i
+				INNER JOIN (SELECT @rownum:=0) tmp
+			 	INNER JOIN room_price p ON i.rcode = p.rcode
+			 ) as agntPostList
+				WHERE
+				<![CDATA[ rownum > (#{cri.pageNum} - 1) * #{cri.amount}
+				AND rownum <= #{cri.pageNum} * #{cri.amount}]]>
+			 	AND agntid = #{agntid}
+	</select>
+	
+	<!-- 중개사의 등록 정보 카운트 -->
+	<select id="agntPostCnt" resultType="HashMap" parameterType="String">
+		SELECT agntid
+			   , (SELECT count(*) from room_info WHERE agntid=#{agntid}) as total
+			   , (SELECT count(*) from room_info WHERE agntid=#{agntid} AND onsale='Y') as onSaleCnt
+			   , (SELECT count(*) from room_info WHERE agntid=#{agntid} AND onsale='N') as soldCnt 
+		FROM agent_info
+		WHERE agntid = #{agntid}
+	</select>
+	
+	
 </mapper>

@@ -11,8 +11,8 @@
 		<![CDATA[
 		FROM (
 			SELECT @rownum:=@rownum+1 as rownum
-				, i.rtype, i.addr, i.rcmt, i.regdate
-				, p.dep, p.yrent, p.mrent, i.elev, i.park, i.pet, i.rcode
+				, i.rcode, i.rtype, i.addr, i.rcmt, i.regdate
+				, p.dep, p.mrent, p.yrent, i.elev, i.park, i.pet
 				FROM room_info i 
 		        INNER JOIN (SELECT @rownum:=0) tmp
 				INNER JOIN room_price p ON i.rcode=p.rcode
@@ -31,100 +31,103 @@
 		SELECT count(*) FROM room_info;
 	</select>
 	
-	
-	<!-- 필터에 의한 목록 -->
+	<!-- 필터에 의한 목록 w. paging -->
 	<select id="getListByFilter" resultType="HashMap" parameterType="HashMap">
-
-		 SELECT i.rcode, i.rtype, i.addr, i.rcmt, i.regdate, p.dep, p.mrent, i.elev, i.park, i.pet
-		 FROM room_info i INNER JOIN room_price p USING (rcode)
-		 
-		 <where>
-		 	<trim prefix = "" prefixOverrides="AND">
-		 	
-		 		<!-- rtype -->
-				<if test = "!(rtype.isEmpty())">
-					<trim prefix = "(" suffix =")"> 
-						rtype in
-						<foreach collection="rtype" open="(" close=")" separator=", " item="item">
-							#{item}
-						</foreach>
-					</trim> 
-				</if>
-				
-				<!-- btype -->
-				<if test = "!(btype.isEmpty())">
-					<trim prefix = "AND (" suffix = ")">
-						btype in
-						<foreach collection="btype" open="(" close=")" separator=", " item="item">
-							#{item}
-						</foreach>
-					</trim>
-				</if>
-				
-				<!-- dep -->
-				
-				<if test = "!(dep.isEmpty())">
-					<trim prefix = "AND (" suffix = ")">
-						<foreach collection="dep" open="(" close=")" separator="OR " item="item">
-								<choose>
-									<when test = "item == 'dep1'">
-										<![CDATA[ dep < 500 ]]>
-									</when>
-									<when test = "item == 'dep2'">
-										<![CDATA[ dep >= 500 AND dep < 1000 ]]>
-									</when>
-									<when test = "item == 'dep3'">
-										<![CDATA[ dep > 1000 ]]>
-									</when>
-								</choose>
-						</foreach>
-					</trim>
-				</if>
-				
-				<!-- mrent -->
-				<if test = "!(mrent.isEmpty())">
-					<trim prefix = "AND (" suffix = ")">
-						<foreach collection="mrent" open="(" close=")" separator="OR " item="item">
-								<choose>
-									<when test = "item == 'mrent1'">
-										<![CDATA[ mrent < 30 ]]>
-									</when>
-									<when test = "item == 'mrent2'">
-										<![CDATA[ mrent >= 30 AND mrent < 60 ]]>
-									</when>
-									<when test = "item == 'mrent3'">
-										<![CDATA[ mrent >= 60 ]]>
-									</when>
-								</choose>
-						</foreach>
-					</trim>
-				</if>
-				<!-- option -->
-				<if test = "!(option.isEmpty())">
-					<trim prefix = "AND (" suffix =")"> 
-						<foreach collection="option" open="(" close=")" separator="AND " item="item">
+		SELECT rownum, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
+		from (
+			SELECT @rownum:=@rownum+1 as rownum
+			       , i.rcode, i.rtype, i.addr, i.rcmt, i.regdate
+			       , p.dep, p.mrent, p.yrent, i.elev, i.park, i.pet
+			FROM room_info i
+			INNER JOIN (SELECT @rownum:=0) tmp
+			INNER JOIN room_price p ON i.rcode=p.rcode
+			INNER JOIN room_option o ON i.rcode=o.rcode
+			ORDER BY i.regdate desc
+		       ) as roomlist		
+		<where>	
+			<![CDATA[rownum > (#{pageNum} - 1) * #{amount} AND rownum <= #{pageNum} * #{amount}]]>
+			<!-- rtype -->
+			<if test = "!(rtype.isEmpty())">
+				<trim prefix = "AND (" suffix =")"> 
+					rtype in
+					<foreach collection="rtype" open="(" close=")" separator=", " item="item">
+						#{item}
+					</foreach>
+				</trim> 
+			</if>
+			<!-- btype -->
+			<if test = "!(btype.isEmpty())">
+				<trim prefix = "AND (" suffix = ")">
+					btype in
+					<foreach collection="btype" open="(" close=")" separator=", " item="item">
+						#{item}
+					</foreach>
+				</trim>
+			</if>		
+			<!-- dep -->
+			<if test = "!(dep.isEmpty())">
+				<trim prefix = "AND (" suffix = ")">
+					<foreach collection="dep" open="(" close=")" separator="OR " item="item">
 							<choose>
-								<when test = "item == 'elev'">
-									elev = 'Y'
+								<when test = "item == 'dep1'">
+									<![CDATA[ dep <= 500 ]]>
 								</when>
-								<when test = "item == 'park'">
-									park = 'Y'
+								<when test = "item == 'dep2'">
+									<![CDATA[ dep >= 500 AND dep <= 1000 ]]>
 								</when>
-								<when test = "item == 'pet'">
-									pet = 'Y'
+								<when test = "item == 'dep3'">
+									<![CDATA[ dep >= 1000 ]]>
 								</when>
 							</choose>
-						</foreach>
-					</trim> 
-				</if>
-			</trim>
-		</where>	
+					</foreach>
+				</trim>
+			</if>
+			<!-- mrent -->
+			<if test = "!(mrent.isEmpty())">
+				<trim prefix = "AND (" suffix = ")">
+					<foreach collection="mrent" open="(" close=")" separator="OR " item="item">
+							<choose>
+								<when test = "item == 'mrent1'">
+									<![CDATA[ mrent <= 30 ]]>
+								</when>
+								<when test = "item == 'mrent2'">
+									<![CDATA[ mrent >= 30 AND mrent < 60 ]]>
+								</when>
+								<when test = "item == 'mrent3'">
+									<![CDATA[ mrent >= 60 ]]>
+								</when>
+							</choose>
+					</foreach>
+				</trim>
+			</if>
+			<!-- option -->
+					<if test = "!(option.isEmpty())">
+						<trim prefix = "AND (" suffix =")"> 
+							<foreach collection="option" open="(" close=")" separator="AND " item="item">
+								<choose>
+									<when test = "item == 'elev'">
+										elev = 'Y'
+									</when>
+									<when test = "item == 'park'">
+										park = 'Y'
+									</when>
+									<when test = "item == 'pet'">
+										pet = 'Y'
+									</when>
+								</choose>
+							</foreach>
+						</trim> 
+					</if>
+			</where>	
 	</select>
-	
+		
+
 	<!-- 필터에 의한 목록 count -->
 	<select id="getFilterListCount" resultType="int" parameterType="HashMap">
 		SELECT count(*)
-		FROM room_info i INNER JOIN room_price p USING (rcode)
+		FROM room_info i 
+			 INNER JOIN room_price p USING (rcode)
+			 INNER JOIN room_option o USING (rcode)
 		<where>
 		 	<trim prefix = "" prefixOverrides="AND"> 	
 		 		<!-- rtype -->
@@ -210,12 +213,30 @@
 
 	<!-- 상세 페이지 정보 불러오기 -->
 	<select id="readRoomInfo" resultType="HashMap" parameterType="String">
-		SELECT i.rcode, i.rcmt, i.addr, i.rtype, i.area, i.flr, i.mvable, i.mvdate, i.rface, i.park, i.elev, i.pet, i.btype,
+		SELECT i.rcode, i.rcont, i.addr, i.rtype, i.area, i.flr, i.mvdate, i.rface, i.park, i.elev, i.pet, i.btype,
 		p.dep, p.dtype, p.mrent, p.yrent,
 		o.ac, o.washer, o.fridge, o.tv, o.stove, o.microw, o.bed, o.desk, o.closet, o.shelf
 		FROM room_info i INNER JOIN room_price p ON i.rcode = p.rcode INNER JOIN room_option o ON i.rcode = o.rcode
 		WHERE i.rcode = #{rcode}	
 	</select>
+	
+	<!-- 방 등록 (room_info) -->
+	<insert id="insert">
+		INSERT INTO room_info(btype, rtype, addr, addsub, area, whlarea, flr, myflr, elev, pet, park, rcmt, rcont, mvdate, rface)
+		VALUES (#{btype}, #{rtype}, #{addr}, #{addsub}, #{area}, #{whlarea}, #{flr}, #{myflr}, #{elev}, #{pet}, #{park}, #{rcmt}, #{rcont}, #{mvdate}, #{rface})	
+	</insert>
+	 
+	 <!-- 방 등록 (room_option) -->
+	<insert id="insertOP">
+		insert into room_option(ac, washer, fridge, tv, stove, microw, bed, desk, closet, shelf)
+		values (#{ac}, #{washer}, #{fridge}, #{tv}, #{stove}, #{microw}, #{bed}, #{desk}, #{closet}, #{shelf})
+	</insert>
+	
+	<!-- 방 등록 (room_price) -->
+	<insert id="insertP">
+		insert into room_price(dep, dtype, mrent, yrent, mfee)
+		values(#{dep}, #{dtype}, #{mrent}, #{yrent}, #{mfee})
+	</insert>	
 	
 	<!-- 좋아요 추가하기 -->
 	<insert id="addLike">
@@ -227,5 +248,72 @@
 		SELECT COUNT(*) FROM member_like
 		WHERE rcode = #{rcode} AND mid = #{mid}
 	</select>
+		
+	<!-- 좋아요 삭제 -->
+	<delete id="dislike">
+		DELETE FROM member_like
+		WHERE mid = #{mid} AND
+			  <trim prefix = "(" suffix =")"> 
+			  		rcode in
+					<foreach collection="rcode" open="(" close=")" separator=", " item="item">
+						#{item}
+					</foreach>
+			  </trim> 
+	</delete>
+	
+	<!-- 좋아요 방 출력 w.paging -->
+	<select id="userLikeList" resultType="HashMap" parameterType="HashMap">
+		SELECT rownum, mid, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
+		from (
+			SELECT @rownum:=@rownum+1 as rownum
+			       , ml.rcode, ml.mid, i.rtype, i.addr, i.rcmt, i.regdate
+			       , p.dep, p.mrent, p.yrent, i.elev, i.park, i.pet
+			FROM member_like ml 
+			INNER JOIN (SELECT @rownum:=0) tmp
+			INNER JOIN room_info i ON ml.rcode=i.rcode
+			INNER JOIN room_price p ON ml.rcode=p.rcode
+			ORDER BY ml.addDate desc
+		       ) as userLikeList	
+		WHERE 
+		<![CDATA[rownum > (#{pageNum} - 1) * #{amount} AND rownum <= #{pageNum} * #{amount}]]>
+		AND mid = #{mid}
+	</select>
+	
+	<!-- 좋아요 방 카운트 -->
+	<select id="userLikeCount" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM member_like WHERE mid = #{mid}
+	</select>
+	
+	<!-- 중개사가 등록한 방 출력 -->
+	<select id="agntPostList" resultType="HashMap" parameterType="HashMap">
+		SELECT rcode, regdate, updatedate, addr, addsub, rtype, btype, rcmt, onsale
+			   , dtype, dep, mrent, yrent
+			   , likecnt
+		FROM (
+				SELECT @rownum:=@rownum+1 as rownum
+					   , i.rcode, i.regdate, i.updatedate, i.addr, i.addsub
+					   , i.rtype, i.btype, i.rcmt, i.agntid, i.onsale
+					   , p.dtype, p.dep, p.mrent, p.yrent
+					   , (SELECT count(*) FROM member_like WHERE rcode = i.rcode) as likecnt	
+				FROM room_info i
+				INNER JOIN (SELECT @rownum:=0) tmp
+			 	INNER JOIN room_price p ON i.rcode = p.rcode
+			 ) as agntPostList
+				WHERE
+				<![CDATA[ rownum > (#{cri.pageNum} - 1) * #{cri.amount}
+				AND rownum <= #{cri.pageNum} * #{cri.amount}]]>
+			 	AND agntid = #{agntid}
+	</select>
+	
+	<!-- 중개사의 등록 정보 카운트 -->
+	<select id="agntPostCnt" resultType="HashMap" parameterType="String">
+		SELECT agntid
+			   , (SELECT count(*) from room_info WHERE agntid=#{agntid}) as total
+			   , (SELECT count(*) from room_info WHERE agntid=#{agntid} AND onsale='Y') as onSaleCnt
+			   , (SELECT count(*) from room_info WHERE agntid=#{agntid} AND onsale='N') as soldCnt 
+		FROM agent_info
+		WHERE agntid = #{agntid}
+	</select>
+	
 	
 </mapper>

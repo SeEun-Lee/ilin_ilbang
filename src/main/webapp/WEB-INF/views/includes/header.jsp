@@ -24,7 +24,7 @@
 	<link href="${pageContext.request.contextPath}/resources/css/roomLike.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/css/roomInfo_2.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/css/search.css" rel="stylesheet" type="text/css">
-
+	<link href="${pageContext.request.contextPath}/resources/css/myDeal.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/resources/css/room_register.css">
     <link rel="stylesheet" href="/resources/css/button.css">
     <link rel="stylesheet" href="/resources/css/upload.css">
@@ -53,7 +53,7 @@
                                     <a href="/register" class="register"><span>방 내놓기</span></a>
                                 </li>
                                 <li>
-                                    <a href=""><span>거래관리</span></a>
+                                    <a href="/myDeal"><span>거래관리</span></a>
                                 </li>
                                 <li>
                                     <a href=""><span>허위매물 신고</span></a>

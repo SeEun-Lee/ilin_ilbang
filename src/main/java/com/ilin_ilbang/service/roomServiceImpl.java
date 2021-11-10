@@ -99,4 +99,13 @@ public class roomServiceImpl implements roomService {
 		return mapper.userLikeCount(mid);
 	}
 	
+	@Override // 공인중개사가 등록한 방 목록 출력
+	public List<HashMap<String, String>> agntPostList(HashMap<String,Object> map){
+		return mapper.agntPostList(map);
+	}
+	
+	@Override // 공인중개사가 등록한 방 카운트
+	public HashMap<String, Integer> agntPostCnt(String agntid){
+		return mapper.agntPostCnt(agntid);
+	}
 }

@@ -31,7 +31,16 @@
    					<div class="list_content list_content_like" id="list_content_like">
 						<div class="result" style="display: none;">${result}</div>
 						<div class="isEmpty" style="display: none;">이런 방은 어떠세요?</div>	
-						<div><a class="btn_delete">선택 삭제</a></div>			   		
+						<div class="control_bar">
+							<div class="ck_all">
+								<label class="ck_container">
+		       						<input type="checkbox" name="selected" value="${room.rcode}">
+		       						<span class="checkmark"></span>
+		       						<span class="name">전체선택</span>
+							     </label>
+						     </div>
+						     <div><a class="btn_delete">선택삭제</a></div>	
+					    </div>			   		
 						<ul>
 							<c:forEach items="${list}" var="room">
 								<li class="room">

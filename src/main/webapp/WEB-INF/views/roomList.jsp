@@ -265,7 +265,7 @@
 								<script src="${pageContext.request.contextPath}/resources/js/roomList.js"></script>
 							</div><!-- #list_content -->
 							
-							<div class="map_wrap" style="position:fixed; top:190px; right:270px;">
+							<div class="map_wrap" style="top:190px; right:270px;">
 					    		<div id="map" style="width:400px;height:400px;position:relative;overflow:hidden;"></div>
 							</div><!-- "map_wrap" -->
 						</div><!-- .list_container -->

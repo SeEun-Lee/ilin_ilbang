@@ -1,4 +1,4 @@
-/* 찜 기능 Javascript (모듈화) */
+/* 찜 기능 Javascript */
 
 $(document).ready(function(){
 		
@@ -94,10 +94,21 @@ $(document).ready(function(){
 		}) // 모달창 닫기	
 	}) // end function 관심 취소
 	
+	
+	// 관심목록에서 방 선택 (체크박스)
 	var like_list = $('#list_content_like');
 	$('.ck_container', like_list).on('click', function(e){
 		console.log('체크박스 click')
 		e.stopPropagation();
+	});
+	
+	// 전체선택 체크박스를 눌렀을 경우
+	$('.ck_all .ck_container').on('click', function(){
+		if($('.ck_all .ck_container input').prop("checked")){ // 체크된 경우 
+			$("input[name='selected']").prop("checked", true); // 전부 선택 
+		} else { // 체크 해제된 경우 
+			$("input[name='selected']").prop("checked", false); // 전부 선택 헤제
+		}
 	});
 	
 	// 선택한 방 삭제하기
