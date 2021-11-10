@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
-    <meta name="viewport" content="width-device-width", initial-scale="1">
+    <meta charset="utf-8">
     <title>로그인</title>
     <style>
         *{
@@ -12,17 +11,6 @@
             padding: 0;
             text-decoration: none;
         }
-        .h_logo a{
-	    display: block;
-	    background-image: url(../resources/img/h_logo.png);
-	    background-size: 100% 100%;
-	    background-repeat: no-repeat;
-	    width: 80px;
-	    height: 80px;
-	    text-indent: -99999px;
-	    overflow: hidden;
-	    margin: 0 auto;
-		}
         div{
             width: 460px;
             margin: 30px auto;
@@ -30,6 +18,19 @@
         body{
             background-color: #f5f5f5;
         }
+
+		.h_logo a{
+		    display: block;
+		    background-image: url(../resources/img/h_logo.png);
+		    background-size: 100% 100%;
+		    background-repeat: no-repeat;
+		    width: 80px;
+		    height: 80px;
+		    text-indent: -99999px;
+		    overflow: hidden;
+		    margin: 0 auto;
+		}
+		
         form li{
             list-style: none;
             margin: 15px 0;
@@ -43,60 +44,62 @@
             height: 50px;
             width: 99%;
         }
-        button, .btn1, .find{
+        button{
             font-size: 15px;
             cursor: pointer;
             color: white;
             display: block;
-            background-color: #222;
-            border: 0px solid #222;
+            background-color: #1F4E5F;
+            border: 0px solid #1F4E5F;
         }
-        .btn{
+        .submit{
             padding: 20px 207px;
         }
-        .btn-list{
+        .btn-group{
             display: flex;
             justify-content: space-between;
         }
-        .join{
+        .btn{
+            font-size: 15px;
+            cursor: pointer;
+            color: white;
         	display: block;
-            padding: 20px 50px;
+            padding: 20px 35px;
+            background-color: #1F4E5F;
         }
-        .find{
-        	display: block;
-        	padding: 20px 30px;
-        }
+
     </style>
 </head>
 <body>
     <div class="join_in">
-        <h1 class="h_logo"><a href="index.jsp">1인1방</a></h1>
-        <form method="post" action="/member/login_action.jsp">
+        <div class="h_logo">
+        	<h1><a href="index.jsp">1인1방</a></h1>
+        </div>
+        <form action="login" method="post">
             <ul>
-                <li class ="form-group">
+                <li>
                     <label>아이디<br>
-                        <input type="text" id="mid" class="form-control" name="mid" maxlength="20"
-                        placeholder="아이디" required>
+                        <input type="text" id="mid" name="mid" maxlength="20" 
+                        placeholder=" 아이디를 입력하세요" required>
                     </label>
                 </li>
-                <li class ="form-group">                    
+                <li>                    
                     <label>비밀번호<br>
-                        <input type="password" id="mpw" class="form-control" name="mpw" maxlength="20"
-                        placeholder="비밀번호" required>
+                        <input type="password" id="mpw" name="mpw" maxlength="20" 
+                        placeholder=" 비밀번호를 입력하세요" required>
                     </label>
                 </li>
                 <li>
-                    <button type="submit" class="btn btn-primary form-control">로그인</button>
+                    <button type="submit" class="submit">로그인</button>
                 </li>
-                <li class="btn-list">
-                    <a href="/member/find_id"> <span class="find"> 아이디 찾기 </span></a>
-                    <a href="/member/find_pw"> <span class="find"> 비밀번호 찾기 </span></a>
-                    <a href="/member/member_join" class=btn1> <span class="join"> 회원가입 </span></a>
+                <li class="btn-group">
+                    <a href="/member/find_id" class="btn"> 아이디 찾기 </a>
+                    <a href="/member/find_pw" class="btn"> 비밀번호 찾기 </a>
+                    <a href="/member/member_join" class="btn"> 회원가입 </a>
                 </li>
             </ul>
         </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </body>
 
 </html>

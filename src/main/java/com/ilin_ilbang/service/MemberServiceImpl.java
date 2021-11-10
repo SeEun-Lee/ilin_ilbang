@@ -19,57 +19,29 @@ public class MemberServiceImpl implements MemberService{
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
 
-
 	@Override
-	public int login(MemberVO member) {
-		
-		log.info("login......" + member);
-		return mapper.login(member);
+	public void login(MemberVO member) {
+		log.info("login......."+member);
+		mapper.insert(member);
 	}
-
-
 	@Override
 	public void register(MemberVO member) {
-		
-		log.info("register......");
-		mapper.register(member);
+		log.info("register......."+member);
+		mapper.insert(member);
 	}
-
 	@Override
-	public String find_id(MemberVO member) {
-		
-		log.info("find_id......");
-		return mapper.find_id(member);
+	public void modify(MemberVO member) {
+		log.info("modify......."+member);
+		mapper.insert(member);
 	}
-
 	@Override
-	public String find_pw(MemberVO member) {
-		
-		log.info("find_pw......");
-		return mapper.find_pw(member);
+	public void find_id(MemberVO member) {
+		log.info("find_id......."+member);
+		mapper.insert(member);
 	}
-
 	@Override
-	public boolean modify(MemberVO member) {
-		
-		log.info("modify......");
-		return mapper.update(member) == 1;
+	public void find_pw(MemberVO member) {
+		log.info("find_pw......."+member);
+		mapper.insert(member);
 	}
-
-	@Override
-	public boolean remove(String mid) {
-		
-		log.info("remove......");
-		return mapper.delete(mid) == 1;
-	}
-
-	@Override
-	public void get(MemberVO member) {
-
-		log.info("get......");
-	}
-
-
-
-
 }

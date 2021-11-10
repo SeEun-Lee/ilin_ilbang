@@ -21,97 +21,66 @@ import lombok.extern.log4j.Log4j;
 public class MemberController {
 	
 	private MemberService service;
-
-	@GetMapping("/member/login")
-	public void get() {
-		log.info("login!!");
+	
+	@GetMapping ("/login")
+	public void login(MemberVO member) {
+		log.info("login!!" + member);
 	}
-	@GetMapping("/member/login_action")
-	public void get0() {
-		log.info("login!!");
+	@GetMapping ("/member_join")
+	public void register(MemberVO member) {
+		log.info("join!!" + member);
 	}
-
-	@GetMapping("/member/member_join")
-	public void get1() {
-		log.info("join!!");
+	@GetMapping ("/member_modify")
+	public void modify(MemberVO member) {
+		log.info("modify!!" + member);
 	}
-
-	@GetMapping("/member/find_id")
-	public void get2() {
-		log.info("find_ID!!");
+	@GetMapping ("/find_id")
+	public void find_id(MemberVO member) {
+		log.info("find_id!!" + member);
 	}
-
-	@GetMapping("/member/find_pw")
-	public void get3() {
-		log.info("find_password!!");
-	}
-
-	@GetMapping("/member/member_modify")
-	public void get4() {
-		log.info("modify!!");
-	}
-
-	@GetMapping("/member/quit")
-	public void get5() {
-		log.info("quit!!");
+	@GetMapping ("/find_pw")
+	public void find_pw(MemberVO member) {
+		log.info("find_pw!!" + member);
 	}
 	
-	@PostMapping("/member/member_join")
-	public String register(MemberVO member, RedirectAttributes rttr) {
+	@PostMapping("/login")
+	public void login1(MemberVO member) {
 		
-		log.info("join: " + member);
+		log.info("register: " + member);
+		
+		service.login(member);
+	}
+	
+	@PostMapping("/member_join")
+	public void register1(MemberVO member) {
+		
+		log.info("register: " + member);
 		
 		service.register(member);
-		rttr.addFlashAttribute("result", member.getMid());
-		
-		return "redirect:/member/login";
 	}
-
 	
-	@PostMapping("/member/member_modify")
-	public String modify(MemberVO member, RedirectAttributes rttr) {
+	@PostMapping("/member_modify")
+	public void modify1(MemberVO member) {
 		
 		log.info("modify: " + member);
 		
-		if (service.modify(member)) {
-			rttr.addAttribute("result", "success");
-		}
-		
-		return "redirect:/";
-	}
-
-	@PostMapping("/member/find_id")
-	public String find_id(MemberVO member, RedirectAttributes rttr) {
-		
-		log.info("find id: " + member);
-		
-		if (service.find_id(member) != null) {
-			rttr.addAttribute("result", "success");
-		}
-		
-		return "redirect:/member/login";
-	}
-
-	@PostMapping("/member/find_pw")
-	public String find_pw(MemberVO member, RedirectAttributes rttr) {
-		
-		log.info("find password: " + member);
-		
-		if (service.find_pw(member) != null) {
-			rttr.addAttribute("result", "success");
-		}
-		
-		return "redirect:/member/login";
+		service.modify(member);
 	}
 	
-	@PostMapping("/member/quit")
-	public String remove(@RequestParam("mid") String mid,
-			RedirectAttributes rttr) {
+	@PostMapping("/find_id")
+	public void find_id1(MemberVO member) {
 		
-		log.info("remove...." + mid);
-		if (service.remove(mid)) {
-			rttr.addFlashAttribute("result", "success");
-		}
-		return "redirect:/";
+		log.info("find_id: " + member);
+		
+		service.find_id(member);
 	}
+	
+	@PostMapping("/find_pw")
+	public void find_pw1(MemberVO member) {
+		
+		log.info("find_pw: " + member);
+		
+		service.find_pw(member);
+	}
+		
 }
