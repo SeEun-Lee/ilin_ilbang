@@ -17,7 +17,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6dfe001c629e5c1942f7fb1c1c822003&libraries=services"></script>
 
 <link href="${pageContext.request.contextPath}/resources/css/reset.css" rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/resources/css/roomInfo_2.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/resources/css/roomInfo.css" rel="stylesheet" type="text/css">
 
 	<form id="operForm" action="/listWithPage" method="get">
         <div class="room_info_in">

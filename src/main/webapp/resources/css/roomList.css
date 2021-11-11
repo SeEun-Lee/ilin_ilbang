@@ -31,7 +31,7 @@
 
 .list_content{
 	width: 700px;
-    min-height: 500px;
+    height: 765px;
 }
 
 .list_content .title{
@@ -67,7 +67,6 @@
 .list_content > ul > li:nth-child(3n){
 	margin-right: 0;
 }
-
 
 .room_card{
 	font-size: 12px;
