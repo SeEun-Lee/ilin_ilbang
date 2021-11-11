@@ -1,0 +1,170 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,900);
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.button-label {
+  display: inline-block;
+  margin:5px;
+  width:100px;
+  cursor: pointer;
+  color: #292929;
+  border-radius: 0.25em;
+  background: #efefef;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.22);
+}
+.button-label h4 {
+  font-size: 1.2em;
+  font-family: "Lato", sans-serif;
+}
+.button-label:hover {
+  background: #d6d6d6;
+  color: #101010;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -3px 0 rgba(0, 0, 0, 0.32);
+}
+.button-label:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0px -1px 0 rgba(0, 0, 0, 0.22);
+}
+
+#one:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#two:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+
+#three:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+#apart:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#opistel:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+#dan:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#dagagu:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#builla:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#east:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#west:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+
+#south:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#north:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#sangga:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+#month:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#all:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+#no_admincost:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#yes_admincost:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#no_parking:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#yes_parking:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+#no_pet:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#yes_pet:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+#no_elevator:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#yes_elevator:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+#no_valcony:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#yes_valcony:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+#no_builtin:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+
+#yes_builtin:checked + .button-label {
+  background: #205162;
+  color: #efefef;
+}
+.optionlist:checked + .button-label{
+  background: #205162;
+  color: #efefef;
+}
+.hidden {
+  display: none;
+}

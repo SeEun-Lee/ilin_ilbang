@@ -15,13 +15,23 @@
     <!--jQuery UI 연결-->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- 카카오 api -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6dfe001c629e5c1942f7fb1c1c822003&libraries=services"></script>
     <!-- css -->
     <link href="${pageContext.request.contextPath}/resources/css/reset.css" rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/resources/css/deals.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/resources/css/roomList.css" rel="stylesheet" type="text/css">
+	<link href="${pageContext.request.contextPath}/resources/css/roomLike.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/resources/css/roomInfo_2.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/resources/css/search.css" rel="stylesheet" type="text/css">
+	<link href="${pageContext.request.contextPath}/resources/css/myDeal.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/resources/css/room_register.css">
+    <link rel="stylesheet" href="/resources/css/button.css">
+    <link rel="stylesheet" href="/resources/css/upload.css">
     <!-- api -->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c37e1a519b03d653d9f91c2b12ed7a87"></script>
+    <script src="../resources/js/upload.js"></script>
+    
     <title>1인1방</title>
 </head>
 <body>
@@ -30,20 +40,20 @@
         <header id="header">
             <div class="h_content">
                 <div class="h_inner">
-                        <h1 class="h_logo"><a href="#">1인1방</a></h1>
+                        <h1 class="h_logo"><a href="/">1인1방</a></h1>
                         <nav id="nav">
                             <ul class="gnb">
                                 <li>
-                                    <a href=""><span>방 검색</span></a>
+                                    <a href="/" class="list active"><span>방 검색</span></a>
                                 </li>
                                 <li>
-                                    <a href=""><span>관심목록</span></a>
+                                    <a href="/roomLike" class="roomLike"><span>관심목록</span></a>
                                 </li>
                                 <li>
-                                    <a href=""><span>방 내놓기</span></a>
+                                    <a href="/register" class="register"><span>방 내놓기</span></a>
                                 </li>
                                 <li>
-                                    <a href=""><span>거래관리</span></a>
+                                    <a href="/myDeal"><span>거래관리</span></a>
                                 </li>
                                 <li>
                                     <a href=""><span>허위매물 신고</span></a>

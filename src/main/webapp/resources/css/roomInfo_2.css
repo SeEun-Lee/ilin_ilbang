@@ -1,0 +1,465 @@
+@charset "UTF-8";
+
+/* 상세페이지 */
+
+.room_info_in{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.ms_title{
+    position: relative;
+    padding: 20px 0 30px 0;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+.ms_title .rcode{
+	display: block;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.ms_title .style{
+    font-size: 20px;
+}
+
+.ms_title .close{
+    display: block;
+    width: 30px;
+    height: 30px;
+    /* background-color: red; */
+    background-size: 100% 100%;
+    position: absolute;
+    top: 15px;
+    right: 110px;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+
+.ms_contant1{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 750px;
+    margin: 0 auto 50px auto;
+}
+
+.msc1_img{
+    position: relative;
+}
+
+/* 슬라이드 css */
+
+
+.img_slide > div{
+    width: 450px;
+    height: 350px;
+    background-color: coral;
+    overflow: hidden;
+}
+
+.img_slide > div > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slick-slide{
+    width: 450px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.slick-slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slick_arr{
+    width: 100%;
+    position: absolute;
+    top: 160px;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 7px;
+}
+
+.arr_prev, .arr_next{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(238, 238, 238, 0.6);
+    border-radius: 50%;
+    text-indent: -9999px;
+    position: relative;
+    cursor: pointer;
+}
+
+.arr_prev::after, .arr_next::after{
+    display: block;
+    content: "";
+    width: 9px;
+    height: 9px;
+    /* background-color: coral; */
+    border-top: 2px solid rgba(255, 255, 255, 0.8);
+    border-left: 2px solid rgba(255, 255, 255, 0.8);
+    position: absolute;
+}
+
+.arr_prev::after{
+    transform: rotate(-45deg);
+    top: 10px;
+    left: 11px;
+}
+
+.arr_next::after{
+    transform: rotate(134deg);
+    top: 10px;
+    right: 12px;
+}
+
+.bn-controller{
+    display: flex !important;
+    position: absolute;
+    bottom: 10px;
+    left: 220px;
+}
+
+.bn-item{
+    width: 7px;
+    height: 7px;
+    background-color: rgba(255, 255, 255, 0.7);
+    text-indent: -99999px;
+    border-radius: 50%;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.msc1_img .msc1_img_inside{
+    /* background-color: coral; */
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+}
+
+.msc1_img .msc1_img_inside .inside_1{
+    display: flex;
+    position: relative;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+}
+
+.inside_1 .price{
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin-left: 10px;
+}
+.inside_1 .rtype{
+    display: block;
+    padding-top: 2px;
+    margin-left: 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+}
+.inside_1 .addr{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.msc1_like{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    font-size: 15px;
+    color: #222;
+    /* border: 1px solid #fff; */
+}
+
+.msc1_like:hover{
+    background-color: rgba(251, 230, 225, 0.8)
+}
+
+.ms_contant1 .heart a{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: block;
+    width: 50px;
+    height: 40px;
+    background-image: url(../resources/img/heart_white.png);
+    background-size: 50px auto;
+    background-repeat: no-repeat;
+}
+
+.msc1_box{
+    width: 250px;
+    height: 270px;
+    background-color: #eee;
+    text-align: center;
+}
+
+.msc1_box .msc1_box_img{
+    width: 110px;
+    height: 110px;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #fff;
+    margin: 0 auto;
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+.msc1_box .msc1_box_img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.msc1_box li{
+    padding: 0 15px;
+    /* margin-bottom: 5px; */
+    font-size: 13px;
+}
+
+.msc1_box li:last-child{
+    margin-bottom: 0;
+}
+
+.agt_name{
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.agt_call{
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+.agt_style{
+    color: #888;
+}
+
+.ms_contant1 button{
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    color: #fff;
+    border: 0;
+}
+
+/* .ms_contant1 .msc1_btn1{
+    background-color: #fb5845;
+}
+
+.ms_contant1 .msc1_btn2{
+    top: 60px;
+    background-color: #1f4e5f;
+} */
+
+.deal{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 250px;
+    height: 60px;
+    background-color: #8a9db4;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+}
+
+.deal:hover{
+    background-color: #205162;
+}
+
+.ms_contant2{
+    width: 750px;
+    margin: 0 auto 70px auto;
+    /* background-color: cadetblue; */
+}
+
+.ms_contant2 .ms2_title, .ms_contant3 .ms3_title, .ms_contant4 .ms4_title{
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(207, 219, 233, 0.6);
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.ms_contant2 table{
+    width: 750px;
+    margin: 0 auto;
+    border: 0;
+    font-size: 15px;
+    /* background-color: beige; */
+}
+
+.ms_contant2 table tr{
+    border-bottom: 1px solid #222;
+}
+
+.ms_contant2 table td{
+    height: 50px;
+    border: 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+}
+
+.ms_contant2 table .td_name{
+    width: 80px;
+    /* background-color: red; */
+    padding-left: 10px;
+    color: #444;
+}
+
+.ms_contant2 table .td_name span:before{
+    display: inline-block;
+    content: "";
+    width: 2px;
+    height: 2px;
+    background-color: #666;
+    vertical-align: top;
+    margin: 8px 8px 0 0;
+    
+}
+
+.ms_contant2 table .td_value{
+    width: 120px;
+}
+
+.ms_contant2 .price span{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.ms_contant3{
+    width: 750px;
+    margin: 0 auto 50px auto;
+}
+
+.ms_contant3 .ms3_title{
+    margin-bottom: 60px;
+}
+
+.ms_contant3 ul{
+    width: 530px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* .ms_contant3 p{
+    text-align: center;
+    width: 90px;
+    height: 40px;
+    padding-top: 8px;
+    border: 1px solid #444;
+    border-radius: 25px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: #333;
+} */
+
+.ms3_op{
+    width: 80px;
+    height: 73px;
+    /* background-color: #888; */
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.ms3_op .op_img{
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-right: 5px;
+    background-repeat: no-repeat;
+    background-size: 50px auto;
+    background-position-x: 50%;
+    position: relative;
+}
+
+.op_name{
+    text-align: center;
+}
+
+
+
+.ms_contant4{
+    width: 750px;
+    margin: 0 auto 50px auto;
+}
+
+.ms_contant4 .ms4_title{
+    margin-bottom: 30px;
+}
+
+.ms_contant4 .ms4_memo{
+    text-align: center;
+}
+
+.ms4_memo textarea{
+	display: block;
+	width: 100%; 
+	height: 150px;
+}
+
+
+.ms_contant5{
+    width: 750px;
+    margin: 0 auto 50px auto;
+}
+
+.ms_contant5 .ms5_title{
+    margin-bottom: 30px;
+}
+
+.ms_contant5 .map_img{
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    border: 1px solid #444;
+}
+
+.ms_contant5 .ms5_btns{
+    text-align: right;
+}
+
+.ms5_btns button{
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 0;
+    color: #444;
+    font-size: 17px;
+}
+

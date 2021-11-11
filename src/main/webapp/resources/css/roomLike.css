@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+/* 관심목록 페이지 (roomLike.jsp) & 거래관리 페이지 (myDeal.jsp) */
+
+#roomLike, #myDeal{
+    padding-top: 100px;
+}
+
+#roomLike .sp1_bg1, #myDeal .sp1_bg1{
+	background-color: rgba(238, 238, 238, 0.7);
+}
+#roomLike .sp1_bg2, #myDeal .sp1_bg2{
+	width: 1200px;
+	margin: 0 auto;
+	background-color: rgba(238, 238, 238, 0.4);
+}
+
+#roomLike .sp1_top, #myDeal .sp1_top{
+	position: relative;
+	width: 800px;
+	margin: 0 auto;
+	padding-top: 20px;
+    padding-bottom: 3px;
+}
+
+#roomLike .sp1_menu, #myDeal .sp1_menu{
+	position: absolute;
+	top: 22px;
+	right: 50px;
+
+}
+
+#roomLike .sp1_menu ul, #myDeal .sp1_menu ul{
+    display: flex;
+    justify-content: center;
+}
+
+#roomLike .sp1_menu li, #myDeal .sp1_menu li{
+    padding: 15px 50px;
+    border: 1px solid #ccc;
+    border-left: none;
+}
+
+#roomLike .sp1_menu li a, #myDeal .sp1_menu li a{
+    color: #888;
+    font-size: 15px;
+    line-height: 1em;
+}
+
+#roomLike .sp1_menu .on, #myDeal .sp1_menu .on{
+	background-color: #205162;
+    border: 1px solid #205162;
+}
+
+#roomLike .sp1_menu li.on a, #myDeal .sp1_menu li.on a{
+	color: #fff;
+}
+
+
+#roomLike .sp1_menu li.on a:before, #myDeal .sp1_menu li.on a:before{
+	display: inline-block;
+	content: "";
+	vertical-align: top;
+	width: 5px;
+	height: 5px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	transform: rotate(45deg);
+	margin: 6px 10px 0 0;
+}
+
+
+#roomLike .now_page, #myDeal .now_page{
+	margin-left: 60px;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+#roomLike .now_page span:before, #myDeal .now_page span:before{
+	content: "";
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 3px;
+	height: 3px;
+	border-radius: 50%;
+	background-color: #555;
+}
+
+#roomLike .title, #myDeal .title{
+	display: flex;
+	margin: 10px 0 20px 90px;
+}
+
+#roomLike .title_text, #myDeal .title_text{
+	font-size: 15px;
+}
+
+#roomLike .title_text:before, #myDeal .title_text:before{
+	content: "";
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 2px;
+	height: 2px;
+	border-radius: 50%;
+	background-color: #555;
+}
+
+
+#roomLike .mid, #myDeal .mid{
+	color: #205162;
+	font-weight: 500;
+}
+
+#roomLike .title_count, #myDeal .title_count{
+	display: block;
+	margin-top: 0;
+	margin-left: 6px;
+	font-size: 14px;	
+}
+
+#roomLike .list_content_like, #myDeal .list_content_deal{
+	width: 700px;
+	margin: 0 auto;
+	padding-top: 30px;
+	min-height: 800px;
+}
+
+
+#roomLike .control_bar{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	padding: 0 7px;
+}
+
+#roomLike .ck_all{
+	position: relative;
+}
+
+#roomLike .btn_delete{
+	font-size: 14px;
+	color: #d1180b;
+	cursor: pointer;
+}
+
+#roomLike .ck_box{
+	position: absolute;
+	top: 7px;
+	left: 7px;
+}
+
+#roomLike .list_pager, #myDeal .list_pager{
+	margin: 20px 0;
+}
+
+.page2{
+    display: none;
+}

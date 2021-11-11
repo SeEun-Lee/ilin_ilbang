@@ -1,5 +1,8 @@
 package com.ilin_ilbang.domain;
 
+import java.util.HashMap;
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

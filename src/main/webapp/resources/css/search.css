@@ -1,10 +1,18 @@
 @charset "utf-8";
 
-/* 메인페이지 CSS */
+/* roomList CSS */
 
 .main_container{
     padding-top: 100px;
 }
+
+.modal_true{
+	position: fixed;
+	width: 100%;
+
+	overflow: scroll;
+}
+
 
 .main_search{
     position: relative;
@@ -253,147 +261,3 @@
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1)
 }
 
-
-/* 리스트 결과 */
-
-.main_list{
-    background-color: #eee;
-}
-
-.main_list > .inner{
-    /* background-color: aqua; */
-    width: 1200px;
-    margin: 0 auto;
-}
-
-.main_list h2{
-    font-size: 22px;
-    color: #222;
-    font-weight: 500;
-    padding-top: 40px;
-    margin-bottom: 20px;
-}
-
-.list_container{
-    display: flex;
-    justify-content: space-between;
-}
-
-.list_content{
-    width: 740px;
-}
-
-.list_content > ul{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.room_card{
-	font-size: 12px;
-    background-color: #fff;
-    width: 220px;
-    height: 305px;
-    position: relative;
-    margin-right: 20px;
-    margin-bottom: 24px;
-    box-sizing: border-box;
-}
-
-.room_img{
-    width: 100%;
-    background-color: #222;
-    height: 180px;
-}
-
-.card_container{
-    padding: 4px 10px;
-    position: relative;
-}
-
-.room_card .room_type {
-    display: inline-block;
-    font-size: 12px;
-    color: #fff;
-    border-radius: 5px;
-    vertical-align: middle;
-    margin-right: 2px;
-    padding: 1px 4px;
-}
-
-.room_card .room_type.one{
-    background-color: #e9b239;
-}
-
-.room_card .room_type.two{
-    background-color: tomato;
-}
-
-.room_card .price {
-    display: inline-block;
-    font-weight: bold;
-    color: #333;
-    font-size: 19px;
-    vertical-align: middle;
-    margin-right: 1px;
-}
-
-.room_card .price_won {
-    font-size: 12px;
-    vertical-align: middle;
-}
-
-
-.room_cmt {
-    display: -webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 13px;
-}
-
-.room_option span:last-child:after{
-    display: none;
-}
-
-.room_tag{
-    margin-top: 5px;
-    height: 20px;
-}
-
-.room_tag .tag {
-    font-size: 12px;
-    color: #222;
-    background-color: #cfdbe9;
-    padding: 2px 3px;
-    margin-right: 5px;
-}
-
-.room_addr{
-	margin-top: 3px;
-}
-
-.room_addr .addr:before{
-	display: inline-block;
-	content: "";
-	vertical-align: top;
-	margin-top: 2px;
-	width: 13px;
-	height: 12px;
-	background-image: url(../img/icon_pin.svg);
-	background-size: 100% 100%;
-}
-
-.room_addr .addr:after{
-    content: "";
-    display: inline-block;
-    vertical-align: top;
-    width: 1px;
-    height: 10px;
-    background-color: #ddd;
-    margin: 5px 5px 0 5px;
-}
-
-.room_addr .regdate{
-	display: inline-block;
-}

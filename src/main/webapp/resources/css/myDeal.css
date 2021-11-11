@@ -1,0 +1,594 @@
+@charset "utf-8";
+
+#myDeal{
+    position: relative;
+    padding-top: 100px;
+}
+
+#myDeal .sp_nav{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 170px;
+    min-height: 100px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+#myDeal .sp_nav > div{
+    height: 40px;
+    font-size: 15px;
+    line-height: 40px;
+    padding-left: 20px;
+    border-bottom: 1px solid #eee;
+    color: #222;
+}
+
+#myDeal .sp_nav > div:before{
+    display: inline-block;
+    vertical-align: top;
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #666;
+    border-right: 2px solid #666;
+    transform: rotate(135deg);
+    margin: 13px 7px 0 0;
+}
+
+#myDeal .sp_nav li a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 28px;
+    font-size: 14px;
+    /* background-color: wheat; */
+    transition: background-color, 0.1s;
+}
+
+#myDeal .sp_nav li a:hover{
+    background-color: #eee;
+}
+
+#myDeal .sp_nav li a:before{
+    display: inline-block;
+    vertical-align: top;
+    content: "";
+    width: 3px;
+    height: 3px;
+    background-color: #222;
+    border-radius: 50%;
+    margin: 20px 10px 0 0;
+
+}
+
+#myDeal .sp_container{
+	width: 1200px;
+	margin: 0 auto;
+    background-color: #fff;
+    position: relative;
+}
+
+#myDeal .deal_content{
+	width: 700px;
+	margin: 0 auto;
+	padding-top: 30px;
+	min-height: 800px;
+}
+
+/* deal_menu */
+
+#myDeal .dm_title{
+    font-size: 17px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+#myDeal .dm_wrap{
+    background-color: #fff;
+    padding-top: 10px;
+}
+
+#myDeal .dm_welcome{
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+#myDeal .dm_welcome .style{
+    color: #205162;
+    font-weight: 600;
+}
+
+#myDeal .dm_welcome:after, #myDeal .dm_welcome:before{
+    display: inline-block;
+    vertical-align: top;
+    content: "";
+    width: 16px;
+    height: 16px;
+    /* background-color: tomato; */
+    background-image: url(/img/icon_party.png);
+    background-size: 100% 100%;
+    margin-top: 2px;
+}
+
+#myDeal .dm_sum{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+#myDeal .dm_sum > div{
+    width: 33.33%;
+    background-color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#myDeal .dm_sum .name{
+    font-size: 15px;
+}
+
+#myDeal .dm_sum .count{
+    font-size: 18px;
+    color: #205162;
+    font-weight: 700;
+}
+
+#myDeal .search_open{
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: rgba(32, 81, 98, 0.7);
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+    transition: background-color, 0.1s;
+}
+
+#myDeal .search_open:hover{
+    background-color: rgba(32, 81, 98, 0.9)
+}
+
+#myDeal .search_open .text.open:after{
+    display: inline-block;
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(135deg);
+    vertical-align: top;
+    margin: 15px 0 0 10px;
+}
+
+#myDeal .search_open .text.close:after{
+    display: inline-block;
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(-45deg);
+    vertical-align: top;
+    margin: 18px 0 0 10px;
+}
+
+#myDeal .dm_search{
+    padding: 20px 10px;
+    background-color: rgba(238, 238, 238, 0.7);
+}
+
+#myDeal .sc_container{
+    display: flex;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+#myDeal .sc_name{
+    padding: 0 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #222;
+}
+
+#myDeal .sc_content{
+    padding-left: 10px;
+}
+
+#myDeal .sc_content > div{
+    margin-bottom: 10px;
+}
+
+#myDeal .sc_row2{
+    display: flex;
+}
+
+#myDeal .sc_row2 > div:first-child{
+    margin-right: 20px;
+}
+
+/* 체크박스 */
+
+#myDeal .rd_container{
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+#myDeal .rd_container input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#myDeal .rd_container .radiomark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+#myDeal .rd_container .radiomark:after{
+    content: "";
+    position: absolute;
+    display: none;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+}
+
+#myDeal .rd_container:hover .radiomark{
+    background-color: #ccc;
+}
+
+#myDeal .rd_container input:checked ~ .radiomark{
+    background-color: #205162;
+    border: 1px solid #205162;
+}
+
+#myDeal .rd_container input:checked ~ .radiomark:after{
+    display: block;
+}
+
+#myDeal .rd_container > .name{
+    font-size: 13px;
+    color: #222;
+    padding: 0 7px 0 20px;
+}
+
+#myDeal .input_box input{
+    cursor: pointer;
+}
+
+#myDeal .input_box input:focus {outline:none;}
+
+#myDeal .input_box input[type="text"]{
+    border: 1px solid #ccc;
+    color: #222;
+    height: 22px;
+    padding: 2px 10px;
+}
+
+#myDeal .input_box input.input_rcode{
+    width: 100px;
+}
+
+#myDeal .input_box input.input_cont{
+    width: 180px;
+}
+
+#myDeal .input_box select{
+    border: none;
+    background-color: #fff;
+    height: 22px;
+}
+
+#myDeal .input_box select option{
+    text-align: center;
+}
+
+#myDeal .input_box input[type="date"]{
+    border: none;
+    font-size: 14px;
+    color: #222;
+    text-align: center;
+    background-color: #fff;
+    padding-left: 10px;
+    width: 140px;
+    height: 22px;
+}
+
+#myDeal .sc_btn{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    text-align: center;
+}
+
+#myDeal .sc_btn a.reset{
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;  
+}
+
+#myDeal .sc_btn .btn_search{
+    border: none;
+    background-color: rgb(207,219,233);
+    padding: 10px 25px;
+    font-size: 14px;
+    color: #222;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+#myDeal .sc_btn .btn_search:hover{
+    background-color: rgba(32, 81, 98, 0.9);
+    color: #fff;
+}
+
+#myDeal .sc_sortby{
+    display: flex;
+}
+
+#myDeal .sc_cont_sortby{
+    display: flex;
+}
+
+#myDeal .sc_sortby .input_box{
+    margin-right: 12px;
+    padding-top: 10px;
+}
+
+/* 리스트 내 체크박스  */
+
+#myDeal .ck_container {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+#myDeal .ck_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#myDeal .ck_container .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+#myDeal .ck_container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    top: 2px;
+    left: 6px;
+}
+
+#myDeal .ck_container:hover .checkmark {
+    background-color: #ccc;
+}
+
+#myDeal .ck_container input:checked ~ .checkmark {
+    background-color: #205162;
+    border: 1px solid #205162;
+
+}
+
+#myDeal .ck_container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+#myDeal .ck_container > .name{
+    color: #222;
+    padding-left: 30px;
+}
+
+#myDeal .list_sel{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 17px 0 11px;
+    font-size: 13px;
+}
+
+#myDeal .sel_delete{
+    color: tomato
+}
+
+#myDeal .deal_list{
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+#myDeal .deal_list ul{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: none;
+}
+
+#myDeal .deal_list ul li{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#myDeal .deal_item{
+    height: 146px;
+    display: flex;
+    color: #222;
+    position: relative;
+}
+
+#myDeal .card_head{
+    width: 146px;
+    height: 146px;
+    background-color: aliceblue;
+    position: relative;
+}
+
+#myDeal div.sel_ck{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#myDeal .sel_progress{
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#myDeal .sel_progress select{
+    margin-right: 5px;
+    border: none;
+    background-color: #fff;
+    text-align: center;
+    height: 22px;
+    cursor: pointer;
+}
+
+#myDeal .sel_progress p.info{
+    background-color: #205162;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-top: 3px;
+    text-align: center;
+    line-height: 16px;
+    color: #fff;
+}
+
+#myDeal .print_progress{
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 146px;
+    height: 30px;
+    background-color: rgba(32, 81, 98, 0.9);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: center;
+    /* border-radius: 20px; */
+}
+
+#myDeal .item_container{
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+#myDeal .item_container > div{
+    margin-bottom: 5px;
+}
+
+#myDeal .room_info1, #myDeal .room_info2, #myDeal .room_info4, #myDeal .room_info5{
+    display: flex;
+}
+
+#myDeal .room_info1 > p:after, #myDeal .room_info2 > p:after
+, #myDeal .room_info4 > p:after, #myDeal .room_info5 > p:after{
+    display: inline-block;
+    vertical-align: top;
+    content: "";
+    width: 2px;
+    height: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 5px 5px;
+}
+
+#myDeal .room_info1 > p:last-child:after, #myDeal .room_info2 > p:last-child:after
+, #myDeal .room_info4 > p:last-child:after, #myDeal .room_info5 > p:last-child:after{
+    display: none;
+}
+
+#myDeal .room_info2{
+    font-size: 16px;
+}
+
+#myDeal .room_info2{
+    font-weight: 600;
+    color: #205162;
+}
+
+#myDeal .btn_more{
+    display: block;
+    width: 100px;
+    padding: 5px 0;
+    background-color: #fbe6e1;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#myDeal .btn_modify{
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    padding: 3px 6px;
+}
+
+#myDeal .btn_delete{
+    position: absolute;
+    top: 33px;
+    right: 10px;
+    padding: 3px 6px;
+}
+
+#myDeal .btn_modify:before, #myDeal .btn_delete:before{
+    display: inline-block;
+    vertical-align: top;
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-size: 100% 100%;
+    margin: 4px 5px 0 0;
+}
+
+#myDeal .btn_modify:before{
+    background-image: url(../img/icon_edit.png);
+}
+
+#myDeal .btn_delete:before{
+    background-image: url(../img/icon_delete.png);
+}
+
+#myDeal .list_pager{
+	margin: 20px 0;
+}
+
+.page2{
+    display: none;
+}

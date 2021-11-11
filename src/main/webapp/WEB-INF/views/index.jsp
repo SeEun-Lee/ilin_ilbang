@@ -153,11 +153,10 @@
             </section><!--.main_search-->
             
             <section class="main_list">
-	        <div class="inner">
-	            <h2>조건에 맞는 방</h2>
+				<div class="inner">	
 				<%@include file="./roomList.jsp" %>
-	        </div><!-- .inner -->
-	    </section><!-- .main_result -->
+				</div><!-- .inner -->
+			</section><!-- .main_list -->
             
         </div><!--.main-container-->
 
