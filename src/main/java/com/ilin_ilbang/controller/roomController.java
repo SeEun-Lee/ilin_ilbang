@@ -166,14 +166,14 @@ public class roomController{
 	}
 	
 	// 방 등록 페이지 
-	@GetMapping("/register")
+	@GetMapping("/roomRegister")
 	public String register() {
 		log.info("room_register");
 		return "roomRegister";
 	}
 	
 	// 방 등록 (게시글 등록)
-	@PostMapping("room_register")
+	@PostMapping("/room_register")
 	public String registerPost(room_infoVO room,room_optionVO roomOP,room_priceVO roomP) {
 		log.info("insert : "+room+"OP : "+roomOP+"P : "+roomP);
 		service.register(room); 
@@ -186,15 +186,6 @@ public class roomController{
 				
 		return "redirect:/";
 	}
-	
-//	// 방 등록 (첨부파일 등록) 
-//	@GetMapping(value="getAttachList",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-//	@ResponseBody
-//	public ResponseEntity<List<RoomAttachVO>> getAttachList(int rcode){
-//		log.info("getAttachList="+rcode);
-//		return new ResponseEntity<>(service.getAttachList(rcode),HttpStatus.OK);
-//		
-//	}
 	
 	// by 세은, 찜 클릭시 찜 목록에 추가
 	@ResponseBody

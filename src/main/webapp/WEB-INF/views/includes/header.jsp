@@ -50,7 +50,7 @@
                                     <a href="/roomLike" class="roomLike"><span>관심목록</span></a>
                                 </li>
                                 <li>
-                                    <a href="/register" class="register"><span>방 내놓기</span></a>
+                                    <a href="/roomRegister" class="register"><span>방 내놓기</span></a>
                                 </li>
                                 <li>
                                     <a href="/myDeal"><span>거래관리</span></a>
