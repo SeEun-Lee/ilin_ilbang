@@ -22,26 +22,26 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void login(MemberVO member) {
 		log.info("login......."+member);
-		mapper.insert(member);
+		mapper.login(member);
 	}
 	@Override
 	public void register(MemberVO member) {
 		log.info("register......."+member);
-		mapper.insert(member);
+		mapper.register(member);
 	}
 	@Override
 	public void modify(MemberVO member) {
 		log.info("modify......."+member);
-		mapper.insert(member);
+		mapper.modify(member);
 	}
 	@Override
 	public void find_id(MemberVO member) {
 		log.info("find_id......."+member);
-		mapper.insert(member);
+		mapper.find_id(member);
 	}
 	@Override
 	public void find_pw(MemberVO member) {
 		log.info("find_pw......."+member);
-		mapper.insert(member);
+		mapper.find_pw(member);
 	}
 }

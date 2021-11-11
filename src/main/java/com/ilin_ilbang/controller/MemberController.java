@@ -21,28 +21,33 @@ import lombok.extern.log4j.Log4j;
 public class MemberController {
 	
 	private MemberService service;
-	
+	// 로그인 화면 진입
 	@GetMapping ("/login")
 	public void login(MemberVO member) {
 		log.info("login!!" + member);
 	}
+	// 회원가입 화면 진입
 	@GetMapping ("/member_join")
 	public void register(MemberVO member) {
 		log.info("join!!" + member);
 	}
+	// 회원가입 수정 화면 진입
 	@GetMapping ("/member_modify")
 	public void modify(MemberVO member) {
 		log.info("modify!!" + member);
 	}
+	// 아이디 찾기 화면 진입
 	@GetMapping ("/find_id")
 	public void find_id(MemberVO member) {
 		log.info("find_id!!" + member);
 	}
+	// 비밀번호 찾기 화면 진입
 	@GetMapping ("/find_pw")
 	public void find_pw(MemberVO member) {
 		log.info("find_pw!!" + member);
 	}
 	
+	// 로그인버튼을 클릭시 데이터베이스에서 select
 	@PostMapping("/login")
 	public void login1(MemberVO member) {
 		
@@ -50,7 +55,7 @@ public class MemberController {
 		
 		service.login(member);
 	}
-	
+	// 회원가입에서 회원가입 버튼 클릭시 데이터를 데이터베이스에 insert
 	@PostMapping("/member_join")
 	public void register1(MemberVO member) {
 		
@@ -59,6 +64,7 @@ public class MemberController {
 		service.register(member);
 	}
 	
+	// 회원가입에서 회원정보수정 버튼 클릭시 데이터를 데이터베이스에 update
 	@PostMapping("/member_modify")
 	public void modify1(MemberVO member) {
 		
@@ -66,7 +72,7 @@ public class MemberController {
 		
 		service.modify(member);
 	}
-	
+	// 회원가입에서 아이디 찾기 select
 	@PostMapping("/find_id")
 	public void find_id1(MemberVO member) {
 		
@@ -74,7 +80,7 @@ public class MemberController {
 		
 		service.find_id(member);
 	}
-	
+	// 회원가입에서 비밀번호 찾기 select
 	@PostMapping("/find_pw")
 	public void find_pw1(MemberVO member) {
 		

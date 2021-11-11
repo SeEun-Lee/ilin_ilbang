@@ -19,5 +19,4 @@ public interface MemberMapper {
 
 	public void find_pw(MemberVO member);
 
-	public void insert(MemberVO member);
 }

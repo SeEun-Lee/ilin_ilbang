@@ -67,7 +67,6 @@
             padding: 20px 35px;
             background-color: #1F4E5F;
         }
-
     </style>
 </head>
 <body>
@@ -90,7 +89,7 @@
                     </label>
                 </li>
                 <li>
-                    <button type="submit" class="submit">로그인</button>
+                    <button type="submit" id="submit" class="submit">로그인</button>
                 </li>
                 <li class="btn-group">
                     <a href="/member/find_id" class="btn"> 아이디 찾기 </a>
