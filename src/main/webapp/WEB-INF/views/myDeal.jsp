@@ -16,11 +16,11 @@
                         <li><a href="">완료된 거래</a></li>
                     </ul>
                 </div><!--.sp_nav-->
-                <div class="deal_content list_content_deal" id="list_content_deal">
-                        <div class="deal_menu">
-                            <h3 class="dm_title">거래관리 > 등록한 방</h3>
-                            <div class="dm_wrap">
-                                <div class="dm_welcome">
+                <div class="subpage_content deal_content" id="list_content_deal">
+                        <div class="sc_menu">
+                            <h3 class="sc_title">거래관리 > 등록한 방</h3>
+                            <div class="sc_wrap">
+                                <div class="sc_welcome">
                                     <span class="style">${agntid}</span>님,
                                     어서오세요!
                                 </div>
@@ -41,10 +41,10 @@
                                 <div>
                                     <a href="" class="search_open">
                                         검색 메뉴
-                                        <span class="text">열기</span>
+                                        <span class="text open">열기</span>
                                     </a>
                                 </div>
-                                <div class="dm_search">
+                                <div class="dm_search" style="display:none;">
                                     <div class="sc_container">
                                         <div class="sc_name">검색</div>
                                         <div class="sc_content">
@@ -128,7 +128,7 @@
                             </div><!--.dm_wrap-->
                         </div>	<!--.deal_menu-->
 
-                        <div class="list_sel">
+                        <div class="list_select list_select_deal">
                             <div class="all_ck">
                                 <label class="ck_container">
                                     <input type="checkbox" name="selectall">
@@ -139,7 +139,7 @@
                             <div>
                                 <a href="" class="sel_delete">선택삭제</a>
                             </div>
-                        </div> <!--.list_sel-->
+                        </div> <!--.list_select-->
 
                         <div class="deal_list">
                             <ul>
@@ -149,7 +149,7 @@
 	                                       onclick='window.open("/<c:out value='${room.rcode}'/>", "_blank", "width=600px", "height=500px")'>
 	                                        <div class="deal_item">
 	                                            <div class="card_head">
-	                                                <img class="room_img" src="" alt="">
+	                                                <img class="room_img" alt="">
 	                                                <div class="sel_ck">
 	                                                    <label class="ck_container">
 	                                                        <input type="checkbox" name="select">
@@ -178,8 +178,8 @@
 	                                            <div class="item_container">
 	                                                <div class="room_info1">
 	                                                    <p>등록번호 : ${room.rcode}</p>
-	                                                    <p>등록일 : ${room.regdate}</p>
-	                                                    <p>수정일 : ${room.updatedate}</p>
+	                                                    <p>등록일 : <fmt:formatDate pattern="yyyy-MM-dd" value="${room.regdate}"/></p>
+	                                                    <p>수정일 : <fmt:formatDate pattern="yyyy-MM-dd" value="${room.updatedate}"/></p></p>
 	                                                
 	                                                </div>
 	                                                <div class="room_info2">

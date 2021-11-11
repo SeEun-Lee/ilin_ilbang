@@ -7,160 +7,142 @@
 
 <%@include file="./includes/header.jsp" %>
 
-
-<body>
-    <header id="header">
-    </header><!-- #header -->
     <section id="roomLike">
-        <div class="sp1_container top_padding sp1_bg1">
-            <div class="sp1_top">
-                <div class="sp1_menu">
-                    <ul>
-                        <li class="sm_title1, on"><a href="/roomLike">찜한 방</a></li>
-                        <li class="sm_title2"><a href="" class="like">최근 본 방</a></li>
-                    </ul>
-                </div><!-- .sp1_menu -->
-                <div class="now_page"><span>관심목록 > 찜한 방</span></div>
-                <div class="title">
-					<div class="title_text"><span class="mid">${mid}</span>님이 찜하신 방입니다!</div>
-					<span class="title_count">(${pageMaker.total}건)</span>
-				</div>
-			</div><!-- .sp1_top -->
-		 </div><!-- .sp1_container -->
-		 <div class="sp1_container sp1_bg2" id="list_container_like">
-   					<div class="list_content list_content_like" id="list_content_like">
-						<div class="result" style="display: none;">${result}</div>
-						<div class="isEmpty" style="display: none;">이런 방은 어떠세요?</div>	
-						<div class="control_bar">
-							<div class="ck_all">
-								<label class="ck_container">
-		       						<input type="checkbox" name="selected" value="${room.rcode}">
-		       						<span class="checkmark"></span>
-		       						<span class="name">전체선택</span>
-							     </label>
-						     </div>
-						     <div><a class="btn_delete">선택삭제</a></div>	
-					    </div>			   		
-						<ul>
-							<c:forEach items="${list}" var="room">
-								<li class="room">
-									<a class="room_detail" href="javascript:void(0);"
-									   onclick='window.open("/<c:out value='${room.rcode}'/>", "_blank", "width=600px", "height=500px")'>
-										<div class="room_card">
-					        				<div class="card_box">
-					        					<img class="room_img" src="../resources/img/room_ex.png" alt="">
-					        					<div class="ck_box">
-					        						<label class="ck_container">
-						        						<input type="checkbox" name="selected" value="${room.rcode}">
-						        						<span class="checkmark"></span>
-					        						</label>
-					        					</div>
-					        					<div>
-					        						<a class="btn_like">찜!</a>
-					        						<span style="display:none;">${room.rcode}</span>
-					        					</div>
-					        				</div><!-- card_box -->     				
-					        				<div class="card_container">
-					            				<div class="room_price">
-					            					<c:choose>
-														<c:when test="${room.rtype=='o'}">
-															<span class="room_type one">원룸</span>
-														</c:when>
-														<c:when test="${room.rtype=='t'}">
-															<span class="room_type two">투룸</span>
-														</c:when>
-													</c:choose>
-													<span class="price">
-														<c:out value="${room.dep}"/>
-														/
-														<c:out value="${room.mrent}"/>
-													</span>
-					                          		<span class="price_won">만원</span>  
-					                      		</div><!-- .room_price -->
-					                      	
-												<div class="room_cmt">
-													<c:out value="${room.rcmt}"/>
-												</div>
-											
-												<div class="room_tag">
-													<c:if test="${room.park eq 'Y'}">
-														<span class="tag">#주차</span>
-													</c:if>
-													<c:if test="${room.elev eq 'Y'}">
-														<span class="tag">#엘리베이터</span>
-													</c:if>
-													<c:if test="${room.pet eq 'Y'}">
-														<span class="tag">#반려동물</span>
-													</c:if>
-												</div><!-- .room_tag -->
-												<div class="room_addr">
-													<span class="addr">
-														<c:set var="address" value="${room.addr}"/>
-															${fn:split(address," ")[0]}
-															${fn:split(address," ")[1]}
-															${fn:split(address," ")[2]}
-													</span>
-						                       		<span class="regdate">
-						                           		<fmt:formatDate pattern="MM.dd" value="${room.regdate}"/>
-						        					</span>
-										   		</div>
-											</div><!--.card_container-->
-										</div><!-- .room_card -->
-									</a>
+        <div class="sp_container">
+  			<div class="sp_nav">
+  				<div>관심 목록</div>
+  				<ul>
+  					<li><a href="">등록한 방</a></li>
+  					<li><a>완료된 거래</a></li>
+  				</ul>
+  			</div><!-- .sp_nav  -->
+  			<div class="subpage_content like_content">
+  				<div class="sc_menu">
+  					<h3 class="sc_title">관심목록 > 찜 목록</h3>
+  					<div class="sc_wrap">
+  						<div class="like_sum">
+  							<span class="style">${mid}님</span>이 찜하신 방은
+  							총 <span class="style">${pageMaker.total}개</span>입니다.
+  						</div>
+  					</div><!-- sc_wrap -->
+  				</div><!-- .sc_menu -->
+  				<div class="list_select list_select_like">
+                	<div class="all_ck">
+	                    <label class="ck_container">
+	                        <input type="checkbox" name="selectall">
+	                        <span class="checkmark"></span>
+	                        <span class="name">전체선택</span>
+	                    </label>
+                    </div>
+                    <div>
+                    	<a href="" class="sel_delete">선택삭제</a>
+                	</div>
+  				</div><!-- .list_select -->
+  				<div class="like_list list_content">
+  					<ul>
+	  					<c:forEach items="${list}" var="room">
+							<li class="room">
+								<a class="room_detail" href="javascript:void(0);"
+								   onclick='window.open("/<c:out value='${room.rcode}'/>", "_blank", "width=600px", "height=500px")'>
+									<div class="room_card">
+				        				<div class="card_box">
+				        					<img class="room_img" src="../resources/img/room_ex.png" alt="">
+				        					<div class="ck_box">
+				        						<label class="ck_container">
+					        						<input type="checkbox" name="selected" value="${room.rcode}">
+					        						<span class="checkmark"></span>
+				        						</label>
+				        					</div>
+				        					<div>
+				        						<a class="btn_like">찜!</a>
+				        						<span style="display:none;">${room.rcode}</span>
+				        					</div>
+				        				</div><!-- card_box -->     				
+				        				<div class="card_container">
+				            				<div class="room_price">
+				            					<c:choose>
+													<c:when test="${room.rtype=='o'}">
+														<span class="room_type one">원룸</span>
+													</c:when>
+													<c:when test="${room.rtype=='t'}">
+														<span class="room_type two">투룸</span>
+													</c:when>
+												</c:choose>
+												<span class="price">
+													<c:out value="${room.dep}"/>
+													/
+													<c:out value="${room.mrent}"/>
+												</span>
+				                          		<span class="price_won">만원</span>  
+				                      		</div><!-- .room_price -->
+				                      	
+											<div class="room_cmt">
+												<c:out value="${room.rcmt}"/>
+											</div>
+										
+											<div class="room_tag">
+												<c:if test="${room.park eq 'Y'}">
+													<span class="tag">#주차</span>
+												</c:if>
+												<c:if test="${room.elev eq 'Y'}">
+													<span class="tag">#엘리베이터</span>
+												</c:if>
+												<c:if test="${room.pet eq 'Y'}">
+													<span class="tag">#반려동물</span>
+												</c:if>
+											</div><!-- .room_tag -->
+											<div class="room_addr">
+												<span class="addr">
+													<c:set var="address" value="${room.addr}"/>
+														${fn:split(address," ")[0]}
+														${fn:split(address," ")[1]}
+														${fn:split(address," ")[2]}
+												</span>
+					                       		<span class="regdate">
+					                           		<fmt:formatDate pattern="MM.dd" value="${room.regdate}"/>
+					        					</span>
+									   		</div>
+										</div><!--.card_container-->
+									</div><!-- .room_card -->
+								</a>
+							</li>
+						</c:forEach>
+					</ul>
+					<div class="list_pager">
+						<ul class="pagination">
+							<c:if test="${pageMaker.prev}">
+								<li class="paginate_btn previous_10p">
+									<a href="${pageMaker.startPage - 1}">이전 10페이지</a>
+								</li>
+							</c:if>
+							<c:if test="${pageMaker.cri.pageNum > 1}">
+								<li class="paginate_btn previous_1p">
+									<a href="${pageMaker.cri.pageNum - 1}">이전 1페이지</a>
+								</li>
+							</c:if>
+							<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+								<li class="paginate_btn pageNum ${pageMaker.cri.pageNum == num ? 'active':''}">
+									<a href="${num}">${num}</a>
 								</li>
 							</c:forEach>
+							<c:if test="${pageMaker.cri.pageNum < pageMaker.endPage}">
+								<li class="paginate_btn next_1p">
+									<a href="${pageMaker.cri.pageNum + 1}">다음 1페이지</a>
+								</li>
+							</c:if>
+							<c:if test="${pageMaker.next}">
+								<li class="paginate_btn next_10p">
+									<a href="${pageMaker.endPage + 1}">다음 10페이지</a>
+								</li>
+							</c:if>
 						</ul>
-						<div class="list_pager">
-							<ul class="pagination">
-								<c:if test="${pageMaker.prev}">
-									<li class="paginate_btn previous_10p">
-										<a href="${pageMaker.startPage - 1}">이전 10페이지</a>
-									</li>
-								</c:if>
-								<c:if test="${pageMaker.cri.pageNum > 1}">
-									<li class="paginate_btn previous_1p">
-										<a href="${pageMaker.cri.pageNum - 1}">이전 1페이지</a>
-									</li>
-								</c:if>
-								<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-									<li class="paginate_btn pageNum ${pageMaker.cri.pageNum == num ? 'active':''}">
-										<a href="${num}">${num}</a>
-									</li>
-								</c:forEach>
-								<c:if test="${pageMaker.cri.pageNum < pageMaker.endPage}">
-									<li class="paginate_btn next_1p">
-										<a href="${pageMaker.cri.pageNum + 1}">다음 1페이지</a>
-									</li>
-								</c:if>
-								<c:if test="${pageMaker.next}">
-									<li class="paginate_btn next_10p">
-										<a href="${pageMaker.endPage + 1}">다음 10페이지</a>
-									</li>
-								</c:if>
-							</ul>
-						</div><!-- .list_pager -->
-						<script src="${pageContext.request.contextPath}/resources/js/roomList.js"></script>
-              		</div><!-- .list_content .list_content_like -->
-            </div><!-- .sp1_container -->
-            <div class="page2">
-                <div class="sp1_menu">
-                    <ul>
-                        <li class="sm_title1"><a href="#">찜한 방</a></li>
-                        <li class="sm_title2, on"><a href="#">최근 본 방</a></li>
-                    </ul>
-                </div><!-- .sp1_menu -->
-                <div><!-- 내용 -->
-                    <ul>
-                        <li></li>
-                    </ul>
-                </div>
-                <div class="sp1_btns">
-                    <button class="sp1_prve">이전으로</button>
-                    <button class="sp1_next">다음으로</button>
-                </div>
-            </div><!-- .page2 -->
-        </div>
+					</div><!-- .list_pager -->
+  				</div><!-- .like_list lits_content -->
+  			</div><!--.subpage_content .like_content -->
+		 </div><!-- .sp_container -->
     </section><!-- #sub_page1 -->
+    
+    
       <!-- 찜 버튼 클릭시 모달창 입니다 -->
 	 <div class="modal_like">
 			<div class="modal_text">
@@ -207,7 +189,7 @@
 	 		</div>
 	 		<div class="modal_close">창 닫기</div>
 	 </div><!-- .modal_dislike -->
-</body>
+
 <script src="${pageContext.request.contextPath}/resources/js/roomLike.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 

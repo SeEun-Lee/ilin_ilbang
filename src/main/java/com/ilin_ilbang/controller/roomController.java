@@ -224,8 +224,7 @@ public class roomController{
 		}
 		return result; // 0 OR 1을 return 합니다.
 	}
-	
-	
+
 	// by 세은, 관심목록 출력
 	@RequestMapping(value = "/roomLike", method = RequestMethod.GET)
 	public String roomLike(Model model, Criteria cri) {

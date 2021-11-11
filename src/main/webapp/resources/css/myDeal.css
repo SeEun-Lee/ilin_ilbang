@@ -1,119 +1,9 @@
 @charset "utf-8";
 
-#myDeal{
-    position: relative;
-    padding-top: 100px;
-}
-
-#myDeal .sp_nav{
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    width: 170px;
-    min-height: 100px;
-    border: 1px solid #eee;
-    border-radius: 15px;
-    background-color: #fff;
-    overflow: hidden;
-}
-
-#myDeal .sp_nav > div{
-    height: 40px;
-    font-size: 15px;
-    line-height: 40px;
-    padding-left: 20px;
-    border-bottom: 1px solid #eee;
-    color: #222;
-}
-
-#myDeal .sp_nav > div:before{
-    display: inline-block;
-    vertical-align: top;
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-top: 2px solid #666;
-    border-right: 2px solid #666;
-    transform: rotate(135deg);
-    margin: 13px 7px 0 0;
-}
-
-#myDeal .sp_nav li a{
-    display: block;
-    height: 40px;
-    line-height: 40px;
-    padding-left: 28px;
-    font-size: 14px;
-    /* background-color: wheat; */
-    transition: background-color, 0.1s;
-}
-
-#myDeal .sp_nav li a:hover{
-    background-color: #eee;
-}
-
-#myDeal .sp_nav li a:before{
-    display: inline-block;
-    vertical-align: top;
-    content: "";
-    width: 3px;
-    height: 3px;
-    background-color: #222;
-    border-radius: 50%;
-    margin: 20px 10px 0 0;
-
-}
-
-#myDeal .sp_container{
-	width: 1200px;
-	margin: 0 auto;
-    background-color: #fff;
-    position: relative;
-}
-
-#myDeal .deal_content{
-	width: 700px;
-	margin: 0 auto;
-	padding-top: 30px;
-	min-height: 800px;
-}
-
 /* deal_menu */
 
-#myDeal .dm_title{
-    font-size: 17px;
-    color: #222;
-    margin-bottom: 20px;
-}
-
-#myDeal .dm_wrap{
-    background-color: #fff;
-    padding-top: 10px;
-}
-
-#myDeal .dm_welcome{
-    text-align: center;
-    font-size: 15px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
-}
-
-#myDeal .dm_welcome .style{
-    color: #205162;
-    font-weight: 600;
-}
-
-#myDeal .dm_welcome:after, #myDeal .dm_welcome:before{
-    display: inline-block;
-    vertical-align: top;
-    content: "";
-    width: 16px;
-    height: 16px;
-    /* background-color: tomato; */
-    background-image: url(/img/icon_party.png);
-    background-size: 100% 100%;
-    margin-top: 2px;
+#myDeal .deal_content{
+	min-height: 500px;
 }
 
 #myDeal .dm_sum{
@@ -413,21 +303,15 @@
     padding-left: 30px;
 }
 
-#myDeal .list_sel{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    padding: 0 17px 0 11px;
-    font-size: 13px;
-}
-
-#myDeal .sel_delete{
-    color: tomato
+#myDeal .list_select_deal{
+	padding: 0 17px 0 11px;
 }
 
 #myDeal .deal_list{
     background-color: #fff;
     margin-top: 20px;
+    min-height: 500px;
+    max-height: 876px;
 }
 
 #myDeal .deal_list ul{
@@ -532,12 +416,10 @@
 }
 
 #myDeal .room_info2{
-    font-size: 16px;
-}
-
-#myDeal .room_info2{
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 400;
     color: #205162;
+    margin-bottom: 5px;
 }
 
 #myDeal .btn_more{
@@ -586,7 +468,7 @@
 }
 
 #myDeal .list_pager{
-	margin: 20px 0;
+	margin-bottom: 40px;
 }
 
 .page2{

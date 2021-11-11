@@ -153,7 +153,140 @@
     margin-right: 10px;
 }
 
-
 .f_row3 span{
     font-size: 12px;
 }
+
+/* subpage 공통 */
+/* 관심목록 페이지 (roomLike.jsp) & 거래관리 페이지 (myDeal.jsp) */
+
+#roomLike, #myDeal{
+	position: relative;
+	padding-top: 100px;
+}
+
+.sp_container{
+	width: 1200px;
+	margin: 0 auto;
+    background-color: #fff;
+    position: relative;
+}
+
+.subpage_content{
+	width: 700px;
+	margin: 0 auto;
+	padding-top: 30px;
+	min-height: 500px;
+}
+
+.subpage_content span.style{
+    color: #205162;
+    font-weight: 600;
+}
+
+	/* sp_nav */
+
+.sp_nav{
+	position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 170px;
+    min-height: 100px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.sp_nav > div{
+	height: 40px;
+    font-size: 15px;
+    line-height: 40px;
+    padding-left: 20px;
+    border-bottom: 1px solid #eee;
+    color: #222;
+}
+
+.sp_nav > div:before{
+	display: inline-block;
+    vertical-align: top;
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #666;
+    border-right: 2px solid #666;
+    transform: rotate(135deg);
+    margin: 13px 7px 0 0;
+}
+
+.sp_nav li a{
+	display: block;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 28px;
+    font-size: 14px;
+    transition: background-color, 0.1s;
+}
+
+.sp_nav li a:hover{
+    background-color: #eee;
+}
+
+.sp_nav li a:before{
+    display: inline-block;
+    vertical-align: top;
+    content: "";
+    width: 3px;
+    height: 3px;
+    background-color: #222;
+    border-radius: 50%;
+    margin: 20px 10px 0 0;
+}
+
+	/* subpage_content */
+
+.sc_title{
+    font-size: 17px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.sc_wrap{
+    background-color: #fff;
+    padding-top: 10px;
+}
+
+.sc_welcome{
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.sc_welcome:after, .sc_welcome:before{
+    display: inline-block;
+    vertical-align: top;
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-image: url(/img/icon_party.png);
+    background-size: 100% 100%;
+    margin-top: 2px;
+}
+
+/* 전채선택 */
+
+.sp_container .list_select{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.sel_delete{
+    color: tomato
+}
+
+/* 페이저 */
+

@@ -20,9 +20,9 @@ public class room_infoVO {
 	private String addr; // 주소 
 	private String addsub; // 상세주소 
 	private int whlarea; // 공용 면적
-	private String flr; // 층수
+	private int flr; // 층수
 	private int area; // 면적 
-	private String myflr; // 현재 층수
+	private int myflr; // 현재 층수
 	private String mvdate; // 입주가능날을 글자로 표시 
 	private String elev; // 엘리베이터 가능시 'Y' 아닐시 'N' 
 	private String park; // 주차 있으면 가능시 'Y' 아닐시 'N' 
