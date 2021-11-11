@@ -305,22 +305,18 @@
 
 #myDeal .list_select_deal{
 	padding: 0 17px 0 11px;
+	margin: 20px 0px;
 }
 
 #myDeal .deal_list{
     background-color: #fff;
     margin-top: 20px;
     min-height: 500px;
-    max-height: 876px;
 }
 
-#myDeal .deal_list ul{
+#myDeal .deal_list > ul li{
     border: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: none;
-}
-
-#myDeal .deal_list ul li{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 #myDeal .deal_item{
@@ -395,13 +391,12 @@
     margin-bottom: 5px;
 }
 
-#myDeal .room_info1, #myDeal .room_info2, #myDeal .room_info4, #myDeal .room_info5{
-    display: flex;
+#myDeal .room_info{
+	display: flex;
 }
 
-#myDeal .room_info1 > p:after, #myDeal .room_info2 > p:after
-, #myDeal .room_info4 > p:after, #myDeal .room_info5 > p:after{
-    display: inline-block;
+#myDeal .room_info > p:after{
+	display: inline-block;
     vertical-align: top;
     content: "";
     width: 2px;
@@ -410,29 +405,31 @@
     margin: 5px 5px;
 }
 
-#myDeal .room_info1 > p:last-child:after, #myDeal .room_info2 > p:last-child:after
-, #myDeal .room_info4 > p:last-child:after, #myDeal .room_info5 > p:last-child:after{
-    display: none;
+#myDeal .room_info > p:last-child:after{
+	 display: none;
 }
 
-#myDeal .room_info2{
+#myDeal .ri2{
     font-size: 18px;
     font-weight: 400;
     color: #205162;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    line-height: 22px;
 }
 
-#myDeal .btn_more{
-    display: block;
-    width: 100px;
-    padding: 5px 0;
-    background-color: #fbe6e1;
-    text-align: center;
-    font-size: 13px;
-    cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+#myDeal .ri3, #myDeal .ri4{
+	color: #666;
+}
+
+#myDeal .ri4{
+	margin-bottom: 10px;
+}
+
+#myDeal .ri2 .dm_addr{
+	width: 300px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 
 #myDeal .btn_modify{
