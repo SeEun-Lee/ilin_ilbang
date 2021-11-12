@@ -57,9 +57,9 @@ $(document).ready(function(){
 		$('.modal_close, .modal_btn_2').on("click", function(e){
 			e.preventDefault();
 			closeModal();
-		}) 
+		}) // end event
 			
-	})
+	})// end event
 		
 	
 	//by세은, Modal - 관심 취소

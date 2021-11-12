@@ -17,7 +17,7 @@
 <link href="${pageContext.request.contextPath}/resources/css/button.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/resources/css/roomModify.css" rel="stylesheet" type="text/css">
 
-<div class="wrap">
+<div class="wrap" id="roomModify">
   <form role="form" id="room_Modify">
    	<div id="sub_page2">
        <div class="sp2_in">
@@ -328,13 +328,34 @@
 		           	</div>
 		           	<div class="sc7_btns">
 	                	<label for="check"><input type="checkbox" id="check">매물등록 규정을 확인 했으며, 등록한 정보는 실제와 다름이 없습니다.</label>
-		               	<button type="reset">수정취소</button>
+		               	<button type="button" id="btn_cancel">수정취소</button>
 		               	<button type="button" id="btn_modify">수정하기</button>
 		           	</div>
 	            </div><!-- .sp2_content7 -->
 	        </div><!-- .sp2_in -->
 	    </div><!-- #sub_page2 -->
 	</form>
+	<div class="modal_modify">
+		<div class="modal_text">
+			정상적으로 수정되었습니다.<br> 수정한 내용을 확인할까요?
+		</div>
+		<div class="modal_btn_box">
+			<a class="modal_btn_1">아니요.</a>
+			<a class="modal_btn_2">네, 확인할게요.</a>
+		</div>
+		<div class="modal_close">창 닫기</div>
+	</div> <!-- .modal_modify -->
+	<div class="modal_cancel">
+		<div class="modal_text">
+			취소할 시 현재 내용은 저장되지 않습니다.<br>정말 창을 닫으시겠어요?
+		</div>
+		<div class="modal_btn_box">
+			<a class="modal_btn_1">네, 닫겠습니다.</a>
+			<a class="modal_btn_2">아니요.</a>
+		</div>
+		<div class="modal_close">창 닫기</div>
+	</div> <!-- .modal_cancel -->
 </div><!-- .wrap -->
+
 
 <script src="${pageContext.request.contextPath}/resources/js/roomModify.js"></script>

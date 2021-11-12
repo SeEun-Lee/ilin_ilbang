@@ -19,6 +19,23 @@ $(document).ready(function(){
 		}
 	}
 	
+	//by세은, Form Data를 JSON 형태로 만드는 함수입니다. (출처: https://coding-start.tistory.com/152)
+	jQuery.fn.serializeObject = function() { 
+      var obj = null; 
+      try { 
+          if(this[0].tagName && this[0].tagName.toUpperCase() == "FORM" ) { 
+              var arr = this.serializeArray(); 
+              if(arr){ obj = {}; 
+              jQuery.each(arr, function() { 
+                  obj[this.name] = this.value; }); 
+              } 
+          } 
+      }catch(e) { 
+          alert(e.message); 
+      }finally {} 
+      return obj; 
+    } // end function
+	
 	var loadDtype = $("input[name='dtype']:checked").val();
 	var monthly = $("label[for='month']");
 	var yearly = $("label[for='year']");
@@ -31,25 +48,25 @@ $(document).ready(function(){
 	$(yearly).on("click",function(){
 		monthOrYear('y');
 	})
-	
-	
+
+	var modalModify = $('.modal_modify');
+	var modalCancel = $('.modal_cancel');
+	var thisRcode = $('input[name="rcode"]').val();
 	// by 세은, '수정하기' 클릭시 ajax
 	$('#btn_modify').on("click", function(e){
 		e.preventDefault();
-		var rcode = $('input[name="rcode"]').val(); 
 		var allData = $('#room_Modify').serializeObject(); // input 데이터를 전부 JSON형식으로
 		// @RequestBody로 여러 파라미터를 받을 수 없기때문에 VO별로 분류해서 JSON안에 JSON을 넣어주는 방식을 선택했습니다.
 		// (Controller에서는 room_allDataVO로 받습니다.)
 		var mappedData = {}; // Controller에 보낼 JSON 입니다.
-		var roomI = {rcode : rcode}; // room_infoVO 
-		var roomP = {rcode : rcode}; // room_priceVO
-		var roomOP = {rcode : rcode}; // room_optionVO
+		var roomI = {rcode : thisRcode}; // room_infoVO 
+		var roomP = {rcode : thisRcode}; // room_priceVO
+		var roomOP = {rcode : thisRcode}; // room_optionVO
 		var infoArr = ['rtype', 'btype', 'rface', 'addr', 'addsub', 'rcmt', 'rcont', 'mvdate'
 					  , 'whlarea', 'area', 'flr', 'myflr', 'park', 'pet', 'elev'];
 		var priceArr = ['dtype', 'dep', 'mrent', 'yrent', 'mcfee'];
 		var optionArr = ['ac', 'washer', 'fridge', 'tv', 'stove', 'microw', 'bed', 'desk'
 						, 'closet', 'shelf'];
-
 		// key중에 priceArr[i]가 있으면 room_price에 넣습니다. 
 		for (i=0; i<priceArr.length; i++){
 			if(allData.hasOwnProperty(priceArr[i])){
@@ -76,30 +93,49 @@ $(document).ready(function(){
 		mappedData['roomOP'] = roomOP;
 		$.ajax({
 			type : 'PUT',
-			url : '/Modify/' + rcode,
+			url : '/Modify/' + thisRcode,
 			data : JSON.stringify(mappedData),
 			contentType : "application/json; charset=utf-8",
 			success:function(){
-				alert("성공!!!!")
+				modalModify.fadeIn(200);
 			}
 		})//end ajax
 	})// end event
-	
-	//by세은, Form Data를 JSON 형태로 만드는 함수입니다. (출처: https://coding-start.tistory.com/152)
-	jQuery.fn.serializeObject = function() { 
-      var obj = null; 
-      try { 
-          if(this[0].tagName && this[0].tagName.toUpperCase() == "FORM" ) { 
-              var arr = this.serializeArray(); 
-              if(arr){ obj = {}; 
-              jQuery.each(arr, function() { 
-                  obj[this.name] = this.value; }); 
-              } 
-          } 
-      }catch(e) { 
-          alert(e.message); 
-      }finally {} 
-      return obj; 
-    } // end function
-
+	//by세은, 수정 취소 버튼 클릭 이벤트입니다.
+	$('#btn_cancel').on('click',function(e){
+		e.preventDefault();
+		modalCancel.fadeIn(200);
+	})// end event
+	//by세은, 취소 모달창 - 모달 닫기이벤트입니다. 
+	$('.modal_btn_2, .modal_close', modalCancel).on('click', function(e){
+		e.preventDefault();
+		modalCancel.fadeOut(200);
+	})// end event
+	//by세은, 취소 모달창 - 현제페이지 닫기이벤트입니다. 
+	$('.modal_btn_1', modalCancel).on('click', function(e){
+		e.preventDefault();
+		modalCancel.fadeOut(200);
+		WinClose();
+	})
+	//by세은, 수정완료 모달창 - 모달 닫기 이벤트입니다.
+	$('.modal_btn_1, .modal_close', modalModify).on('click', function(e){
+		e.preventDefault();	
+		modalModify.fadeOut(200);
+		WinClose();
+	}) // end event
+	//by세은, 수정 완료 모달창 - 상세정보 페이지 이동 이벤트입니다.
+	$('.modal_btn_2', modalModify).on('click', function(e){
+		e.preventDefault();
+		modalModify.fadeOut(200);
+		WinClose();
+		infoPopup(thisRcode);
+	})
+	//by 세은, 팝업창(현제페이지)을 닫는 함수입니다.
+	function WinClose(){ 
+		window.open('','_self').close();
+	} // end function 
+	//by 세은, 상세정보페이지 팝업 여는 함수입니다.
+	function infoPopup(rcode){
+		window.open('/' + rcode, '', '_blank');
+	}
 });
