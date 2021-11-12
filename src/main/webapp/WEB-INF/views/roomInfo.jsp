@@ -20,7 +20,6 @@
 
 	<form id="operForm" action="/listWithPage" method="get">
         <div class="room_info_in">
-        
             <div class="ms_title">
             	<h2 class="rcode">매물 번호 <span class="style">${Info.rcode}</span></h2>
                 <a class="close" 

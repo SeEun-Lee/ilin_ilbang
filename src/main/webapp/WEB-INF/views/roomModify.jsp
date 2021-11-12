@@ -23,12 +23,23 @@
        <div class="sp2_in">
             <div class="sp2_title">
                 <h2 class="sp2_t">방 수정하기</h2>
+                <a class="close" 
+                   style="background-image: url(${pageContext.request.contextPath}/resources/img/btn_close.png);"
+                   onClick="window.close()">닫기</a>
             </div><!-- sp2_title -->
-	            <div class="sp2_content1">
-	                <div class="sc1_text">
-	                    <input type="text" name="rcode" value="${info.rcode}" readonly>
-	                    <input type="text" name="regdate" value="${info.regdate}" readonly>
-	                </div>
+            <div class="sp2_content1">
+                <div class="sc1_text">
+                	<div class="row1">
+                		<span class="style rcode">${info.rcode}</span>번 방을 수정합니다.
+                	</div>
+                	<div class="row2">
+                		수정한 내용은 즉시 반영되니 신중하게 수정해주세요!
+                	</div>
+                	<div class="row3">
+                		<p>등록일 : ${info.regdate}</p>
+                		<p>마지막 수정일 : ${info.updatedate}</p>
+                	</div>
+                </div>
 	                    <div class="sc1_box">
 	                        <table class="sc_box">
 							    <thead>
@@ -328,8 +339,10 @@
 		           	</div>
 		           	<div class="sc7_btns">
 	                	<label for="check"><input type="checkbox" id="check">매물등록 규정을 확인 했으며, 등록한 정보는 실제와 다름이 없습니다.</label>
-		               	<button type="button" id="btn_cancel">수정취소</button>
-		               	<button type="button" id="btn_modify">수정하기</button>
+		               	<div>
+			               	<button type="button" id="btn_cancel">수정취소</button>
+			               	<button type="button" id="btn_modify">수정하기</button>
+		               	</div>
 		           	</div>
 	            </div><!-- .sp2_content7 -->
 	        </div><!-- .sp2_in -->

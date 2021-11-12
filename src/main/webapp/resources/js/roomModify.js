@@ -51,7 +51,7 @@ $(document).ready(function(){
 
 	var modalModify = $('.modal_modify');
 	var modalCancel = $('.modal_cancel');
-	var thisRcode = $('input[name="rcode"]').val();
+	var thisRcode = $('.sc1_text .rcode').text();
 	// by 세은, '수정하기' 클릭시 ajax
 	$('#btn_modify').on("click", function(e){
 		e.preventDefault();
@@ -101,6 +101,13 @@ $(document).ready(function(){
 			}
 		})//end ajax
 	})// end event
+	//by세은, 닫기버튼 - 현제페이지 닫기이벤트입니다. 
+	$('#roomModify .close').on('click', function(e){
+		e.preventDefault();
+		modalModify.fadeOut(200)
+		modalCancel.fadeOut(200);
+		WinClose();
+	})
 	//by세은, 수정 취소 버튼 클릭 이벤트입니다.
 	$('#btn_cancel').on('click',function(e){
 		e.preventDefault();
