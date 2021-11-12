@@ -7,16 +7,18 @@
 	
 	<!-- by 세은, 전체 목록 -->
 	<select id="getListOfAll" resultType="HashMap">
-		SELECT rownum, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
+		SELECT rownum, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet, uuid, uploadPath, fileName
 		<![CDATA[
 		FROM (
 			SELECT @rownum:=@rownum+1 as rownum
 				, i.rcode, i.rtype, i.addr, i.rcmt, i.regdate
 				, p.dep, p.mrent, p.yrent, i.elev, i.park, i.pet
+				, a.uuid, a.uploadPath, a.fileName
 				FROM room_info i 
 		        INNER JOIN (SELECT @rownum:=0) tmp
 				INNER JOIN room_price p ON i.rcode=p.rcode
 				INNER JOIN room_option o ON i.rcode=o.rcode
+				INNER JOIN room_attach a ON i.rcode=a.rcode
 				order by i.regdate desc
 			  ) as roomlist
 		
@@ -33,15 +35,17 @@
 	
 	<!-- by 세은, 필터에 의한 목록 w. paging -->
 	<select id="getListByFilter" resultType="HashMap" parameterType="HashMap">
-		SELECT rownum, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
+		SELECT rownum, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet, uuid, uploadPath, fileName
 		from (
 			SELECT @rownum:=@rownum+1 as rownum
 			       , i.rcode, i.rtype, i.addr, i.rcmt, i.regdate
 			       , p.dep, p.mrent, p.yrent, i.elev, i.park, i.pet
+			       , a.uuid, a.uploadPath, a.fileName
 			FROM room_info i
 			INNER JOIN (SELECT @rownum:=0) tmp
 			INNER JOIN room_price p ON i.rcode=p.rcode
 			INNER JOIN room_option o ON i.rcode=o.rcode
+			INNER JOIN room_attach a ON i.rcode=a.rcode
 			ORDER BY i.regdate desc
 		       ) as roomlist		
 		<where>	
@@ -216,7 +220,7 @@
 		SELECT i.rcode, i.rcont, i.addr, i.rtype, i.area, i.flr, i.mvdate, i.rface, i.park, i.elev, i.pet, i.btype,
 		p.dep, p.dtype, p.mrent, p.yrent,
 		o.ac, o.washer, o.fridge, o.tv, o.stove, o.microw, o.bed, o.desk, o.closet, o.shelf,
-		a.uuid, a.uploadpath, a.fileName
+		a.uuid, a.uploadPath, a.fileName
 		FROM room_info i INNER JOIN room_price p ON i.rcode = p.rcode INNER JOIN room_option o ON i.rcode = o.rcode INNER JOIN room_attach a ON i.rcode = a.rcode
 		WHERE i.rcode = #{rcode}	
 	</select>
@@ -238,8 +242,8 @@
 	
 	<!-- by영규, 방등록 페이지 room_price데이터 베이스에 추가 하기 -->
 	<insert id="insertP">
-		insert into room_price(dep, dtype, mrent, yrent, mfeec)
-		values(#{dep}, #{dtype}, #{mrent}, #{yrent}, #{mfeec})
+		insert into room_price(dep, dtype, mrent, yrent, mcfee)
+		values(#{dep}, #{dtype}, #{mrent}, #{yrent}, #{mcfee})
 	</insert>
 	
 	<!-- by 세은, 방 수정페이지 열릴 때 기존 정보 출력하기 -->
@@ -248,9 +252,11 @@
 			   , i.mvdate, i.elev, i.park, i.pet, i.rcmt, i.rcont, i.regdate, i.updatedate
 			   , p.dep, p.dtype, p.mrent, p.yrent, p.mcfee, p.agntid
 			   , o.ac, o.washer, o.fridge, o.tv, o.stove, o.microw, o.bed, o.desk, o.closet, o.shelf
+			   , a.uuid, a.uploadPath, a.fileName
 		FROM room_info i 
 			 INNER JOIN room_price p ON i.rcode = p.rcode
 			 INNER JOIN room_option o ON i.rcode = o.rcode
+			 INNER JOIN room_attach a ON i.rcode = a.rcode
 		WHERE i.rcode = #{rcode}
 	</select>
 	

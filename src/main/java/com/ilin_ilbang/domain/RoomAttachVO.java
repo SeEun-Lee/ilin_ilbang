@@ -10,4 +10,5 @@ public class RoomAttachVO {
     private String filetype;	// 파일 타입
 
     private int rcode;			// 등록 번호
+    
 }

@@ -118,7 +118,7 @@
 	                                    <p id="dep"><label for="dep1">보증금 : </label><input type="number" min="0" id="dep1" name="dep" value="0"><span>원</span></p>
                               	        <p id="yrent"><label for="yrent1">전세금 : </label><input type="number" min="0" id="yrent1" name="yrent" value="0"><span>원</span></p>
 	                                    <p id="mrent"><label for="mrent1"> 월세 : </label><input type="number" min="0" id="mrent1" name="mrent" value="0"><span>원</span></p>                    
-	                                    <p id="mfeec"><label for="mfeec1">관리비 : </label><input type="number" min="0" id="mfeec1" name="mfeec" value="0"><span>원</span></p>
+	                                    <p id="mfeec"><label for="mfeec1">관리비 : </label><input type="number" min="0" id="mfeec1" name="mcfee" value="0"><span>원</span></p>
 	                                </div>
 	                            </div>
 	                        </td>
