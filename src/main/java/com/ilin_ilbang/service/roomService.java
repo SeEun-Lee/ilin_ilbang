@@ -27,21 +27,18 @@ public interface roomService {
 	//by세은, 상세페이지 정보
 	public HashMap<String, String> readRoomInfo(String rcode);
 	
-//	//by용규
-//	public void register(room_infoVO room);
+	//by영규,
+	public void register(room_infoVO room);
 	
-	//by용규
+	//by영규, 방정보 페이지 옵션으로 insert
 	public void registerOP(room_optionVO roomOP);
 	
-	//by용규
+	//by영규, 방정보 페이지, 프라이스로 insert
 	public void registerP(room_priceVO roomP);
 	
-	//by용규
+	//by영규, 방정보 페이지, 이미지 리스트 
 	public List<RoomAttachVO> getAttachList(int rcode);
-	
-	//by용규
-	public room_infoVO get(long rcode);
-	
+
 	//by세은, 방 수정페이지 열릴 때 기존 정보 출력하기
 	public HashMap<String, String> roomModifyLoad(int rcode);
 	

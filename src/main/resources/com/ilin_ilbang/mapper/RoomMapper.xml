@@ -215,12 +215,13 @@
 	<select id="readRoomInfo" resultType="HashMap" parameterType="String">
 		SELECT i.rcode, i.rcont, i.addr, i.rtype, i.area, i.flr, i.mvdate, i.rface, i.park, i.elev, i.pet, i.btype,
 		p.dep, p.dtype, p.mrent, p.yrent,
-		o.ac, o.washer, o.fridge, o.tv, o.stove, o.microw, o.bed, o.desk, o.closet, o.shelf
-		FROM room_info i INNER JOIN room_price p ON i.rcode = p.rcode INNER JOIN room_option o ON i.rcode = o.rcode
+		o.ac, o.washer, o.fridge, o.tv, o.stove, o.microw, o.bed, o.desk, o.closet, o.shelf,
+		a.uuid, a.uploadpath, a.fileName
+		FROM room_info i INNER JOIN room_price p ON i.rcode = p.rcode INNER JOIN room_option o ON i.rcode = o.rcode INNER JOIN room_attach a ON i.rcode = a.rcode
 		WHERE i.rcode = #{rcode}	
 	</select>
 	
-	<!-- by 용규 -->
+	<!-- by영규, 방등록 페이지 room_info데이터 베이스에 추가 하기 -->
 	<insert id="insertSelectKey">
 		<selectKey keyProperty="rcode" order="BEFORE" resultType="int">
 			select max(rcode)+1 rcode from room_info
@@ -229,13 +230,13 @@
 		VALUES (#{rcode}, #{btype}, #{rtype}, #{addr}, #{addsub}, #{area}, #{whlarea}, #{flr}, #{myflr}, #{elev}, #{pet}, #{park}, #{mfee}, #{rcmt}, #{rcont}, #{mvdate}, #{rface})	
 	</insert>
 	
-	 <!-- by용규 -->
+	<!-- by영규, 방등록 페이지 room_option데이터 베이스에 추가 하기 -->
 	<insert id="insertOP">
 		insert into room_option(ac, washer, fridge, tv, stove, microw, bed, desk, closet, shelf)
 		values (#{ac}, #{washer}, #{fridge}, #{tv}, #{stove}, #{microw}, #{bed}, #{desk}, #{closet}, #{shelf})
 	</insert>
 	
-	<!-- by용규 -->
+	<!-- by영규, 방등록 페이지 room_price데이터 베이스에 추가 하기 -->
 	<insert id="insertP">
 		insert into room_price(dep, dtype, mrent, yrent, mfeec)
 		values(#{dep}, #{dtype}, #{mrent}, #{yrent}, #{mfeec})

@@ -27,21 +27,18 @@ public interface RoomMapper {
 	//by세은, 상세페이지 정보
 	public HashMap<String, String> readRoomInfo(String rcode);
 	
-	//by용규
-	public void insert(room_infoVO room);
+	//by 영규
+	//public void insert(room_infoVO room);
 	
-	//by용규
+	//by영규, 방정보 페이지 insert
 	public void insertSelectKey(room_infoVO room);
 	
-	//by용규
+	//by영규, 방정보 페이지 옵션으로 insert
 	public void insertOP(room_optionVO roomOP);
 	
-	//by용규
+	//by영규, 방정보 페이지 프라이스로 insert
 	public void insertP(room_priceVO roomP);
 
-	//by용규
-	public room_infoVO read(long rcode);
-	
 	//by세은, 방 수정페이지 열릴 때 기존 정보 출력하기
 	public HashMap<String, String> roomModifyLoad(int rcode);
 	

@@ -51,7 +51,25 @@ public class roomServiceImpl implements roomService {
 	public int getTotalCount(Criteria cri) {
 		return mapper.getTotalCount(cri);
 	}
-
+	
+	@Transactional
+	@Override // by 영규, 방등록페이지, 데이터등록하기
+	public void register(room_infoVO room) {
+		log.info("get......."+room);
+		mapper.insertSelectKey(room);
+		
+		if(room.getAttachList()==null || room.getAttachList().size()<=0) {
+			return;
+		}
+		
+		room.getAttachList().forEach(attach->{
+			// RoomAttachVO필통에 넣어라 (BoardVO필통에 있는 rcode를 가져와서)
+			attach.setRcode(room.getRcode());
+			// room_attach테이블에 파일정보를 insert해라.
+			attachMapper.insert(attach);
+		});
+	}
+	
 	@Override
 	public void registerOP(room_optionVO roomOP) {
 		log.info("get......."+roomOP);
@@ -64,17 +82,12 @@ public class roomServiceImpl implements roomService {
 		mapper.insertP(roomP);
 	}
 
-	@Override
+	@Override // by 영규,방등록 페이지, 이미지리스트 가져오기
 	public List<RoomAttachVO> getAttachList(int rcode) {
 		log.info("getAttachList........"+rcode);
 		return attachMapper.findByRcode(rcode);
 	}
 
-	@Override
-	public room_infoVO get(long rcode) {
-		return mapper.read(rcode);	
-	}
-	
 	@Override // by 세은, 방 수정페이지 열릴 때 기존 정보 출력하기
 	public HashMap<String, String> roomModifyLoad(int rcode){
 		return mapper.roomModifyLoad(rcode);

@@ -164,19 +164,19 @@ public class roomController{
 		return mav;
 	}
 	
-	//by용규, 방 등록 페이지 연결 
+	//by영규, 방 등록 페이지 연결 
 	@GetMapping("room_register")
 	public void register() {
 		log.info("room_register");
 	}
 	
-	//by용규, 방 등록하기
+	//by영규, 방 등록하기
 	@PostMapping("room_register")
 	public String registerPost(room_infoVO room,room_optionVO roomOP,room_priceVO roomP) {
 	
 		log.info("insert : "+room+"OP : "+roomOP+"P : "+roomP);
 		
-//		service.register(room); 
+		service.register(room); 
 		service.registerOP(roomOP); 
 		service.registerP(roomP);
 		
@@ -187,7 +187,7 @@ public class roomController{
 		return "redirect:/";
 	}
 	
-	//by용규, 방 첨부파일
+	//by영규, 방 첨부파일
 	@GetMapping(value="getAttachList",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<List<RoomAttachVO>> getAttachList(int rcode){
