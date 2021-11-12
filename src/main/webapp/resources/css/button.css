@@ -53,7 +53,7 @@
   color: #efefef;
 }
 
-#opistel:checked + .button-label {
+#officetel:checked + .button-label {
   background: #205162;
   color: #efefef;
 }
@@ -102,7 +102,7 @@
   color: #efefef;
 }
 
-#all:checked + .button-label {
+#year:checked + .button-label {
   background: #205162;
   color: #efefef;
 }

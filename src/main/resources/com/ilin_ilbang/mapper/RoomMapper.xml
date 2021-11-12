@@ -5,7 +5,7 @@
 <mapper namespace="com.ilin_ilbang.mapper.RoomMapper">
 	
 	
-	<!-- 전체 목록 -->
+	<!-- by 세은, 전체 목록 -->
 	<select id="getListOfAll" resultType="HashMap">
 		SELECT rownum, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
 		<![CDATA[
@@ -26,12 +26,12 @@
         
 	</select>
 	
-	<!-- 전체 목록 count -->
+	<!-- by 세은, 전체 목록 count -->
 	<select id="getTotalCount" resultType="int">
 		SELECT count(*) FROM room_info;
 	</select>
 	
-	<!-- 필터에 의한 목록 w. paging -->
+	<!-- by 세은, 필터에 의한 목록 w. paging -->
 	<select id="getListByFilter" resultType="HashMap" parameterType="HashMap">
 		SELECT rownum, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
 		from (
@@ -122,7 +122,7 @@
 	</select>
 		
 
-	<!-- 필터에 의한 목록 count -->
+	<!-- by 세은, 필터에 의한 목록 count -->
 	<select id="getFilterListCount" resultType="int" parameterType="HashMap">
 		SELECT count(*)
 		FROM room_info i 
@@ -211,7 +211,7 @@
 	</select>
 
 
-	<!-- 상세 페이지 정보 불러오기 -->
+	<!-- by 세은, 상세 페이지 정보 불러오기 -->
 	<select id="readRoomInfo" resultType="HashMap" parameterType="String">
 		SELECT i.rcode, i.rcont, i.addr, i.rtype, i.area, i.flr, i.mvdate, i.rface, i.park, i.elev, i.pet, i.btype,
 		p.dep, p.dtype, p.mrent, p.yrent,
@@ -220,36 +220,75 @@
 		WHERE i.rcode = #{rcode}	
 	</select>
 	
-	<!-- 방 등록 (room_info) -->
-	<insert id="insert">
-		INSERT INTO room_info(btype, rtype, addr, addsub, area, whlarea, flr, myflr, elev, pet, park, rcmt, rcont, mvdate, rface)
-		VALUES (#{btype}, #{rtype}, #{addr}, #{addsub}, #{area}, #{whlarea}, #{flr}, #{myflr}, #{elev}, #{pet}, #{park}, #{rcmt}, #{rcont}, #{mvdate}, #{rface})	
+	<!-- by 용규 -->
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="rcode" order="BEFORE" resultType="int">
+			select max(rcode)+1 rcode from room_info
+		</selectKey>
+		INSERT INTO room_info(rcode ,btype, rtype, addr, addsub, area, whlarea, flr, myflr, elev, pet, park, mfee, rcmt, rcont, mvdate, rface)
+		VALUES (#{rcode}, #{btype}, #{rtype}, #{addr}, #{addsub}, #{area}, #{whlarea}, #{flr}, #{myflr}, #{elev}, #{pet}, #{park}, #{mfee}, #{rcmt}, #{rcont}, #{mvdate}, #{rface})	
 	</insert>
-	 
-	 <!-- 방 등록 (room_option) -->
+	
+	 <!-- by용규 -->
 	<insert id="insertOP">
 		insert into room_option(ac, washer, fridge, tv, stove, microw, bed, desk, closet, shelf)
 		values (#{ac}, #{washer}, #{fridge}, #{tv}, #{stove}, #{microw}, #{bed}, #{desk}, #{closet}, #{shelf})
 	</insert>
 	
-	<!-- 방 등록 (room_price) -->
+	<!-- by용규 -->
 	<insert id="insertP">
-		insert into room_price(dep, dtype, mrent, yrent, mfee)
-		values(#{dep}, #{dtype}, #{mrent}, #{yrent}, #{mfee})
-	</insert>	
+		insert into room_price(dep, dtype, mrent, yrent, mfeec)
+		values(#{dep}, #{dtype}, #{mrent}, #{yrent}, #{mfeec})
+	</insert>
 	
-	<!-- 좋아요 추가하기 -->
+	<!-- by 세은, 방 수정페이지 열릴 때 기존 정보 출력하기 -->
+	<select id="roomModifyLoad" resultType="HashMap" parameterType="int">
+		SELECT i.rcode, i.btype, i.rtype, i.addr, i.addsub, i.area, i.whlarea, i.flr, i.myflr, i.rface
+			   , i.mvdate, i.elev, i.park, i.pet, i.rcmt, i.rcont, i.regdate, i.updatedate
+			   , p.dep, p.dtype, p.mrent, p.yrent, p.mcfee, p.agntid
+			   , o.ac, o.washer, o.fridge, o.tv, o.stove, o.microw, o.bed, o.desk, o.closet, o.shelf
+		FROM room_info i 
+			 INNER JOIN room_price p ON i.rcode = p.rcode
+			 INNER JOIN room_option o ON i.rcode = o.rcode
+		WHERE i.rcode = #{rcode}
+	</select>
+	
+	<!-- by 세은, 방 수정 동작 (room_info) -->
+	<update id="ModifyRoomI" parameterType="com.ilin_ilbang.domain.room_infoVO">
+		UPDATE room_info
+		SET btype=#{btype}, rtype=#{rtype}, addr=#{addr}, addsub=#{addsub}
+			,area=#{area}, whlarea=#{whlarea}, flr=#{flr}, myflr=#{myflr}, rface=#{rface}
+			, mvdate=#{mvdate}, elev=#{elev}, park=#{park}, pet=#{pet}, rcmt=#{rcmt}, rcont=#{rcont}
+		WHERE rcode=#{rcode}
+	</update>
+	
+	<!-- by 세은, 방 수정 동작 (room_price) -->
+	<update id="ModifyRoomP" parameterType="com.ilin_ilbang.domain.room_priceVO">
+		UPDATE room_price
+		SET dep=#{dep}, dtype=#{dtype}, mrent=#{mrent}, yrent=#{yrent}, mcfee=#{mcfee}
+		WHERE rcode=#{rcode}
+	</update>
+	
+	<!-- by 세은, 방 수정 동작 (room_option) -->
+	<update id="ModifyRoomOP" parameterType="com.ilin_ilbang.domain.room_optionVO">
+		UPDATE room_option
+		SET ac=#{ac}, washer=#{washer}, fridge=#{fridge}, tv=#{tv}, stove=#{stove}, microw=#{microw}
+			, bed=#{bed}, desk=#{desk}, closet=#{closet}, shelf=#{shelf}
+		WHERE rcode=#{rcode}
+	</update>
+	
+	<!-- by 세은, 좋아요 추가하기 -->
 	<insert id="addLike">
 		INSERT INTO member_like(mid, rcode) VALUES(#{mid}, #{rcode})
 	</insert>
 	
-	<!-- 유저가 이미 좋아요 한 방인지 확인 -->
+	<!-- by 세은, 유저가 이미 좋아요 한 방인지 확인 -->
 	<select id="addLikeCount" resultType="int">
 		SELECT COUNT(*) FROM member_like
 		WHERE rcode = #{rcode} AND mid = #{mid}
 	</select>
 		
-	<!-- 좋아요 삭제 -->
+	<!-- by 세은, 좋아요 삭제 -->
 	<delete id="dislike">
 		DELETE FROM member_like
 		WHERE mid = #{mid} AND
@@ -261,7 +300,7 @@
 			  </trim> 
 	</delete>
 	
-	<!-- 좋아요 방 출력 w.paging -->
+	<!-- by 세은, 좋아요 방 출력 w.paging -->
 	<select id="userLikeList" resultType="HashMap" parameterType="HashMap">
 		SELECT rownum, mid, rcode, rtype, addr, rcmt, regdate, dep, mrent, yrent, elev, park, pet
 		from (
@@ -279,12 +318,12 @@
 		AND mid = #{mid}
 	</select>
 	
-	<!-- 좋아요 방 카운트 -->
+	<!-- by 세은, 좋아요 방 카운트 -->
 	<select id="userLikeCount" resultType="int" parameterType="String">
 		SELECT COUNT(*) FROM member_like WHERE mid = #{mid}
 	</select>
 	
-	<!-- 중개사가 등록한 방 출력 -->
+	<!-- by 세은, 중개사가 등록한 방 출력 w.paging -->
 	<select id="agntPostList" resultType="HashMap" parameterType="HashMap">
 		SELECT rcode, regdate, updatedate, addr, addsub, rtype, btype, rcmt, onsale
 			   , dtype, dep, mrent, yrent
@@ -305,7 +344,7 @@
 			 	AND agntid = #{agntid}
 	</select>
 	
-	<!-- 중개사의 등록 정보 카운트 -->
+	<!-- by 세은, 중개사의 등록 정보 카운트 -->
 	<select id="agntPostCnt" resultType="HashMap" parameterType="String">
 		SELECT agntid
 			   , (SELECT count(*) from room_info WHERE agntid=#{agntid}) as total
@@ -314,6 +353,4 @@
 		FROM agent_info
 		WHERE agntid = #{agntid}
 	</select>
-	
-	
 </mapper>

@@ -4,10 +4,10 @@ import java.util.List;
 import com.ilin_ilbang.domain.MemberVO;
 
 public interface MemberService {
+	public void login(MemberVO member);
 	public void register(MemberVO member);
-	public MemberVO get(String mid);
-	public boolean modify(MemberVO member);
-	public boolean remove(String mid);
-	public List<MemberVO> getList();
+	public void modify(MemberVO member);
+	public void find_id(MemberVO member);
+	public void find_pw(MemberVO member);
 	
 }

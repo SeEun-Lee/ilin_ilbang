@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ilin_ilbang.domain.Criteria;
 import com.ilin_ilbang.domain.RoomAttachVO;
@@ -12,11 +13,11 @@ import com.ilin_ilbang.domain.likeVO;
 import com.ilin_ilbang.domain.room_infoVO;
 import com.ilin_ilbang.domain.room_optionVO;
 import com.ilin_ilbang.domain.room_priceVO;
+import com.ilin_ilbang.mapper.RoomAttachMapper;
 import com.ilin_ilbang.mapper.RoomMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-
 
 @Log4j
 @Service
@@ -24,6 +25,7 @@ import lombok.extern.log4j.Log4j;
 public class roomServiceImpl implements roomService {
 	
 	private RoomMapper mapper;
+	private RoomAttachMapper attachMapper;
 	
 	@Override // 전체 목록
 	public List<HashMap<String, String>> getListOfAll(Criteria cri){
@@ -49,32 +51,36 @@ public class roomServiceImpl implements roomService {
 	public int getTotalCount(Criteria cri) {
 		return mapper.getTotalCount(cri);
 	}
-	
-	@Override // 방 등록 (room_info)
-	public void register(room_infoVO room) {
-		log.info("get......."+room);
-		mapper.insert(room);
-	}
 
-	@Override // 방 등록 (room_option)
+	@Override
 	public void registerOP(room_optionVO roomOP) {
 		log.info("get......."+roomOP);
 		mapper.insertOP(roomOP);
 	}
 	
-	@Override // 방 등록 (room_price)
+	@Override
 	public void registerP(room_priceVO roomP) {
 		log.info("get......."+roomP);
 		mapper.insertP(roomP);
 	}
+
+	@Override
+	public List<RoomAttachVO> getAttachList(int rcode) {
+		log.info("getAttachList........"+rcode);
+		return attachMapper.findByRcode(rcode);
+	}
+
+	@Override
+	public room_infoVO get(long rcode) {
+		return mapper.read(rcode);	
+	}
 	
-//	@Override // 방 등록 (room_attach)
-//	public List<RoomAttachVO> getAttachList(int rcode) {
-//		log.info("getAttachList........"+rcode);
-//		return attachMapper.findByRcode(rcode);
-//	}
+	@Override // by 세은, 방 수정페이지 열릴 때 기존 정보 출력하기
+	public HashMap<String, String> roomModifyLoad(int rcode){
+		return mapper.roomModifyLoad(rcode);
+	}
 	
-	@Override // 좋아요 추가
+	@Override // 좋아요 추가;
 	public void addLike(likeVO like) {
 		mapper.addLike(like);
 	}

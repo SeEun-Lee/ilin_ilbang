@@ -55,24 +55,5 @@ $(document).ready(function(){
 			}
 		})
 	});
-		
-	// 찜목록 리스트 페이징 - 페이지 번호를 클릭하면 이동하는 처리
-	var like_list = $('#list_content_like');
-	$('.paginate_btn a', like_list).on("click", function(e){
-		e.preventDefault();
-		var pageNum = $(this).attr('href');
-		$.ajax({
-			url : '/roomLike',
-			type : 'get',
-			data : { pageNum : pageNum },
-			success : function(data){
-				$("#list_container_like").find("#list_content_like").remove().end().prepend($(data).find("#list_content_like"));
-				$(".btn_more").removeClass("filterInactive").addClass("filterActive");
-			},
-			error : function(xhr, status, error){
-				alert("실패")
-			}
-		})
-	});
 	
 })

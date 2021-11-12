@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 		
-	// 검색 결과가 없으면 문구 출력
+	//by세은, 검색 결과가 없으면 문구 출력
 	var result = $('.result').text();
 	if (result == "검색결과 없음"){
 		$('.isEmpty').show();
@@ -19,7 +19,7 @@ $(document).ready(function(){
 		$('.modal_dislike_mul').fadeOut(200);
 	}
 	
-	// 찜 버튼 클릭
+	//by세은, 찜 버튼 클릭
 	$('.btn_like').on('click', function(e){
 	
 		e.preventDefault();
@@ -62,7 +62,7 @@ $(document).ready(function(){
 	})
 		
 	
-	// Modal - 관심 취소
+	//by세은, Modal - 관심 취소
 	$('.btn_dislike').on("click", function(e){
 		e.preventDefault();
 		
@@ -95,14 +95,14 @@ $(document).ready(function(){
 	}) // end function 관심 취소
 	
 	
-	// 관심목록에서 방 선택 (체크박스)
+	//by세은, 관심목록에서 방 선택 (체크박스)
 	var like_list = $('#list_content_like');
 	$('.ck_container', like_list).on('click', function(e){
 		console.log('체크박스 click')
 		e.stopPropagation();
 	});
 	
-	// 전체선택 체크박스를 눌렀을 경우
+	//by세은, 전체선택 체크박스를 눌렀을 경우
 	$('.ck_all .ck_container').on('click', function(){
 		if($('.ck_all .ck_container input').prop("checked")){ // 체크된 경우 
 			$("input[name='selected']").prop("checked", true); // 전부 선택 
@@ -111,7 +111,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	// 선택한 방 삭제하기
+	//by세은, 선택한 방 삭제하기
 	$('.btn_delete').on('click', function(e){
 		e.preventDefault();
 		var rcodeArr = []; 
@@ -141,6 +141,25 @@ $(document).ready(function(){
 			closeModal();
 			location.reload();
 		}) // 모달창 닫기	
-	}); // end function 
+	}); // end function
+	
+	//by세은, 찜목록 리스트 페이징 - 페이지 번호를 클릭하면 이동하는 처리
+	var like_list = $('#list_content_like');
+	$('.paginate_btn a', like_list).on("click", function(e){
+		e.preventDefault();
+		var pageNum = $(this).attr('href');
+		$.ajax({
+			url : '/roomLike',
+			type : 'get',
+			data : { pageNum : pageNum },
+			success : function(data){
+				$("#list_container_like").find("#list_content_like").remove().end().prepend($(data).find("#list_content_like"));
+				$(".btn_more").removeClass("filterInactive").addClass("filterActive");
+			},
+			error : function(xhr, status, error){
+				alert("실패")
+			}
+		}) // end ajax
+	}); // end event
 
 })

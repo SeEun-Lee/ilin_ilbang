@@ -4,14 +4,7 @@
     width: 1000px;
     margin: 0 auto;
     margin-top: 100px;
-}
-
-.texts span{
-  display: inline-block;
-  margin-top: 25px;
-  margin-left: 5px;
-  font-size: 20px;
-  color: #101010;
+    border: 0;
 }
 
 .sp2_in{
@@ -29,7 +22,7 @@
     font-size: 25px;
     line-height: 1.2em;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .sc1_text{
@@ -39,7 +32,7 @@
 }
 
 .sp2_title{
-    padding: 20px 0;
+    padding: 30px 0;
     margin-bottom: 50px;
     border-bottom: 1px solid #333;
 }
@@ -139,11 +132,6 @@
     border: 1px solid #222;
 }
 
-.sc3_box table{
-    height: 250px; 
-    border: 0;
-}
-
 .sc3_box th{
     background-color: #cfdbe9; 
     width: 100px; 
@@ -171,14 +159,36 @@
     outline: 0px solid black;
 }
 
-.sc3_box .texts{
-    text-align: center;
-    margin-top: 30px;
+.sc3_box #yrent{
+    display: none;
+}
+
+.texts{
+	margin-bottom: 20px;
+	margin-left: 170px;
+}
+
+.texts label{
+	display: inline-block;
+	width: 70px;
+	margin-top: 15px;
+  	font-size: 20px;
+  	color: #101010;
+}
+
+.texts span{
+  	display: inline-block;
+ 	margin-top: 15px;
+  	margin-left: 5px;
+  	font-size: 20px;
+  	color: #101010;
 }
 
 .texts input{
-    height: 50px;
-    margin-left: 50px;
+    height: 40px;
+    text-align:right;
+    margin-top: 5px;
+    margin-left: 10px;
     border: 0;
     border-bottom: 1px solid #444;
     font-size: 15px;
@@ -277,50 +287,34 @@
     border: 1px solid #444;
 }
 
-.sp2_content7{
-	position: relative;
-}
-
-.sp2_content7 .uBtn{
-	position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.sp2_content7 label{
-    display: block;
-    text-align: center;
-    font-size: 15px;
-    color: #222;
-}
-
-.sp2_content7 label input{
-    width: 15px;
-    height: 15px;
-    margin-top: 2px;
-    margin-right: 5px;
-    margin: 2px 5px 40px 0;
+.room_ck #submit_ck{
+	width: 20px;
+	height: 20px;
 }
 
 .sc7_btns{
     text-align: center;
 }
 
-.sp2_content7 .uBtn{
-	position: absolute;
-    top: 50px;
-    right: 450px;
+.sc7_btns .cs a{
+	display: block;
+	background-color: #aaa;
+	color: #fff;
+	padding: 10px;
 }
 
-.sp2_content7 .uBtn label{
-    width: 100px;
-    height: 30px;
-    line-height: 30px;
-    background-color: #205162;
-    color: #fff;
+.sc7_btns button{
+	margin: 10px 5px 0 5px;
+	border: 1px solid #444;
+ 	background-color: #fff;
+ 	color: #222;
 }
 
-.sc7_btns button:last-child{
-    background-color: #205162;
+.sc7_btns #room_submit{	
+	padding: 10px;
+}
+
+.sc7_btns .on{
     color: #cfdbe9;
+ 	background-color: #205162;
 }

@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+/* roomMoidfy.jsp (방 수정 페이지, 팝업창) css 입니다. */
+/* room_register css에서 필요한 부분만 추가, 수정한 코드입니다 */
+
+.wrap{
+	background-color: rgba(238, 238, 238, 0.5);
+}
+
+#sub_page2{
+    margin-top: 0px;
+    background-color: #fff;
+}
+
+.sc5_box td {
+    width: 400px;
+}

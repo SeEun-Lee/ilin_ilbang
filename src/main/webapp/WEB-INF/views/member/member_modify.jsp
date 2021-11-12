@@ -75,7 +75,6 @@
         .sub, .quit{
             padding: 20px 83px;
         }
-
     </style>
 </head>
 <body>

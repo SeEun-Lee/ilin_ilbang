@@ -17,12 +17,18 @@
         body{
             background-color: #f5f5f5;
         }
-        .logo img{
-            display: block;
-            width: 100px;
-            height: auto;
-            margin: 0 auto;
-        }
+		.h_logo a{
+		    display: block;
+		    background-image: url(../resources/img/h_logo.png);
+		    background-size: 100% 100%;
+		    background-repeat: no-repeat;
+		    width: 80px;
+		    height: 80px;
+		    text-indent: -99999px;
+		    overflow: hidden;
+		    margin: 0 auto;
+		}
+		
         form li{
             list-style: none;
             margin: 15px 0;
@@ -57,14 +63,13 @@
         .sub{
             padding: 20px 190px;
         }
-
     </style>
 </head>
 <body>
     <div class="join_in">
-        <p class="logo">
-            <img src="./HatchfulExport-All/logo_transparent.png" alt="로고">
-        </p>
+        <div class="h_logo">
+        	<h1><a href="index.jsp">1인1방</a></h1>
+        </div>
         <form action="#" method="post">
             <ul>
                 <li>                    

@@ -9,7 +9,14 @@ import com.ilin_ilbang.domain.MemberVO;
 public interface MemberMapper {
 
 	//@Select("select * from member_info")
-	public List<MemberVO> getList();
-	public void insert(MemberVO member_info);
-	public void insertSelectKey(MemberVO member_info);
+	public void login(MemberVO member);
+
+	public void register(MemberVO member);
+
+	public void modify(MemberVO member);
+
+	public void find_id(MemberVO member);
+
+	public void find_pw(MemberVO member);
+
 }

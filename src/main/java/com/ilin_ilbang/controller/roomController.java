@@ -155,8 +155,7 @@ public class roomController{
 		return "roomList";		
 	}
 	
-		
-	// by 세은, 방 클릭시 상세페이지 팝업
+	// by세은, 방 클릭시 상세페이지 팝업
 	@RequestMapping(value = "/{rcode}", method = RequestMethod.GET)
 	public ModelAndView readRoomInfo(@PathVariable("rcode") String rcode) {
 		ModelAndView mav = new ModelAndView();
@@ -165,18 +164,19 @@ public class roomController{
 		return mav;
 	}
 	
-	// 방 등록 페이지 
-	@GetMapping("/roomRegister")
-	public String register() {
+	//by용규, 방 등록 페이지 연결 
+	@GetMapping("room_register")
+	public void register() {
 		log.info("room_register");
-		return "roomRegister";
 	}
 	
-	// 방 등록 (게시글 등록)
-	@PostMapping("/room_register")
+	//by용규, 방 등록하기
+	@PostMapping("room_register")
 	public String registerPost(room_infoVO room,room_optionVO roomOP,room_priceVO roomP) {
+	
 		log.info("insert : "+room+"OP : "+roomOP+"P : "+roomP);
-		service.register(room); 
+		
+//		service.register(room); 
 		service.registerOP(roomOP); 
 		service.registerP(roomP);
 		
@@ -187,7 +187,26 @@ public class roomController{
 		return "redirect:/";
 	}
 	
-	// by 세은, 찜 클릭시 찜 목록에 추가
+	//by용규, 방 첨부파일
+	@GetMapping(value="getAttachList",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseEntity<List<RoomAttachVO>> getAttachList(int rcode){
+		log.info("getAttachList="+rcode);
+		return new ResponseEntity<>(service.getAttachList(rcode),HttpStatus.OK);
+	}
+
+	
+	//by세은, 방 수정 화면 출력 & 기존 정보 로드
+	@GetMapping("/Modify/{rcode}")
+	public ModelAndView roomModifyLoad(@PathVariable("rcode") int rcode) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/roomModify");
+		mav.addObject("info", service.roomModifyLoad(rcode));
+		log.info("방 수정 기존정보 : " + service.roomModifyLoad(rcode));
+		return mav;
+	}
+	
+	//by세은, 찜 클릭시 찜 목록에 추가
 	@ResponseBody
 	@PostMapping("/like")
 	public String addLike(likeVO like, @RequestParam(value="rcode") int rcode){
@@ -206,8 +225,8 @@ public class roomController{
 		return result; // 0 OR 1을 return 합니다.
 	}
 	
-	// by 세은, 찜 취소
-	// 1) 찜 버튼을 재 클릭시 2) 관심목록 페이지에서 선택-삭제 시 찜을 취소합니다. 
+	//by세은, 찜 취소
+	//1) 찜 버튼을 재 클릭시 2) 관심목록 페이지에서 선택-삭제 시 찜을 취소합니다. 
 	@ResponseBody
 	@PostMapping("/dislike")
 	public String dislike(String mid, @RequestParam(value="rcodeArr[]") List<String> rcodeArr) {
@@ -225,7 +244,7 @@ public class roomController{
 		return result; // 0 OR 1을 return 합니다.
 	}
 
-	// by 세은, 관심목록 출력
+	//by세은, 관심목록 출력
 	@RequestMapping(value = "/roomLike", method = RequestMethod.GET)
 	public String roomLike(Model model, Criteria cri) {
 		String mid = "user000"; // 임의 아이디 설정
@@ -251,7 +270,7 @@ public class roomController{
 		return "roomLike";			
 	}
 	
-	// by 세은, 거래 관리 페이지
+	//by세은, 거래 관리 페이지
 	@RequestMapping("/myDeal")
 	public String myDeal(String agntid, Criteria cri, Model model) {
 		agntid = "agnt000"; // 임의 아이디 설정

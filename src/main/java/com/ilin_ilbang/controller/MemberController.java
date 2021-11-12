@@ -22,43 +22,72 @@ public class MemberController {
 	
 	private MemberService service;
 	
-	@PostMapping("/register")
-	public String register(MemberVO member, RedirectAttributes rttr) {
+	//by세진, 로그인 화면 진입
+	@GetMapping ("/login")
+	public void login(MemberVO member) {
+		log.info("login!!" + member);
+	}
+	//by세진, 회원가입 화면 진입
+	@GetMapping ("/member_join")
+	public void register(MemberVO member) {
+		log.info("join!!" + member);
+	}
+	//by세진, 회원가입 수정 화면 진입
+	@GetMapping ("/member_modify")
+	public void modify(MemberVO member) {
+		log.info("modify!!" + member);
+	}
+	//by세진, 아이디 찾기 화면 진입
+	@GetMapping ("/find_id")
+	public void find_id(MemberVO member) {
+		log.info("find_id!!" + member);
+	}
+	//by세진, 비밀번호 찾기 화면 진입
+	@GetMapping ("/find_pw")
+	public void find_pw(MemberVO member) {
+		log.info("find_pw!!" + member);
+	}
+	
+	//by세진, 로그인버튼을 클릭시 데이터베이스에서 select
+	@PostMapping("/login")
+	public void login1(MemberVO member) {
+		
+		log.info("register: " + member);
+		
+		service.login(member);
+	}
+	//by세진, 회원가입에서 회원가입 버튼 클릭시 데이터를 데이터베이스에 insert
+	@PostMapping("/member_join")
+	public void register1(MemberVO member) {
 		
 		log.info("register: " + member);
 		
 		service.register(member);
-		rttr.addFlashAttribute("result", member.getMid());
-		
-		return "redirect:/member/login";
 	}
-	@GetMapping("/get")
-	public void get(@RequestParam("mid") String mid, Model model) {
-		
-		log.info("/get");
-		
-		model.addAttribute("member", service.get(mid));
-	}
-	@PostMapping("/modify")
-	public String modify(MemberVO member, RedirectAttributes rttr) {
+	
+	//by세진, 회원가입에서 회원정보수정 버튼 클릭시 데이터를 데이터베이스에 update
+	@PostMapping("/member_modify")
+	public void modify1(MemberVO member) {
 		
 		log.info("modify: " + member);
 		
-		if (service.modify(member)) {
-			rttr.addAttribute("result", "success");
-		}
-		
-		return "redirect:/member/login";
+		service.modify(member);
 	}
-	@PostMapping("/remove")
-	public String remove(@RequestParam("mid") String mid, RedirectAttributes rttr) {
+	//by세진, 회원가입에서 아이디 찾기 select
+	@PostMapping("/find_id")
+	public void find_id1(MemberVO member) {
 		
-		log.info("remove... " + mid);
+		log.info("find_id: " + member);
 		
-		if (service.remove(mid)) {
-			rttr.addFlashAttribute("result", "success");
-		}
-		
-		return "redirect:/member/login";
+		service.find_id(member);
 	}
+	//by세진, 회원가입에서 비밀번호 찾기 select
+	@PostMapping("/find_pw")
+	public void find_pw1(MemberVO member) {
+		
+		log.info("find_pw: " + member);
+		
+		service.find_pw(member);
+	}
+		
 }

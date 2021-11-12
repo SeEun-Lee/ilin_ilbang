@@ -15,5 +15,4 @@ public class room_priceVO {
 	private int mrent; // 월세(원)
 	private int yrent; // 전세(원)
 	private int mfee; // 관리비(원)
-	
 }
