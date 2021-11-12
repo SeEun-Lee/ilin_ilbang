@@ -65,4 +65,13 @@ public interface roomService {
 	
 	//by세은, 공인중개사가 등록한 방 카운트
 	public HashMap<String, Integer> agntPostCnt(String agntid);
+	
+	//by세은, 방 수정 동작 (room_info)
+	public void modifyRoomI(room_infoVO roomI);
+	
+	//by세은, 방 수정 동작 (room_price)
+	public void modifyRoomP(room_priceVO roomP);
+	
+	//by세은, 방 수정 동작 (room_option)
+	public void modifyRoomOP(room_optionVO roomOP);
 }

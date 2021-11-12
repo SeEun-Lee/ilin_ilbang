@@ -114,4 +114,19 @@ public class roomServiceImpl implements roomService {
 	public HashMap<String, Integer> agntPostCnt(String agntid){
 		return mapper.agntPostCnt(agntid);
 	}
+	
+	@Override //by세은, 방 수정 동작 (room_info)
+	public void modifyRoomI(room_infoVO roomI) {
+		mapper.modifyRoomI(roomI);
+	};
+	
+	@Override//by세은, 방 수정 동작 (room_price)
+	public void modifyRoomP(room_priceVO roomP) {
+		mapper.modifyRoomP(roomP);
+	};
+	
+	@Override //by세은, 방 수정 동작 (room_option)
+	public void modifyRoomOP(room_optionVO roomOP) {
+		mapper.modifyRoomOP(roomOP);
+	};
 }

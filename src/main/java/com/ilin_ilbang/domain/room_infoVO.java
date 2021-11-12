@@ -4,6 +4,8 @@ import java.util.ArrayList;
 // import java.util.ArrayList;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -32,7 +34,7 @@ public class room_infoVO {
 	private Date regdate; // 등록 날짜(시간)
 	private Date updatedate; // 수정 날짜(시간)
 	private String agntid; // 중개사 아이디 
-	private char mvable; // 즉시입주 가능시 'Y' 아닐시 'N'
+//	private char mvable; // 즉시입주 가능시 'Y' 아닐시 'N'
 	public ArrayList<AttachFileDTO> attachList;
 
 }

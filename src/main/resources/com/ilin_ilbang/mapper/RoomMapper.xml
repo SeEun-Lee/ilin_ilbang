@@ -254,7 +254,7 @@
 	</select>
 	
 	<!-- by 세은, 방 수정 동작 (room_info) -->
-	<update id="ModifyRoomI" parameterType="com.ilin_ilbang.domain.room_infoVO">
+	<update id="modifyRoomI" parameterType="com.ilin_ilbang.domain.room_infoVO">
 		UPDATE room_info
 		SET btype=#{btype}, rtype=#{rtype}, addr=#{addr}, addsub=#{addsub}
 			,area=#{area}, whlarea=#{whlarea}, flr=#{flr}, myflr=#{myflr}, rface=#{rface}
@@ -263,14 +263,14 @@
 	</update>
 	
 	<!-- by 세은, 방 수정 동작 (room_price) -->
-	<update id="ModifyRoomP" parameterType="com.ilin_ilbang.domain.room_priceVO">
+	<update id="modifyRoomP" parameterType="com.ilin_ilbang.domain.room_priceVO">
 		UPDATE room_price
 		SET dep=#{dep}, dtype=#{dtype}, mrent=#{mrent}, yrent=#{yrent}, mcfee=#{mcfee}
 		WHERE rcode=#{rcode}
 	</update>
 	
 	<!-- by 세은, 방 수정 동작 (room_option) -->
-	<update id="ModifyRoomOP" parameterType="com.ilin_ilbang.domain.room_optionVO">
+	<update id="modifyRoomOP" parameterType="com.ilin_ilbang.domain.room_optionVO">
 		UPDATE room_option
 		SET ac=#{ac}, washer=#{washer}, fridge=#{fridge}, tv=#{tv}, stove=#{stove}, microw=#{microw}
 			, bed=#{bed}, desk=#{desk}, closet=#{closet}, shelf=#{shelf}

@@ -29,6 +29,7 @@ import com.ilin_ilbang.domain.Criteria;
 import com.ilin_ilbang.domain.PageDTO;
 import com.ilin_ilbang.domain.RoomAttachVO;
 import com.ilin_ilbang.domain.likeVO;
+import com.ilin_ilbang.domain.room_allDataVO;
 import com.ilin_ilbang.domain.room_infoVO;
 import com.ilin_ilbang.domain.room_optionVO;
 import com.ilin_ilbang.domain.room_priceVO;
@@ -288,6 +289,20 @@ public class roomController{
 		model.addAttribute("pageMaker", pager);
 		log.info(model);
 		return "myDeal";
+	}
+	
+	//by세은, 방 수정하기 동작
+	@ResponseBody
+	@RequestMapping(method= {RequestMethod.PUT},
+					value = "/Modify/{rcode}",
+					consumes = "application/json",
+					produces = {MediaType.TEXT_PLAIN_VALUE})
+	public void ModifyRoom(
+					@PathVariable("rcode") int rcode,
+					@RequestBody room_allDataVO allData){
+			service.modifyRoomI(allData.getRoomI());
+			service.modifyRoomP(allData.getRoomP());
+			service.modifyRoomOP(allData.getRoomOP());
 	}
 }
 

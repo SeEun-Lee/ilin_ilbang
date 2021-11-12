@@ -18,7 +18,7 @@
 <link href="${pageContext.request.contextPath}/resources/css/roomModify.css" rel="stylesheet" type="text/css">
 
 <div class="wrap">
-  <form role="form" method="post" action="/Modify/${rcode}" id="room_Modify">
+  <form role="form" id="room_Modify">
    	<div id="sub_page2">
        <div class="sp2_in">
             <div class="sp2_title">
@@ -26,8 +26,8 @@
             </div><!-- sp2_title -->
 	            <div class="sp2_content1">
 	                <div class="sc1_text">
-	                    <p>★ 등록된 매물은 30일간 유지 됩니다</p>
-	                    <p>★ 등록 후 바로 거래가능 합니다</p>
+	                    <input type="text" name="rcode" value="${info.rcode}" readonly>
+	                    <input type="text" name="regdate" value="${info.regdate}" readonly>
 	                </div>
 	                    <div class="sc1_box">
 	                        <table class="sc_box">
