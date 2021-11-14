@@ -20,9 +20,9 @@ public class MemberServiceImpl implements MemberService{
 	private MemberMapper mapper;
 
 	@Override
-	public void login(MemberVO member) {
+	public MemberVO login(MemberVO member) {
 		log.info("login......."+member);
-		mapper.login(member);
+		return mapper.login(member);
 	}
 	@Override
 	public void register(MemberVO member) {

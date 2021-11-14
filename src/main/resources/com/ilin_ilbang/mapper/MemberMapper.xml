@@ -6,7 +6,7 @@
 <mapper namespace="com.ilin_ilbang.mapper.MemberMapper">
 
 <select id="login" resultType="com.ilin_ilbang.domain.MemberVO">
-select mid,mpw from member_info
+	select * from member_info where mid=#{mid} and mpw=#{mpw}
 </select>
 
 <insert id ="register">

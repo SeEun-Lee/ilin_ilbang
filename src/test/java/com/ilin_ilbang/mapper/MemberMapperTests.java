@@ -41,17 +41,17 @@ public class MemberMapperTests {
 //	public void testDelete() {
 //		log.info("DELETE COUNT: " + mapper.delete("newbie2"));
 //	}
-	
-	@Test
-	public void testUpdate() {
-		MemberVO member = new MemberVO();
-		// 실행전 존재하는 아이디인지 확인할 것
-		member.setMid("newbie2");
-		member.setMpw("999999");
-		member.setMtel("011-1212-1212");
-		member.setMemail("ccc@ddd.com");
-		
-		int count = mapper.update(member);
-		log.info("UPDATE COUNT: " + count);
-	}
+//	
+//	@Test
+//	public void testUpdate() {
+//		MemberVO member = new MemberVO();
+//		// 실행전 존재하는 아이디인지 확인할 것
+//		member.setMid("newbie2");
+//		member.setMpw("999999");
+//		member.setMtel("011-1212-1212");
+//		member.setMemail("ccc@ddd.com");
+//		
+//		int count = mapper.update(member);
+//		log.info("UPDATE COUNT: " + count);
+//	}
 }

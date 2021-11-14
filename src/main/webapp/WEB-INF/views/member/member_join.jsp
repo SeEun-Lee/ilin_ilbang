@@ -17,7 +17,6 @@
         body{
             background-color: #f5f5f5;
         }
-
 		.h_logo a{
 		    display: block;
 		    background-image: url(../resources/img/h_logo.png);
@@ -56,7 +55,6 @@
         .submit{
             padding: 20px 200px;
         }
-
     </style>
 </head>
 <body>

@@ -17,7 +17,6 @@
         body{
             background-color: #f5f5f5;
         }
-
 		.h_logo a{
 		    display: block;
 		    background-image: url(../resources/img/h_logo.png);
@@ -60,7 +59,6 @@
         .sub{
             padding: 20px 165px;
         }
-
     </style>
 </head>
 <body>

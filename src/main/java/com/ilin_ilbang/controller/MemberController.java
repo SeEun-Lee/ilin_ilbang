@@ -1,5 +1,7 @@
 package com.ilin_ilbang.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,70 +23,93 @@ import lombok.extern.log4j.Log4j;
 public class MemberController {
 	
 	private MemberService service;
-	// 로그인 화면 진입
+
+	//by세진, 로그인 화면 진입
 	@GetMapping ("/login")
 	public void login(MemberVO member) {
-		log.info("login!!" + member);
+		log.info("로그인 화면 진입");
 	}
-	// 회원가입 화면 진입
+	//by세진, 회원가입 화면 진입
 	@GetMapping ("/member_join")
 	public void register(MemberVO member) {
-		log.info("join!!" + member);
+		log.info("회원가입 화면 진입");
 	}
-	// 회원가입 수정 화면 진입
+	//by세진, 회원정보 수정 화면 진입
 	@GetMapping ("/member_modify")
 	public void modify(MemberVO member) {
-		log.info("modify!!" + member);
+		log.info("회원정보 수정 화면 진입");
 	}
-	// 아이디 찾기 화면 진입
+	//by세진, 아이디 찾기 화면 진입
 	@GetMapping ("/find_id")
 	public void find_id(MemberVO member) {
-		log.info("find_id!!" + member);
+		log.info("아이디 찾기 화면 진입");
 	}
-	// 비밀번호 찾기 화면 진입
+	//by세진, 비밀번호 찾기 화면 진입
 	@GetMapping ("/find_pw")
 	public void find_pw(MemberVO member) {
-		log.info("find_pw!!" + member);
+		log.info("비밀번호 찾기 화면 진입");
 	}
 	
-	// 로그인버튼을 클릭시 데이터베이스에서 select
+	//by세진, 로그인버튼을 클릭시 데이터베이스에서 select
 	@PostMapping("/login")
-	public void login1(MemberVO member) {
+	public String login1(MemberVO member, HttpSession session) {
 		
-		log.info("register: " + member);
+		log.info("로그인 서비스 처리");
 		
-		service.login(member);
+		MemberVO vo = service.login(member);
+		// MemberVO에 있는 MemberVO를 세션영역에 aaaa라는 변수에 저장
+		session.setAttribute("aaaa", vo);
+		
+		// session영역 aaaa라는 변수에 값이 있으면 로그인 된 채로 main으로
+		if(session.getAttribute("aaaa")!=null) {
+			//logger.info("로그인 성공 세션에 MemberVO값 저장");
+			return "redirect:/";
+		}else { //그렇지 않으면 다시 로그인 할수 있게 로그인 페이지로 이동
+			//logger.info("로그인 실패 세션에 null값 저장");
+			return "redirect:/member/login";
+		}
 	}
-	// 회원가입에서 회원가입 버튼 클릭시 데이터를 데이터베이스에 insert
+	
+	@PostMapping("/logout")
+	public void logout1(HttpSession session) {
+		
+		log.info("로그아웃 서비스 처리");
+		
+		session.removeAttribute("aaaa");
+		// 또는 session.invalidate();
+	}
+	
+	//by세진, 회원가입에서 회원가입 버튼 클릭시 데이터를 데이터베이스에 insert
 	@PostMapping("/member_join")
 	public void register1(MemberVO member) {
 		
-		log.info("register: " + member);
+		log.info("회원가입 처리");
 		
 		service.register(member);
 	}
-	
-	// 회원가입에서 회원정보수정 버튼 클릭시 데이터를 데이터베이스에 update
+
+	//by세진, 회원가입에서 회원정보수정 버튼 클릭시 데이터를 데이터베이스에 update
 	@PostMapping("/member_modify")
 	public void modify1(MemberVO member) {
 		
-		log.info("modify: " + member);
+		log.info("회원정보 수정 처리");
 		
 		service.modify(member);
 	}
-	// 회원가입에서 아이디 찾기 select
+
+	//by세진, 회원가입에서 아이디 찾기 select
 	@PostMapping("/find_id")
 	public void find_id1(MemberVO member) {
 		
-		log.info("find_id: " + member);
+		log.info("아이디 찾기 처리");
 		
 		service.find_id(member);
 	}
-	// 회원가입에서 비밀번호 찾기 select
+	//by세진, 회원가입에서 비밀번호 찾기 select
 	@PostMapping("/find_pw")
 	public void find_pw1(MemberVO member) {
 		
-		log.info("find_pw: " + member);
+		log.info("비밀번호 찾기 처리");
 		
 		service.find_pw(member);
 	}

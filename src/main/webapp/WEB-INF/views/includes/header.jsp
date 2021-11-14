@@ -58,8 +58,8 @@
                             </ul>
                         </nav>
                         <div class="h_util">
-                            <a href="/member/login"><span class="signin">로그인</span></a>
-                            <a href="/member/member_join"><span class="signup">회원가입</span></a>
+                            <a href="/member/login" id="signin"><span class="signin">로그인</span></a>
+                            <a href="/member/member_join" id="signup"><span class="signup">회원가입</span></a>
                         </div>
                 </div><!--.h_inner-->
             </div><!--.h_content-->
