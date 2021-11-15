@@ -230,8 +230,8 @@
 		<selectKey keyProperty="rcode" order="BEFORE" resultType="int">
 			select max(rcode)+1 rcode from room_info
 		</selectKey>
-		INSERT INTO room_info(rcode ,btype, rtype, addr, addsub, area, whlarea, flr, myflr, elev, pet, park, mfee, rcmt, rcont, mvdate, rface)
-		VALUES (#{rcode}, #{btype}, #{rtype}, #{addr}, #{addsub}, #{area}, #{whlarea}, #{flr}, #{myflr}, #{elev}, #{pet}, #{park}, #{mfee}, #{rcmt}, #{rcont}, #{mvdate}, #{rface})	
+		INSERT INTO room_info(rcode ,btype, rtype, addr, addsub, area, whlarea, flr, myflr, elev, pet, park, rcmt, rcont, mvdate, rface)
+		VALUES (#{rcode}, #{btype}, #{rtype}, #{addr}, #{addsub}, #{area}, #{whlarea}, #{flr}, #{myflr}, #{elev}, #{pet}, #{park}, #{rcmt}, #{rcont}, #{mvdate}, #{rface})	
 	</insert>
 	
 	<!-- by영규, 방등록 페이지 room_option데이터 베이스에 추가 하기 -->

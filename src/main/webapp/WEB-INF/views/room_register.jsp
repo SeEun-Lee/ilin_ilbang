@@ -222,18 +222,6 @@
 	                                    </div>
 	                                </div>
 	                            </td>
-	                        <th>관리비</th>
-	                            <td colspan="3"> 
-	                                <div class="container">
-	                                    <div class="buttons">
-	                                        <input class="hidden radio-label" type="radio" name="mfee" id="no_valcony" value="N" checked="checked"/>
-	                                        <label class="button-label" for="no_valcony">없음</label>
-	                                        
-	                                        <input class="hidden radio-label" type="radio" name="mfee" id="yes_valcony" value="Y"/>
-	                                        <label class="button-label" for="yes_valcony">있음</label>
-	                                    </div>
-	                                </div>
-	                            </td>
 	                    </tr>
 	                    <tr>
 	                        <th>옵션항목</th>

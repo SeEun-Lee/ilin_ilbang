@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -273,6 +274,4 @@ public class UploadController {
 		return new ResponseEntity<String>("deleted", HttpStatus.OK);
 
 	}
-	
-
 }

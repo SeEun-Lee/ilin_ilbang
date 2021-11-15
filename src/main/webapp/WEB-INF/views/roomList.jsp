@@ -5,8 +5,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
+
+
 <%@include file="./includes/header.jsp" %>
-		
         <div class="main_container">
             <section class="main_search">
                 <div class="inner">
@@ -168,7 +169,8 @@
 										 onclick='window.open("/<c:out value='${room.rcode}'/>", "_blank", "width=600px", "height=500px")'>
 							    				<div class="room_card">
 							        				<div class="card_box">
-							        					<img class="room_img" src="../resources/img/room_ex.png" alt="">
+							        					<c:set var="room_i" value="${room.uploadPath}"/>  
+							        					<img class="room_img" src="/display?fileName=${fn:replace(room_i,'\\', '%5C')}%2Fs_${room.uuid}_${room.fileName}">
 							        					<div class="find_map">
 							        						<a href="">위치보기</a>
 							        						<span style="display:none">${room.rcode}</span>
@@ -331,6 +333,7 @@
 			list.push(json);
 		</c:forEach>
 	
+		String path=application.getRealpath("/upload/");
 	</script>
 
 
