@@ -121,13 +121,13 @@ public class roomServiceImpl implements roomService {
 	};
 	
 	@Override//by세은, 방 수정 동작 (room_price)
-	public void modifyRoomP(room_priceVO roomP) {
-		mapper.modifyRoomP(roomP);
+	public int modifyRoomP(room_priceVO roomP) {
+		return mapper.modifyRoomP(roomP);
 	};
 	
 	@Override //by세은, 방 수정 동작 (room_option)
-	public void modifyRoomOP(room_optionVO roomOP) {
-		mapper.modifyRoomOP(roomOP);
+	public int modifyRoomOP(room_optionVO roomOP) {
+		return mapper.modifyRoomOP(roomOP);
 	};
 	
 	@Override //by세은, 방 삭제

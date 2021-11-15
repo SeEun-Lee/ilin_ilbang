@@ -70,10 +70,10 @@ public interface RoomMapper {
 	public int modifyRoomI(room_infoVO roomI);
 	
 	//by세은, 방 수정 동작 (room_price)
-	public void modifyRoomP(room_priceVO roomP);
+	public int modifyRoomP(room_priceVO roomP);
 	
 	//by세은, 방 수정 동작 (room_option)
-	public void modifyRoomOP(room_optionVO roomOP);
+	public int modifyRoomOP(room_optionVO roomOP);
 	
 	//by세은, 방 삭제
 	public int deleteRoom(int rcode);

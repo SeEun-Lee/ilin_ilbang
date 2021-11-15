@@ -296,11 +296,14 @@ public class roomController{
 	@ResponseBody
 	@RequestMapping(method= {RequestMethod.PUT}, value = "/{rcode}", 
 					consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
-	public void ModifyRoom(@PathVariable("rcode") int rcode, @RequestBody room_allDataVO allData){
-			service.modifyRoomI(allData.getRoomI());
-			service.modifyRoomP(allData.getRoomP());
-			service.modifyRoomOP(allData.getRoomOP());
-			log.info(rcode + "번 방 수정 결과 : " + service.modifyRoomI(allData.getRoomI()));
+	public ResponseEntity<String> ModifyRoom(@RequestBody room_allDataVO allData){
+			int resultI = service.modifyRoomI(allData.getRoomI());
+			int resultP = service.modifyRoomP(allData.getRoomP());
+			int resultOP = service.modifyRoomOP(allData.getRoomOP());
+			log.info(resultI + resultP + resultOP);
+			return resultI + resultP + resultOP == 3
+				   ? new ResponseEntity<>("success", HttpStatus.OK)
+				   : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	//by세은, 방 삭제

@@ -60,7 +60,7 @@ public interface roomService {
 	//by세은, 유저의 좋아요 카운트 
 	public int userLikeCount(String mid);
 	
-	//by세은, 공인중개사가 등록한 방 목록 출력
+	//by세은, 공인중개사가 등록한 방 목록 출s력
 	public List<HashMap<String, String>> agntPostList(HashMap<String,Object> map);
 	
 	//by세은, 공인중개사가 등록한 방 카운트
@@ -70,10 +70,10 @@ public interface roomService {
 	public int modifyRoomI(room_infoVO roomI);
 	
 	//by세은, 방 수정 동작 (room_price)
-	public void modifyRoomP(room_priceVO roomP);
+	public int modifyRoomP(room_priceVO roomP);
 	
 	//by세은, 방 수정 동작 (room_option)
-	public void modifyRoomOP(room_optionVO roomOP);
+	public int modifyRoomOP(room_optionVO roomOP);
 	
 	//by세은, 방 삭제
 	public int deleteRoom(int rcode);
