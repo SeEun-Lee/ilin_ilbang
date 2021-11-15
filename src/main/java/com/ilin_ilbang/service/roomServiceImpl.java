@@ -27,90 +27,106 @@ public class roomServiceImpl implements roomService {
 	private RoomMapper mapper;
 	private RoomAttachMapper attachMapper;
 	
-	@Override // 전체 목록
+	@Override //by세은, 전체 목록
 	public List<HashMap<String, String>> getListOfAll(Criteria cri){
 		return mapper.getListOfAll(cri);
 	}
 	
-	@Override // 필터에 의한 목록 
+	@Override //by세은, 필터에 의한 목록 
 	public List<HashMap<String, String>> getListByFilter(HashMap<String, Object> filterMap){
 		return mapper.getListByFilter(filterMap);
 	}
 	
-	@Override // 필터에 의한 목록 count
+	@Override //by세은, 필터에 의한 목록 count
 	public int getFilterListCount(HashMap<String, Object> filterMap) {
 		return mapper.getFilterListCount(filterMap);
 	}
 	
-	@Override // 상세 페이지 정보 
+	@Override //by세은, 상세 페이지 정보 
 	public HashMap<String, String> readRoomInfo(String rcode){
 		return mapper.readRoomInfo(rcode);
 	};
 	
-	@Override // 전체 목록 count
+	@Override //by세은, 전체 목록 count
 	public int getTotalCount(Criteria cri) {
 		return mapper.getTotalCount(cri);
 	}
+	
+	@Transactional
+	@Override //by영규, 방등록 페이지, 데이터 등록하기
+	public void register(room_infoVO room) {
+		log.info("get......."+room);
+		mapper.insertSelectKey(room);
+		if(room.getAttachList()==null || room.getAttachList().size()<=0) {
+			return;
+		}
+		room.getAttachList().forEach(attach->{
+			// RoomAttachVO필통에 넣어라 (BoardVO필통에 있는 rcode를 가져와서)
+			attach.setRcode(room.getRcode());
+			// room_attach테이블에 파일정보를 insert해라.
+			attachMapper.insert(attach);
+		});
+	}
 
-	@Override
+	@Override //by영규, 방 등록하기 (room_optionVO)
 	public void registerOP(room_optionVO roomOP) {
 		log.info("get......."+roomOP);
 		mapper.insertOP(roomOP);
 	}
 	
-	@Override
+	@Override//by영규 방 등록하기 (room_priceVO)
 	public void registerP(room_priceVO roomP) {
 		log.info("get......."+roomP);
 		mapper.insertP(roomP);
 	}
 
-	@Override
+	@Override//by영규
 	public List<RoomAttachVO> getAttachList(int rcode) {
 		log.info("getAttachList........"+rcode);
 		return attachMapper.findByRcode(rcode);
 	}
 
-	@Override
+	@Override//by영규
 	public room_infoVO get(long rcode) {
 		return mapper.read(rcode);	
 	}
 	
-	@Override // by 세은, 방 수정페이지 열릴 때 기존 정보 출력하기
+	@Override //by세은, 방 수정페이지 열릴 때 기존 정보 출력하기
 	public HashMap<String, String> roomModifyLoad(int rcode){
 		return mapper.roomModifyLoad(rcode);
 	}
 	
-	@Override // 좋아요 추가;
+	@Override //by세은, 좋아요 추가
 	public void addLike(likeVO like) {
 		mapper.addLike(like);
 	}
 	
-	@Override // 이미 좋아요 한 방인지 확인
+	@Override //by세은, 이미 좋아요 한 방인지 확인
 	public int addLikeCount(likeVO like) {
 		return mapper.addLikeCount(like);
 	}
 	
-	@Override // 좋아요 취소 
+	@Override //by세은, 좋아요 취소 
 	public void dislike(HashMap<String, Object> map) {
 		mapper.dislike(map);
 	}
 	
-	@Override // 유저의 좋아요 리스트 출력
+	@Override //by세은, 유저의 좋아요 리스트 출력
 	public List<HashMap<String, String>> userLikeList(HashMap<String, Object> map){
 		return mapper.userLikeList(map);
 	}
 	
-	@Override // 유저의 좋아요 카운트
+	@Override //by세은, 유저의 좋아요 카운트
 	public int userLikeCount(String mid) {
 		return mapper.userLikeCount(mid);
 	}
 	
-	@Override // 공인중개사가 등록한 방 목록 출력
+	@Override //by세은, 공인중개사가 등록한 방 목록 출력
 	public List<HashMap<String, String>> agntPostList(HashMap<String,Object> map){
 		return mapper.agntPostList(map);
 	}
 	
-	@Override // 공인중개사가 등록한 방 카운트
+	@Override //by세은, 공인중개사가 등록한 방 카운트
 	public HashMap<String, Integer> agntPostCnt(String agntid){
 		return mapper.agntPostCnt(agntid);
 	}

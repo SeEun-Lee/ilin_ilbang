@@ -13,7 +13,7 @@
                     <div>거래관리</div>
                     <ul>
                         <li><a href="">등록한 방</a></li>
-                        <li><a href="">완료된 거래</a></li>
+                        <!-- <li><a href="">완료된 거래</a></li>  -->
                     </ul>
                 </div><!--.sp_nav-->
                 <div class="subpage_content deal_content" id="list_content_deal">
@@ -38,6 +38,7 @@
                                         <p class="count">${sum.total}</p>
                                     </div>
                                 </div>
+                                <!-- 미구현 기능 → 주석처리
                                 <div>
                                     <a href="" class="search_open">
                                         검색 메뉴
@@ -85,12 +86,12 @@
                                                     <input type="date" id="input_regdate" name="regdate" value="regdate" min="2000-01-01" max="2021-12-12">
                                                 </div>
                                             </div>
-                                        </div><!-- .sc_content -->
+                                        </div>
                                         <div class="sc_btn">
                                             <a href="" class="reset">초기화</a>
-                                            <button type="" class="btn_search">검색</button>
+                                            <button type="button" class="btn_search">검색</button>
                                         </div>
-                                    </div><!--.sc_container-->
+                                    </div>
                                     <div class="sc_sortby"> 
                                         <div class="sc_name">정렬</div>
                                         <div class="sc_content sc_cont_sortby"> 
@@ -122,13 +123,12 @@
                                                     <span class="name">조회수 많은 순</span>
                                                 </label>
                                             </div>
-                                        </div><!-- .sc_content .sc_cont_sortby -->
-                                    </div><!--.sc_sortby-->
-                                </div><!--.dm_search-->
-                            </div><!--.dm_wrap-->
-                        </div>	<!--.deal_menu-->
-
-
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						-->
 						<div class="deal_list_container">
 	                        <div class="deal_list">
 			                   <div class="list_select list_select_deal">

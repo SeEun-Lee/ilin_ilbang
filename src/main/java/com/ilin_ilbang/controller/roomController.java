@@ -178,7 +178,7 @@ public class roomController{
 	
 		log.info("insert : "+room+"OP : "+roomOP+"P : "+roomP);
 		
-//		service.register(room); 
+		service.register(room); 
 		service.registerOP(roomOP); 
 		service.registerP(roomP);
 		
@@ -197,7 +197,6 @@ public class roomController{
 		return new ResponseEntity<>(service.getAttachList(rcode),HttpStatus.OK);
 	}
 
-	
 	//by세은, 방 수정 화면 출력 & 기존 정보 로드
 	@GetMapping("/Modify/{rcode}")
 	public ModelAndView roomModifyLoad(@PathVariable("rcode") int rcode) {
@@ -247,7 +246,7 @@ public class roomController{
 	}
 
 	//by세은, 관심목록 출력
-	@RequestMapping(value = "/roomLike", method = RequestMethod.GET)
+	@RequestMapping(value = "/like", method = RequestMethod.GET)
 	public String roomLike(Model model, Criteria cri) {
 		String mid = "user000"; // 임의 아이디 설정
 

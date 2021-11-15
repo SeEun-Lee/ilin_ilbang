@@ -46,20 +46,22 @@
                         <nav id="nav">
                             <ul class="gnb">
                                 <li>
-                                    <a href="/" class="list active"><span>방 검색</span></a>
+                                    <a href="/" class="main active"><span>방 검색</span></a>
                                 </li>
                                 <li>
-                                    <a href="/roomLike" class="roomLike"><span>관심목록</span></a>
+                                    <a href="/like" class="like"><span>관심목록</span></a>
                                 </li>
                                 <li>
-                                    <a href="/room_register" class="register"><span>방 내놓기</span></a>
+                                    <a href="/room_register" class="room_register"><span>방 내놓기</span></a>
                                 </li>
                                 <li>
-                                    <a href="/myDeal"><span>거래관리</span></a>
+                                    <a href="/myDeal" class="myDeal"><span>거래관리</span></a>
                                 </li>
+                                <!-- 미구현 메뉴 주석처리 
                                 <li>
                                     <a href=""><span>허위매물 신고</span></a>
                                 </li>
+                                 -->
                             </ul>
                         </nav>
                         <div class="h_util">

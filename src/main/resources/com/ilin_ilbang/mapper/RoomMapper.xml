@@ -225,8 +225,8 @@
 		<selectKey keyProperty="rcode" order="BEFORE" resultType="int">
 			select max(rcode)+1 rcode from room_info
 		</selectKey>
-		INSERT INTO room_info(rcode ,btype, rtype, addr, addsub, area, whlarea, flr, myflr, elev, pet, park, mfee, rcmt, rcont, mvdate, rface)
-		VALUES (#{rcode}, #{btype}, #{rtype}, #{addr}, #{addsub}, #{area}, #{whlarea}, #{flr}, #{myflr}, #{elev}, #{pet}, #{park}, #{mfee}, #{rcmt}, #{rcont}, #{mvdate}, #{rface})	
+		INSERT INTO room_info(rcode ,btype, rtype, addr, addsub, area, whlarea, flr, myflr, elev, pet, park, rcmt, rcont, mvdate, rface)
+		VALUES (#{rcode}, #{btype}, #{rtype}, #{addr}, #{addsub}, #{area}, #{whlarea}, #{flr}, #{myflr}, #{elev}, #{pet}, #{park}, #{rcmt}, #{rcont}, #{mvdate}, #{rface})	
 	</insert>
 	
 	 <!-- by용규 -->
@@ -237,8 +237,8 @@
 	
 	<!-- by용규 -->
 	<insert id="insertP">
-		insert into room_price(dep, dtype, mrent, yrent, mfeec)
-		values(#{dep}, #{dtype}, #{mrent}, #{yrent}, #{mfeec})
+		insert into room_price(dep, dtype, mrent, yrent, mcfee)
+		values(#{dep}, #{dtype}, #{mrent}, #{yrent}, #{mcfee})
 	</insert>
 	
 	<!-- by 세은, 방 수정페이지 열릴 때 기존 정보 출력하기 -->

@@ -13,7 +13,7 @@
   				<div>관심 목록</div>
   				<ul>
   					<li><a href="">등록한 방</a></li>
-  					<li><a>완료된 거래</a></li>
+  					<!--  <li><a>완료된 거래</a></li> -->
   				</ul>
   			</div><!-- .sp_nav  -->
   			<div class="subpage_content like_content">

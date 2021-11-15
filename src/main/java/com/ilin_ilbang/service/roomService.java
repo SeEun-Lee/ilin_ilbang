@@ -28,7 +28,7 @@ public interface roomService {
 	public HashMap<String, String> readRoomInfo(String rcode);
 	
 //	//by용규
-//	public void register(room_infoVO room);
+	public void register(room_infoVO room);
 	
 	//by용규
 	public void registerOP(room_optionVO roomOP);

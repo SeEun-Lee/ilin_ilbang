@@ -3,15 +3,18 @@
 $(document).ready(function(){
 	
 	var pathname = $(location).attr('pathname');
-	if (pathname == "/list"){
+	if (pathname == "/"){
 		$('.gnb > li > a').removeClass('active');
-		$('.gnb').find('.list').addClass('active');
-	} else if (pathname == "/roomLike"){
+		$('.gnb').find('.main').addClass('active');
+	} else if (pathname == "/like"){
 		$('.gnb > li > a').removeClass('active');
-		$('.gnb').find('.roomLike').addClass('active');
-	} else if (pathname == "/sub/room_register"){
+		$('.gnb').find('.like').addClass('active');
+	} else if (pathname == "/room_register"){
 		$('.gnb > li > a').removeClass('active');
 		$('.gnb').find('.room_register').addClass('active');
+	} else if (pathname == "/myDeal"){
+		$('.gnb > li > a').removeClass('active');
+		$('.gnb').find('.myDeal').addClass('active');
 	}
 	
 })

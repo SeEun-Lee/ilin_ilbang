@@ -35,6 +35,6 @@ public class room_infoVO {
 	private Date updatedate; // 수정 날짜(시간)
 	private String agntid; // 중개사 아이디 
 //	private char mvable; // 즉시입주 가능시 'Y' 아닐시 'N'
-	public ArrayList<AttachFileDTO> attachList;
+	public ArrayList<RoomAttachVO> attachList;
 
 }

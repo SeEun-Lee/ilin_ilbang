@@ -118,7 +118,7 @@
 	                                    <p id="dep"><label for="dep1">보증금 : </label><input type="number" min="0" id="dep1" name="dep" value="0"><span>원</span></p>
                               	        <p id="yrent"><label for="yrent1">전세금 : </label><input type="number" min="0" id="yrent1" name="yrent" value="0"><span>원</span></p>
 	                                    <p id="mrent"><label for="mrent1"> 월세 : </label><input type="number" min="0" id="mrent1" name="mrent" value="0"><span>원</span></p>                    
-	                                    <p id="mfeec"><label for="mfeec1">관리비 : </label><input type="number" min="0" id="mfeec1" name="mfeec" value="0"><span>원</span></p>
+	                                    <p id="mcfee"><label for="mfeec1">관리비 : </label><input type="number" min="0" id="mcfee1" name="mcfee" value="0"><span>원</span></p>
 	                                </div>
 	                            </div>
 	                        </td>
@@ -131,7 +131,7 @@
 	                    <tr>
 	                        <th rowspan="2">건물 크기<br>(1P=3.3058m<sup>2</sup>)</th>
 	                        <td class="sc_flex">
-	                            <span>공급 면적</span>
+	                            <span>공급 면적</span> 방 등록하기 (room_optionVO)
 	                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 	                                <input class="mdl-textfield__input" type="number" min="0" value="0" id="supply_pyeong" name="whlarea">
 	                                <label class="mdl-textfield__label" tabindex="1" for="supply_pyeong"></label>
@@ -219,18 +219,6 @@
 	                                        
 	                                        <input class="hidden radio-label" type="radio" name="elev" id="yes_elevator" value="Y"/>
 	                                        <label class="button-label" for="yes_elevator">있음</label>
-	                                    </div>
-	                                </div>
-	                            </td>
-	                        <th>관리비</th>
-	                            <td colspan="3"> 
-	                                <div class="container">
-	                                    <div class="buttons">
-	                                        <input class="hidden radio-label" type="radio" name="mfee" id="no_valcony" value="N" checked="checked"/>
-	                                        <label class="button-label" for="no_valcony">없음</label>
-	                                        
-	                                        <input class="hidden radio-label" type="radio" name="mfee" id="yes_valcony" value="Y"/>
-	                                        <label class="button-label" for="yes_valcony">있음</label>
 	                                    </div>
 	                                </div>
 	                            </td>
