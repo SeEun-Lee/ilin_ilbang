@@ -290,3 +290,91 @@
 
 /* 페이저 */
 
+
+/* 모달창 */
+
+.modal_2btn, .modal_1btn{
+	height: 150px;
+	width: 350px;
+    height: 150px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 30px;
+    color: #222;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -130%);
+    display: none;
+}
+
+.modal_text{
+    font-size: 15px;
+    line-height: 1.5em;
+}
+
+.modal_text > span{
+    color : #205162;
+    font-weight: 600;
+}
+
+.modal_btn_box{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+
+.modal_btn_box > a {
+	display: block;
+	width: 130px;
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.modal_btn_box > .modal_btn_1{
+    background-color: #cfdbe9;
+}
+
+.modal_btn_box > .modal_btn_1:hover{
+    background-color: #205162;
+    color: #fff;
+}
+
+.modal_btn_box > .modal_btn_2{
+    background-color: #fbe6e1;
+}
+
+.modal_btn_box > .modal_btn_2:hover{
+    background-color: #e98a72;
+    color: #fff;
+}
+
+.modal_fail .modal_btn_box > a {
+	width: 40%;
+}
+
+.modal_dislike .modal_btn_box > a {
+	width: 80%;
+}
+
+.modal_close{
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-indent: -99999px;
+    background-image: url(../img/btn_close.png);
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+

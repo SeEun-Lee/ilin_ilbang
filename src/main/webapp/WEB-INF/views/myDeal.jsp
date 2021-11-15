@@ -246,7 +246,9 @@
 									   						</a>
 									   					</div>
 		                                                <div>
-		                                                	<a href="" class="btn_delete">
+		                                                	<a class="btn_delete" href="javascript:void(0);">
+		                                                		<span class="rcode">${room.rcode}</span>
+		                                                		<span>번 방</span>
 		                                                		삭제
 		                                                	</a>
 		                                                </div>
@@ -291,8 +293,30 @@
                 </div><!-- .deal_content .list_content_deal -->
             </div><!-- .sp_container -->
         </section><!-- #myDeal -->
-
+        
+	    <div class="modal_2btn" id="modal_delete">
+			<div class="modal_text">
+				한번 삭제한 내용은 복구할 수 없습니다. <br>
+				<span class="rcode"></span>번 방을 정말 삭제하시겠습니까?
+			</div>
+			<div class="modal_btn_box">
+				<a class="modal_btn_1">네</a>
+				<a class="modal_btn_2">아니요</a>
+			</div>
+			<div class="modal_close">창 닫기</div>
+		</div> <!-- .modal_delete -->	
+		<div class="modal_1btn" id="modal_notice">
+			<div class="modal_text">
+				<span class="rcode"></span>번 방을 삭제하였습니다.
+			</div>
+			<div class="modal_btn_box">
+				<a class="modal_btn_2">확인</a>
+			</div>
+			<div class="modal_close">창 닫기</div>
+		</div> <!-- .modal_notice -->
+		
 <script src="${pageContext.request.contextPath}/resources/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/myDeal.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/roomDelete.js"></script>
 
 <%@include file="./includes/footer.jsp" %>

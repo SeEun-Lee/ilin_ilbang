@@ -15,6 +15,7 @@
 <link href="${pageContext.request.contextPath}/resources/css/reset.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/resources/css/room_register.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/resources/css/button.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/resources/css/common.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/resources/css/roomModify.css" rel="stylesheet" type="text/css">
 
 <div class="wrap" id="roomModify">
@@ -348,23 +349,24 @@
 	        </div><!-- .sp2_in -->
 	    </div><!-- #sub_page2 -->
 	</form>
-	<div class="modal_modify">
+	<div class="modal_2btn" id="modal_modify">
 		<div class="modal_text">
-			정상적으로 수정되었습니다.<br> 수정한 내용을 확인할까요?
+			정상적으로 수정되었습니다. <br> 수정한 내용을 확인할까요?
 		</div>
 		<div class="modal_btn_box">
-			<a class="modal_btn_1">아니요.</a>
-			<a class="modal_btn_2">네, 확인할게요.</a>
+			<a class="modal_btn_1">네</a>
+			<a class="modal_btn_2">아니요</a>
 		</div>
 		<div class="modal_close">창 닫기</div>
-	</div> <!-- .modal_modify -->
-	<div class="modal_cancel">
+	</div> <!-- .modal_delete -->
+	
+	<div class="modal_1btn" id="#modal_cancel">
 		<div class="modal_text">
 			취소할 시 현재 내용은 저장되지 않습니다.<br>정말 창을 닫으시겠어요?
 		</div>
 		<div class="modal_btn_box">
-			<a class="modal_btn_1">네, 닫겠습니다.</a>
-			<a class="modal_btn_2">아니요.</a>
+			<a class="modal_btn_1">네</a>
+			<a class="modal_btn_2">아니요</a>
 		</div>
 		<div class="modal_close">창 닫기</div>
 	</div> <!-- .modal_cancel -->

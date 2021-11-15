@@ -353,4 +353,12 @@
 		FROM agent_info
 		WHERE agntid = #{agntid}
 	</select>
+	
+	<!-- by세은, 등록한 방 삭제 -->
+	<delete id="deleteRoom">
+		DELETE i, p, o
+		FROM room_info i INNER JOIN room_price p INNER JOIN room_option o
+		WHERE i.rcode = p.rcode AND i.rcode = o.rcode AND i.rcode = #{rcode}
+
+	</delete>
 </mapper>

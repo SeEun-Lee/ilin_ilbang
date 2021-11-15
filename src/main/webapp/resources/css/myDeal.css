@@ -446,6 +446,10 @@
     padding: 3px 6px;
 }
 
+#myDeal .btn_delete span{
+	display: none;
+}
+
 #myDeal .btn_modify:before, #myDeal .btn_delete:before{
     display: inline-block;
     vertical-align: top;

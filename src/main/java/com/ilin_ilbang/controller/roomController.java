@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -293,16 +294,26 @@ public class roomController{
 	
 	//by세은, 방 수정하기 동작
 	@ResponseBody
-	@RequestMapping(method= {RequestMethod.PUT},
-					value = "/Modify/{rcode}",
-					consumes = "application/json",
-					produces = {MediaType.TEXT_PLAIN_VALUE})
-	public void ModifyRoom(
-					@PathVariable("rcode") int rcode,
-					@RequestBody room_allDataVO allData){
+	@RequestMapping(method= {RequestMethod.PUT}, value = "/{rcode}", 
+					consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public void ModifyRoom(@PathVariable("rcode") int rcode, @RequestBody room_allDataVO allData){
 			service.modifyRoomI(allData.getRoomI());
 			service.modifyRoomP(allData.getRoomP());
 			service.modifyRoomOP(allData.getRoomOP());
+			log.info(rcode + "번 방 수정 결과 : " + service.modifyRoomI(allData.getRoomI()));
 	}
+	
+	//by세은, 방 삭제
+	@ResponseBody
+	@RequestMapping(method= {RequestMethod.DELETE}, value = "/{rcode}",
+				   produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> deleteRoom(@PathVariable("rcode") int rcode) {
+		int result = service.deleteRoom(rcode);
+		log.info(rcode + "번 방 삭제 결과 : " + result);
+		return result == 3 // 3개 행이 삭제되기 때문에 result가 3일시 성공
+				? new ResponseEntity<>("success", HttpStatus.OK)
+				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
 }
 
