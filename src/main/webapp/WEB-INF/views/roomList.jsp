@@ -333,7 +333,6 @@
 			list.push(json);
 		</c:forEach>
 	
-		String path=application.getRealpath("/upload/");
 	</script>
 
 

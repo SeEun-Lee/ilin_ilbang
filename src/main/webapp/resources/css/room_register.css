@@ -113,6 +113,21 @@
 	color: #fff;
 }
 
+.sc2_box2 .sb2_sec2{
+    position: absolute;
+    top: 55px;
+    right: 0;
+    padding: 7px 8px;
+    color: #777;
+    border: 1px solid #777;
+    background-color: #fff;
+}
+
+.sc2_box2 .sb2_sec2:hover{
+	cursor: pointer;
+	color: #333;
+}
+
 .sc2_box2 label{
 	display: block;
 	font-size: 13px;

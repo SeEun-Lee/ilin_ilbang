@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@include file="./includes/header.jsp" %>
 <!-- 맵 js -->
-<script src="${pageContext.request.contextPath}/resources/js/map.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5e41121bb1d58e90b856ee43d16acfa9&libraries=services"></script>
+
 <!-- 카카오 주소검색 api -->
 <script language="javascript" src="//code.jquery.com/jquery-1.12.4.js"></script> 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -98,14 +99,13 @@
 	                   	<li class="sc2_box2">
                    			<div class="sb2_text">★ 도로명, 지역별, 건물명 등으로 검색이 가능하다.</div>
 	                   		<input class="sb2_sec" type="button" value="주소 검색" id="btnAddr" name="btnAddr">
+	                   		<input class="sb2_sec2" type="button" value= "위치 검색" id="btnAddr2" name="btnAddr2">
                    			<P class="sb2_zip"><label for="zip">우편번호 </label><input type="text" value="" name="zip" id="zip"></P>
-                   			<P class="sb2_addr1"><label for="addr1">주소</label><input type="text" name="addr" id="addr1"></P>		                   										  
+                   			<P class="sb2_addr1"><label for="addr1">주소</label><input type="text" name="addr" id="addr1" value=""></P>		                   										  
 							<input class="sb2_addsub" type="text" name="addsub" id="addr2" placeholder="상세주소를 입력하세요.">                   			
                    		</li> 
 	                    <li class="sc2_box3">
-	                        <div class="map_wrap" style="top:150px; right:250px;">
-					    		<div id="map" style="width:230px;height:230px;position:relative;overflow:hidden;"></div>
-							</div>
+	                    	<div id="staticMap" style="width:230px;height:230px;"></div>
 	                    </li>
 	                </ul>
 	            </div><!-- .sp2_content2 -->
