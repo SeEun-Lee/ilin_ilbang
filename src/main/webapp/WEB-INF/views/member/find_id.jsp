@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -50,52 +51,42 @@
             background-color: #1F4E5F;
             border: 0px solid #1F4E5F;
         }
-        #new_id[placeholder]{
-            text-align: right;
-        }
-        #email{
-            width: 300px;
-        }
-        #get_num{
-            padding: 17px 27px;
-            float: right;
-        }
-        .sub{
+        .submit{
             padding: 20px 190px;
         }
     </style>
 </head>
 <body>
-    <div class="join_in">
+    <div class="mail_wrap">
         <div class="h_logo">
         	<h1><a href="index.jsp">1인1방</a></h1>
         </div>
-        <form action="#" method="post">
+        <form action="find_id" method="post" class=mail_wrap>
             <ul>
                 <li>                    
                     <label>이름<br>
-                        <input type="text" id="username" size="61"
-                        required>
+                        <input type="text" name="mname" id="mname" size="61"
+                        placeholder=" 이름을 입력하세요" required>
                     </label>
                 </li>
                 <li>
                     <label>이메일<br>
-                        <input type="email" id="email" size="61"
-                        required>
-                    </label>
-                    <button type="button" id="get_num">인증번호 받기</button>
-                </li>
-                <li>                    
-                    <label>
-                        <input type="text" id="write_num" size="61"
-                        placeholder="인증번호를 입력하세요" required>
+                        <input type="email" name="memail" id="memail" size="61" class="mail_input"
+                        placeholder=" 이메일을 입력하세요" required>
                     </label>
                 </li>
                 <li>
-                    <button type="submit" class="sub">아이디 찾기</button>
+                	<c:if test="${mid!=null}">
+                    	<label>당신의 아이디는 : ${mid.mid}<br></label>
+                    </c:if>
+                </li>
+                <li>
+                    <button type="submit" id="find_id_btn" class="submit">아이디 찾기</button>
                 </li>
             </ul>
         </form>
     </div>
+	
+	
 </body>
 </html>

@@ -1,7 +1,5 @@
 package com.ilin_ilbang.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ilin_ilbang.domain.MemberVO;
@@ -18,6 +16,7 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
+	//private MemberMapper manager;
 
 	@Override
 	public MemberVO login(MemberVO member) {
@@ -35,13 +34,15 @@ public class MemberServiceImpl implements MemberService{
 		mapper.modify(member);
 	}
 	@Override
-	public void find_id(MemberVO member) {
-		log.info("find_id......."+member);
-		mapper.find_id(member);
+	public MemberVO find_id(MemberVO member){
+		System.out.println("service 아이디 찾기 처리");
+		return member = mapper.find_id(member);
 	}
+	
 	@Override
-	public void find_pw(MemberVO member) {
-		log.info("find_pw......."+member);
-		mapper.find_pw(member);
+	public MemberVO find_pw(MemberVO member) {
+		System.out.println("service find_pw......."+member);
+		return mapper.find_pw(member);
 	}
+
 }

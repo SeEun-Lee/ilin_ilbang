@@ -1,9 +1,7 @@
 package com.ilin_ilbang.domain;
 
-import java.util.Date;
-
 import lombok.Data;
-
+@Data
 public class MemberVO {
 	//아이디
 	private String mid;

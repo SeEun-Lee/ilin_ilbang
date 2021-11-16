@@ -1,3 +1,4 @@
+/*
 package com.ilin_ilbang.domain;
 
 import java.sql.Connection;
@@ -83,4 +84,13 @@ public class MemberDAO {
 		return pstmt;
 		
 	}
+	
+	// 아이디 찾기
+	public String find_id(String memail) throws Exception{
+		return sqlsession.selectOne("member.find_id", memail);
+	}
 }
+*/
+
+
+

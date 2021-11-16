@@ -20,22 +20,12 @@
 </insert>
 
 <select id="find_id" resultType="com.ilin_ilbang.domain.MemberVO">
-select mname,memail from member_info
+	select mid from member_info where memail = #{memail} and mname=#{mname}
 </select>
 
 <select id="find_pw" resultType="com.ilin_ilbang.domain.MemberVO">
-select mid,memail from member_info
+	select * from member_info
+	where mid=#{mid}
+	and memail=#{memail}
 </select>
-
-
-
-<!-- 
-<insert id="insertSelectKey">
-	<selectKey keyProperty="mid" order="BEFORE" resultType="String">
-		select seq_board.nextval from dual
-	</selectKey>
-	insert into member_info(mid,mpw,mname,mbirth,mgender,maddr,mtel,memail)
-	values ( #{mid},#{mpw},#{mname},#{mbirth},#{mgender},#{maddr},#{mtel},#{memail})
-</insert>
- -->
 </mapper>

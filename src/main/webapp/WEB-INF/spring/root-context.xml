@@ -25,6 +25,7 @@
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
+	
 	<mybatis-spring:scan base-package="com.ilin_ilbang.mapper"/>
 	<context:component-scan base-package="com.ilin_ilbang.service"></context:component-scan>
 	

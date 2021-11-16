@@ -15,8 +15,8 @@ public interface MemberMapper {
 
 	public void modify(MemberVO member);
 
-	public void find_id(MemberVO member);
+	public MemberVO find_id(MemberVO member);
 
-	public void find_pw(MemberVO member);
+	public MemberVO find_pw(MemberVO member);
 
 }
