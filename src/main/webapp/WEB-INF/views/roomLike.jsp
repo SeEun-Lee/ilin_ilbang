@@ -142,19 +142,18 @@
 		 </div><!-- .sp_container -->
     </section><!-- #sub_page1 -->
     
-    
-      <!-- 찜 버튼 클릭시 모달창 입니다 -->
+          <!-- 찜 버튼 클릭시 모달창 입니다 -->
 	 <div class="modal_like">
 			<div class="modal_text">
 				<span class='modal_rcode'></span> 번 방이 관심 목록에 추가되었습니다.<br> 찜 목록으로 이동하시겠어요?
 			</div>
 			<div class="modal_btn_box">
-				<a href="/roomLike" class="modal_btn_1">관심목록으로 이동</a>
-				<a class="modal_btn_2">아니요, 더 둘러볼게요.</a>
+				<a href="/like" class="modal_btn_1">네</a>
+				<a class="modal_btn_2">아니요</a>
 			</div>
 			<div class="modal_close">창 닫기</div>
 	 </div> <!-- .modal_like -->
-	 
+
 	 <!-- 이미 관심목록에 추가된 방일 시 모달창입니다 -->
 	 <div class="modal_fail">
 	 		<div class="modal_text">

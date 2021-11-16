@@ -149,12 +149,11 @@ $(document).ready(function(){
 		e.preventDefault();
 		var pageNum = $(this).attr('href');
 		$.ajax({
-			url : '/roomLike',
+			url : '/like',
 			type : 'get',
 			data : { pageNum : pageNum },
 			success : function(data){
 				$("#list_container_like").find("#list_content_like").remove().end().prepend($(data).find("#list_content_like"));
-				$(".btn_more").removeClass("filterInactive").addClass("filterActive");
 			},
 			error : function(xhr, status, error){
 				alert("실패")
