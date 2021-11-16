@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="./includes/header.jsp" %>
+<!-- 맵 js -->
+<script src="${pageContext.request.contextPath}/resources/js/map.js"></script>
+<!-- 카카오 주소검색 api -->
+<script language="javascript" src="//code.jquery.com/jquery-1.12.4.js"></script> 
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
   <form role='form' method="post" action="room_register" id="room_register" enctype="multipart/form-data">
    	<div id="sub_page2">
        <div class="sp2_in">
@@ -88,15 +94,18 @@
 	            <div class="sp2_content2">
 	                <h3 class="sc_title">위치정보</h3>
 	                <ul>
-	                    <li class="sc2_box1">주소 검색</li>
-	                    <li class="sc2_box2">
-	                        <div class="sb2_text">★ 도로명, 지역별, 건물명 등으로 검색이 가능하다.</div>
-	                        <button class="sb2_sec">주소검색</button>
-	                        <p><input type="text" name="addr"></p>
-	                        <p><input class="sb2_memo" type="text" name="addsub" placeholder="상세주소를 입력하세요."></p>
-	                    </li>
+        		        <li class="sc2_box1">주소 검색</li>
+	                   	<li class="sc2_box2">
+                   			<div class="sb2_text">★ 도로명, 지역별, 건물명 등으로 검색이 가능하다.</div>
+	                   		<input class="sb2_sec" type="button" value="주소 검색" id="btnAddr" name="btnAddr">
+                   			<P class="sb2_zip"><label for="zip">우편번호 </label><input type="text" value="" name="zip" id="zip"></P>
+                   			<P class="sb2_addr1"><label for="addr1">주소</label><input type="text" name="addr" id="addr1"></P>		                   										  
+							<input class="sb2_addsub" type="text" name="addsub" id="addr2" placeholder="상세주소를 입력하세요.">                   			
+                   		</li> 
 	                    <li class="sc2_box3">
-	                        <div class="img">지도</div>
+	                        <div class="map_wrap" style="top:150px; right:250px;">
+					    		<div id="map" style="width:230px;height:230px;position:relative;overflow:hidden;"></div>
+							</div>
 	                    </li>
 	                </ul>
 	            </div><!-- .sp2_content2 -->
@@ -115,10 +124,10 @@
 	                                    <label class="button-label" for="all">전세</label>
 	                                </div>
 	                                <div class="texts texts1">
-	                                    <p id="dep"><label for="dep1">보증금 : </label><input type="number" min="0" id="dep1" name="dep" value="0"><span>원</span></p>
-                              	        <p id="yrent"><label for="yrent1">전세금 : </label><input type="number" min="0" id="yrent1" name="yrent" value="0"><span>원</span></p>
-	                                    <p id="mrent"><label for="mrent1"> 월세 : </label><input type="number" min="0" id="mrent1" name="mrent" value="0"><span>원</span></p>                    
-	                                    <p id="mfeec"><label for="mfeec1">관리비 : </label><input type="number" min="0" id="mfeec1" name="mcfee" value="0"><span>원</span></p>
+	                                    <p id="dep"><label for="dep1">보증금 : </label><input type="number" min="0" id="dep1" name="dep" value="0"><span>만원</span></p>
+                              	        <p id="yrent"><label for="yrent1">전세금 : </label><input type="number" min="0" id="yrent1" name="yrent" value="0"><span>만원</span></p>
+	                                    <p id="mrent"><label for="mrent1"> 월세 : </label><input type="number" min="0" id="mrent1" name="mrent" value="0"><span>만원</span></p>                    
+	                                    <p id="mfeec"><label for="mfeec1">관리비 : </label><input type="number" min="0" id="mfeec1" name="mcfee" value="0"><span>만원</span></p>
 	                                </div>
 	                            </div>
 	                        </td>
@@ -143,12 +152,16 @@
 	                            <span>건물 층수</span>
 	                            <select id="buildingFloor" name="flr">
 	                                <option>건물 층수 선택</option>
-	                                <option>1</option>
-	                                <option>2</option>
-	                                <option>3</option>
-	                                <option>4</option>
-	                                <option>5</option>
-	                                <option>6</option>
+	                                <option value="1">1</option>
+	                                <option value="2">2</option>
+	                                <option value="3">3</option>
+	                                <option value="4">4</option>
+	                                <option value="5">5</option>
+	                                <option value="6">6</option>
+	                                <option value="7">7</option>
+	                                <option value="8">8</option>
+	                                <option value="9">9</option>
+	                                <option value="10">10</option>
 	                            </select>
 	                        </td>
 	                    </tr>
@@ -165,12 +178,16 @@
 	                            <span>해당 층수</span>
 	                            <select id="myfloor" name="myflr">
 	                                <option>해당 층수 선택</option>
-	                                <option>1</option>
-	                                <option>2</option>
-	                                <option>3</option>
-	                                <option>4</option>
-	                                <option>5</option>
-	                                <option>6</option>
+	                                <option value="1">1</option>
+	                                <option value="2">2</option>
+	                                <option value="3">3</option>
+	                                <option value="4">4</option>
+	                                <option value="5">5</option>
+	                                <option value="6">6</option>
+	                                <option value="7">7</option>
+	                                <option value="8">8</option>
+	                                <option value="9">9</option>
+	                                <option value="10">10</option>
 	                            </select>
 	                        </td>
 	                    </tr>

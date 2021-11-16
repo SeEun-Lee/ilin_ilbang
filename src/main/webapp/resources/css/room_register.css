@@ -82,32 +82,25 @@
     text-align: center;
     padding-top: 90px;
     width: 120px;
-    height: 200px;
+    height: 230px;
     border: 0;
     background-color: #cfdbe9;
-    margin-right: 40px;
     font-size: 25px;
     color: #205162;
 }
 
 .sc2_box2{
     position: relative;
-    margin-right: 40px;
-    border-bottom: 1px solid #444;
+    width: 370px;
 }
 
 .sc2_box2 .sb2_text{
-    margin-bottom: 40px;
-}
-
-.sc2_box2 input{
-    width: 350px;
-    height: 100px;
+    margin-bottom: 10px;
 }
 
 .sc2_box2 .sb2_sec{
     position: absolute;
-    top: 25px;
+    top: 0;
     right: 0;
     padding: 7px 8px;
     color: #cfdbe9;
@@ -115,21 +108,39 @@
     background-color: #205162;
 }
 
-.sc2_box2 .sb2_memo{
-    text-align: right;
-    border:0;
-    border-bottom:1px solid #888;
-    color: #888;
+.sc2_box2 .sb2_sec:hover{
+	cursor: pointer;
+	color: #fff;
 }
 
-.sc2_box2 .sb2_memo{
-	height: 50px;
+.sc2_box2 label{
+	display: block;
+	font-size: 13px;
+	color: #222;
 }
 
-.sc2_box3 .img{
-    width: 200px;
-    height: 200px;
-    border: 1px solid #222;
+.sc2_box2 .sb2_zip input{
+	width: 150px;
+	height: 20px;
+	margin-bottom: 10px;
+}
+
+.sc2_box2 .sb2_addr1 input{
+	width: 370px;
+	height: 80px;
+	margin-bottom: 5px;
+}
+
+.sc2_box2 .sb2_addsub{
+	width: 370px;
+	height: 40px;
+	border: 0;
+	border-bottom: 1px solid #333;
+}
+
+.sc2_box3 .map_wrap{
+	margin-top: 0;
+ 	margin-left: 0;
 }
 
 .sc3_box th{
@@ -203,7 +214,7 @@
 
 .sc4_box td{
     border-bottom: 1px solid #e0e0e0; 
-    width: 350px;
+    width: 250px;
     margin-left: 30px;
 }
 
@@ -214,6 +225,7 @@
 
 .sc4_box span{
     font-size: 15px;
+    margin-left: 10px;
 }
 
 .sc4_box input{
@@ -222,7 +234,6 @@
 }
 
 .sc4_box span{
-    padding-left: 0px; 
     padding-right: 5px;
     font-weight: bold; 
     color: rgb(68, 68, 68); 
@@ -296,11 +307,14 @@
     text-align: center;
 }
 
-.sc7_btns .cs a{
-	display: block;
+.sc7_btns .cs{
 	background-color: #aaa;
-	color: #fff;
+}
+
+.sc7_btns .cs a{
 	padding: 10px;
+	display: block;
+	color: #fff;
 }
 
 .sc7_btns button{

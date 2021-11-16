@@ -4,11 +4,13 @@
 	width: 100%;
 	background-color: #fff;
 	border: 1px solid #333;
+	margin: 20px 0px; 
 }
 
 .uploadResult ul {
 	display: flex;
 	flex-flow: row;
+	height: 200px;
 	justify-content: center;
 	align-items: center;
 	border: 1px solid #333;
