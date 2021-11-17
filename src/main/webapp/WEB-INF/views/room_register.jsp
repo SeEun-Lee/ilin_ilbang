@@ -8,6 +8,9 @@
 <script language="javascript" src="//code.jquery.com/jquery-1.12.4.js"></script> 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
+<!-- room_register JS -->
+<script src="../resources/js/room_register.js"></script>
+
   <form role='form' method="post" action="room_register" id="room_register" enctype="multipart/form-data">
    	<div id="sub_page2">
        <div class="sp2_in">
@@ -100,7 +103,7 @@
                    			<div class="sb2_text">★ 도로명, 지역별, 건물명 등으로 검색이 가능하다.</div>
 	                   		<input class="sb2_sec" type="button" value="주소 검색" id="btnAddr" name="btnAddr">
 	                   		<input class="sb2_sec2" type="button" value= "위치 검색" id="btnAddr2" name="btnAddr2">
-                   			<P class="sb2_zip"><label for="zip">우편번호 </label><input type="text" value="" name="zip" id="zip"></P>
+                   			<P class="sb2_zip"><label for="zip">우편번호 </label><input type="text" value="" name="zip" id="zip" disabled="disabled"></P>
                    			<P class="sb2_addr1"><label for="addr1">주소</label><input type="text" name="addr" id="addr1" value=""></P>		                   										  
 							<input class="sb2_addsub" type="text" name="addsub" id="addr2" placeholder="상세주소를 입력하세요.">                   			
                    		</li> 

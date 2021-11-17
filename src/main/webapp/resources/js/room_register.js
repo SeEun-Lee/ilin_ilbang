@@ -210,6 +210,7 @@ $(document).ready(function(){
 			} 
 		}).open();
 	});
+	// 위치 검색하기 출처 카카오맵
 	var mapContainer = document.getElementById("staticMap"), // 지도를 표시할 div 
     mapOption = {
         center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -240,7 +241,7 @@ $(document).ready(function(){
 				
 				// 인포윈도우로 장소에 대한 설명을 표시합니다
 				var infowindow = new kakao.maps.InfoWindow({
-					content: '<div style="width:150px;text-align:center;padding:6px 0;">위치확인</div>'
+					content: '<div style="width:150px;text-align:center;padding:6px 0;">'+addr+'</div>'
 				});
 				infowindow.open(map, marker);
 				
